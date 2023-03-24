@@ -1,0 +1,74 @@
+package kr.or.ddit.basic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class T04ListSort {
+
+	public static void main(String[] args) {
+
+		List<Member> memList = new ArrayList<Member>();
+		
+		memList.add(new Member(1, "홍길동", "010-1111-1111"));
+		memList.add(new Member(5, "변학도", "010-2222-1111"));
+		memList.add(new Member(9, "성춘향", "010-3333-1111"));
+		memList.add(new Member(3, "이순신", "010-4444-1111"));
+		memList.add(new Member(6, "강감찬", "010-5555-1111"));
+		memList.add(new Member(2, "일지매", "010-6666-1111"));
+		
+		System.out.println("정렬 전: " + memList);
+		for (Member mem : memList) {
+			System.out.println(mem);
+		}
+		System.out.println("-----------------------------------------");
+	}
+
+}
+
+class Member implements Comparable<Member> {
+	private int num;
+	private String name;
+	private String tel;
+
+	public Member(int num, String name, String tel) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.tel = tel;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	@Override
+	public int compareTo(Member o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [num=" + num + ", name=" + name + ", tel=" + tel + "]";
+	}
+}
