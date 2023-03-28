@@ -23,7 +23,6 @@ public class T02ClassMetadataTest {
 		for (Class<?> inf : interfaces) {
 			System.out.println(inf.getName() + " | ");
 		}
-		System.out.println();
 		
 		// 클래스의 접근제어자 정보 가져오기(flag bit값 반환됨 => 접근제어자 사용유무체크)
 		int modFlag = clazz.getModifiers();

@@ -10,7 +10,7 @@ public class Service {
 		System.out.println("메서드1 입니다.");
 	}
 	
-	@PrintAnnotation(value = "%")
+	@PrintAnnotation("%")
 	public void method2() {
 		System.out.println("메서드2 입니다.");
 	}

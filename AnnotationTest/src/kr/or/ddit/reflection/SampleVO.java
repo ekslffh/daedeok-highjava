@@ -2,6 +2,8 @@ package kr.or.ddit.reflection;
 
 import java.io.Serializable;
 
+import kr.or.ddit.basic.PrintAnnotation;
+
 public class SampleVO implements Serializable {
 	
 	public String id;
@@ -32,6 +34,8 @@ public class SampleVO implements Serializable {
 	public int getAge() {
 		return age;
 	}
+	@PrintAnnotation
+	@Deprecated
 	public void setAge(int age) {
 		this.age = age;
 	}

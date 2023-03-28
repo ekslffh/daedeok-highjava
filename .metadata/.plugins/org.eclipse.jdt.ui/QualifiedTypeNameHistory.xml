@@ -33,8 +33,20 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.Pair"/>
 <fullyQualifiedTypeName name="java.lang.Number"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.Garbage"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.FruitBox"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.Cart"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.Flower"/>
+<fullyQualifiedTypeName name="java.lang.annotation.Target"/>
+<fullyQualifiedTypeName name="java.lang.annotation.Retention"/>
+<fullyQualifiedTypeName name="java.lang.annotation.ElementType"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.PrintAnnotation"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="kr.or.ddit.reflection.T01ClassObjectCreationTest"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="kr.or.ddit.reflection.SampleVO"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Modifier"/>
 </qualifiedTypeNameHistroy>
