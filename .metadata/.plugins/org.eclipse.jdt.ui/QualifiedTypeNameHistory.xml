@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.lang.Class"/>
-<fullyQualifiedTypeName name="kr.or.ddit.reflection.SampleVO"/>
-<fullyQualifiedTypeName name="java.lang.reflect.Modifier"/>
-<fullyQualifiedTypeName name="java.lang.Deprecated"/>
-<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.Service"/>
-<fullyQualifiedTypeName name="java.lang.annotation.Annotation"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.PrintAnnotation"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.MyThread1"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.MyThread2"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.MyRunner"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.SumThread"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.DataInput"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.T06ThreadTest"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.Game"/>
@@ -33,10 +21,8 @@
 <fullyQualifiedTypeName name="kr.or.ddit.basic.YieldThreadEx2"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.ThreadStopEx"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.Horse"/>
 <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
-<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.CalcPIThread"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.PrintThread"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.ShareData"/>
@@ -51,13 +37,27 @@
 <fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.LockAccount"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.BankThread2"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.Racing"/>
 <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.WorkObject"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.ThreadA"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.DataBox"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.ProducerThread"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.ConsumerThread"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface1"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface2"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface3"/>
+<fullyQualifiedTypeName name="java.util.function.Consumer"/>
+<fullyQualifiedTypeName name="java.util.function.BiFunction"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>
