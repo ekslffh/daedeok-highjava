@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.MyThread2"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.MyRunner"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.SumThread"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.DataInput"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.T06ThreadTest"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.Game"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.CountDown"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.AutoSaveThread"/>
 <fullyQualifiedTypeName name="java.lang.Thread.State"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.TargetThread"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.StatePrintThread"/>
@@ -57,7 +48,16 @@
 <fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface3"/>
 <fullyQualifiedTypeName name="java.util.function.Consumer"/>
 <fullyQualifiedTypeName name="java.util.function.BiFunction"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="java.io.IOError"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 </qualifiedTypeNameHistroy>
