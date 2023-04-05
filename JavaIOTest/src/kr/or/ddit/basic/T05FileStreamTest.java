@@ -21,7 +21,6 @@ public class T05FileStreamTest {
 				// 읽어온 데이터 콘솔에 출력하기
 				System.out.print((char) data);
 			}
-			
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

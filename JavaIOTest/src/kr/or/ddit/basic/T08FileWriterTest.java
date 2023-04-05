@@ -27,6 +27,7 @@ public class T08FileWriterTest {
 			// 콘솔에서 입력을 할때 입력의 끝을 의미하는 표시는 Ctrl + Z키를 
 			// 누르면 된다. (EOF)
 			while ((data = isr.read()) != -1) {
+				System.out.println(data);
 				fw.write(data); // 콘솔에서 입력받은 값을 파일에 출력하기
 			}
 			
