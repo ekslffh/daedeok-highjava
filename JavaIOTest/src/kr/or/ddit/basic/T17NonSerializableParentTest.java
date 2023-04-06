@@ -81,7 +81,6 @@ class Child extends Parent implements Serializable {
 		out.writeUTF(getParentName()); // 부모객체 필드값 처리하기
 		
 		out.defaultWriteObject(); // 기본 저장기능 호출
-		
 	}
 	
 	/**

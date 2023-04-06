@@ -6,11 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="JDBCUtil3"/>
 		<list key="findhistory">
+			<item value="JDBCUtil2"/>
+			<item value="JDBCUtil"/>
 			<item value="toStri"/>
 		</list>
 		<list key="replacehistory">
+			<item value="JDBCUtil3"/>
+			<item value="JDBCUtil2"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

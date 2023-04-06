@@ -1,14 +1,12 @@
 package kr.or.ddit.basic;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-
-import kr.or.ddit.util.JDBCUtil;
+import kr.or.ddit.util.JDBCUtil3;
 
 /*
 	회원정보를 관리하는 프로그램을 작성하는데 
@@ -39,7 +37,7 @@ create table mymember(
 );
 */
 
-public class T05MemberInfoTest {
+public class T01MemberInfoTest {
 
 	private Connection conn;
 	private Statement stmt;
@@ -77,13 +75,13 @@ public class T05MemberInfoTest {
 				insertMember();
 				break;
 			case 2: // 자료 삭제
-
+				deleteMember();
 				break;
 			case 3: // 자료 수정
 				updateMember();
 				break;
 			case 4: // 전체 자료 출력
-
+				dispalyAllMember();
 				break;
 			case 5: // 작업 끝
 				System.out.println("작업을 마칩니다.");
@@ -92,6 +90,75 @@ public class T05MemberInfoTest {
 				System.out.println("번호를 잘못 입력했습니다. 다시입력하세요");
 			}
 		} while (choice != 5);
+	}
+
+	/*
+	 * 전체 회원정보를 출력하기 위한 메서드
+	 */
+	private void dispalyAllMember() {
+		
+		System.out.println();
+		System.out.println("-----------------------------------------------");
+		System.out.println("ID\t이 름\t전화번호\t\t주   소");
+		System.out.println("-----------------------------------------------");
+		
+		
+		try {
+			conn = JDBCUtil3.getConnection();
+			
+			String sql = "select * from mymember";
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				String memId = rs.getString("MEM_ID");
+				String memName = rs.getString("MEM_NAME");
+				String memTel = rs.getString("MEM_TEL");
+				String memAddr = rs.getString("MEM_ADDR");
+				System.out.println(memId + "\t" + memName + "\t" + memTel + "\t\t" + memAddr);
+			}
+			System.out.println("-----------------------------------------------");
+			System.out.println("출력 작업 끝.");
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
+		}
+	}
+
+	/*
+	 * 회원정보를 삭제하기 위한 메서드
+	 */
+	private void deleteMember() {
+		System.out.println();
+		System.out.println("삭제할 회원정보를 입력하세요.");
+		System.out.print("회원 ID >> ");
+		
+		String memId = scan.next();
+		
+		try {
+			conn = JDBCUtil3.getConnection();
+			
+			String sql = "delete from mymember where mem_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			int cnt = pstmt.executeUpdate();
+			
+			if (cnt > 0) {
+				System.out.println("회원ID가 " + memId + "인 회원정보가 삭제되었습니다.");
+			} else {
+				System.out.println("회원ID가 " + memId + "인 회원정보 삭제 실패했습니다.");
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
+		}
 	}
 
 	/*
@@ -126,6 +193,33 @@ public class T05MemberInfoTest {
 		
 		System.out.print("회원 주소 >> ");
 		String memAddr = scan.nextLine();
+		
+		try {
+			conn = JDBCUtil3.getConnection();
+			
+			String sql = " update mymember " 
+						+ " set mem_name = ?, mem_tel = ?, mem_addr = ? " 
+						+ " where mem_id = ? ";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memName);
+			pstmt.setString(2, memTel);
+			pstmt.setString(3, memAddr);
+			pstmt.setString(4, memId);
+			
+			int cnt = pstmt.executeUpdate();
+			
+			if (cnt > 0) {
+				System.out.println(memId + "회원 수정 작업 성공!");
+			} else {
+				System.out.println(memId + "회원 수정 작업 실패!!!");
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
+		}
 	}
 
 	/*
@@ -163,7 +257,7 @@ public class T05MemberInfoTest {
 		String memAddr = scan.nextLine();
 		
 		try {
-			conn = JDBCUtil.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = " insert into mymember " 
 					+ " ( mem_id, mem_name, mem_tel, mem_addr ) "
@@ -185,7 +279,7 @@ public class T05MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 	}
 
@@ -197,9 +291,11 @@ public class T05MemberInfoTest {
 	 */
 	private boolean checkMember(String memId) {
 
+		boolean isExist = false;
+		
 		try {
 			
-			conn = JDBCUtil.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = " select count(*) as cnt from mymember " 
 					   + " where mem_id = ? ";
@@ -209,23 +305,27 @@ public class T05MemberInfoTest {
 			
 			rs = pstmt.executeQuery();
 			
-			while (rs.next()) {
-				int cnt = rs.getInt("CNT");
+			int cnt = 0;
+			if (rs.next()) {
+				cnt = rs.getInt("CNT");
+			}
+			
+			if (cnt > 0) {
+				isExist = true;
 			}
 			
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			
-			
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 		
-		return false;
+		return isExist;
 	}
 
 	public static void main(String[] args) {
-		T05MemberInfoTest memObj = new T05MemberInfoTest();
+		T01MemberInfoTest memObj = new T01MemberInfoTest();
 		memObj.start();
 	}
 
