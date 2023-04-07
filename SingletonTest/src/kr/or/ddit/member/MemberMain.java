@@ -42,7 +42,7 @@ public class MemberMain {
 	private IMemberService memService;
 
 	public MemberMain() {
-		memService = new MemberServiceImpl();
+		memService = MemberServiceImpl.getInstance();
 	}
 
 	/**
