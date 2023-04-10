@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.DataBox"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ProducerThread"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ConsumerThread"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.lang.Runnable"/>
-<fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface1"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.LambdaTestInterface2"/>
@@ -46,7 +39,6 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="kr.or.ddit.util.JDBCUtil"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="oracle.net.aso.r"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
@@ -58,6 +50,14 @@
 <fullyQualifiedTypeName name="dao.DAOIfs"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="util.JDBCUtil"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="dto.BoardDTO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.MemberMain"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.MySingleton"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.dao.IMemberDao"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.dao.MemberDaoImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.MemberServiceImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.IMemberService"/>
 </qualifiedTypeNameHistroy>
