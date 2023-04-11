@@ -1,4 +1,4 @@
-package dto;
+package vo;
 
 import java.sql.Date;
 
@@ -6,16 +6,16 @@ import java.sql.Date;
  * 게시글DTO
  * 날짜, 제목, 내용, 작성자 이름
  */
-public class BoardDTO {
+public class BoardVO {
 	private String id;
 	private Date date;
 	private String title;
 	private String content;
 	private String writer;
 	
-	public BoardDTO() {}
+	public BoardVO() {}
 	
-	public BoardDTO(String id, Date date, String title, String content, String writer) {
+	public BoardVO(String id, Date date, String title, String content, String writer) {
 		super();
 		this.id = id;
 		this.date = date;
