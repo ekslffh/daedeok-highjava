@@ -1,18 +1,19 @@
 package controller;
 
+import java.util.List;
 import java.util.Scanner;
-
-import dao.BoardDAO;
+import service.BoardServiceIfs;
+import service.BoardServiceImpl;
 import vo.BoardVO;
 
 public class BoardController {
 	
 	private Scanner scan;
-	private BoardDAO boardDao;
+	private BoardServiceIfs boardService;
 	
 	public BoardController() {
 		scan = new Scanner(System.in);
-		boardDao = new BoardDAO();
+		boardService = BoardServiceImpl.getInstance();
 	}
 	
 	/**
@@ -38,19 +39,19 @@ public class BoardController {
 			displayMenu(); // 메뉴 출력
 			choice = scan.nextInt(); // 메뉴번호 입력받기
 			switch (choice) {
-			case 1: // 자료 입력
+			case 1: // 게시글 작성
 				insertBoard();
 				break;
-			case 2: // 자료 수정
+			case 2: // 게시글 수
 				updateBoard();
 				break;
-			case 3: // 자료 삭제
+			case 3: // 게시글 삭제
 				deleteBoard();
 				break;
-			case 4: // 전체 자료 출력
+			case 4: // 게시글 전체조회
 				dispalyAllBoard();
 				break;
-			case 5: // 검색
+			case 5: // 게시글 조회
 				searchBoard();
 				break;
 			case 6: // 작업 끝
@@ -70,27 +71,63 @@ public class BoardController {
 		System.out.print("내용: ");
 		scan.nextLine();
 		String content = scan.nextLine();
-				
+		
+		int cnt = boardService.insert(new BoardVO(content, title, content, writer));
+		if (cnt > 0) {
+			System.out.println(title + "(" + writer + ") 게시글 추가 작업 성공!");
+		} else {
+			System.out.println(title + "(" + writer + ") 게시글 추가 작업 실패!!!");
+		}
 	}
 
 	private void updateBoard() {
-		// TODO Auto-generated method stub
+		System.out.print("게시글번호: ");
+		String id = scan.next();
+		System.out.print("제목: ");
+		String title = scan.next();
+		System.out.print("내용: ");
+		scan.nextLine(); 
+		String content = scan.nextLine();
 		
+		int cnt = boardService.update(new BoardVO(id, title, content));
+		if (cnt > 0) {
+			System.out.println(id + " 게시글 수정 작업 성공!");
+		} else {
+			System.out.println(id + " 게시글 수정 작업 실패!!!");
+		}
 	}
 
 	private void deleteBoard() {
-		// TODO Auto-generated method stub
+		System.out.println("게시글번호: ");
+		String id = scan.nextLine();
 		
+		int cnt = boardService.deleteById(id);
+		if (cnt > 0) {
+			System.out.println(id + " 게시글 삭제 작업 성공!");
+		} else {
+			System.out.println(id + " 게시글 삭제 작업 실패!!!");
+		}
 	}
 
 	private void dispalyAllBoard() {
-		// TODO Auto-generated method stub
-		
+		List<BoardVO> boardList = boardService.searchAll();
+		System.out.println("----------------------------------------------------------");
+		System.out.println("번호\t제목\t내용\t\t작성자\t작성일자");
+		for (BoardVO board : boardList) {
+			System.out.println(board.getId() + "\t" + board.getTitle() + "\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
+		}
+		System.out.println("----------------------------------------------------------");
 	}
 
 	private void searchBoard() {
-		// TODO Auto-generated method stub
-		
+		System.out.print("게시글번호: ");
+		String id = scan.next();
+		scan.nextLine();
+		BoardVO board = boardService.searchById(id);
+		System.out.println("----------------------------------------------------------");
+		System.out.println("번호\t제목\t내용\t\t작성자\t작성일자");
+		System.out.println(board.getId() + "\t" + board.getTitle() + "\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
+		System.out.println("----------------------------------------------------------");
 	}
 	
 }

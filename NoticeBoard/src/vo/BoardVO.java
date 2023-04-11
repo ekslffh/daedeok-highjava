@@ -16,12 +16,24 @@ public class BoardVO {
 	public BoardVO() {}
 	
 	public BoardVO(String id, Date date, String title, String content, String writer) {
-		super();
 		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+	}
+	
+	public BoardVO(String id, String title, String content, String writer) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+	}
+	
+	public BoardVO(String id, String title, String content) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
 	}
 
 	public String getId() {

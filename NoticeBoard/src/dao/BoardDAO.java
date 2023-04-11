@@ -17,7 +17,18 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-
+	
+	private static BoardDAO boardDao;
+	
+	private BoardDAO() {}
+	
+	public static BoardDAO getInstance() {
+		if (boardDao == null) {
+			boardDao = new BoardDAO();
+		}
+		return boardDao;
+	}
+	
 	@Override
 	public List<BoardVO> findAll() {
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -48,11 +59,13 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 	@Override
 	public BoardVO findById(String id) {
 		BoardVO boardDTO = null;
+		
 		try {
 			conn = JDBCUtil.getConnection();
-			String sql = "select * from board where b_id = " + id;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+			String sql = "select * from board where b_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
 				Date date = rs.getDate("b_date");
@@ -66,12 +79,14 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 		} finally {
 			JDBCUtil.close(conn, stmt, pstmt, rs);
 		}
+		
 		return boardDTO;
 	}
 
 	@Override
 	public int insert(BoardVO dto) {
 		int cnt = 0;
+		
 		try {
 			conn = JDBCUtil.getConnection();
 			
@@ -86,15 +101,16 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 			cnt = pstmt.executeUpdate();
 			
 			if (cnt > 0) {
-				System.out.println(dto.getTitle() + "(" + dto.getWriter() + ") 게시글 추가 작업 성공!");
+				conn.commit();
 			} else {
-				System.out.println(dto.getTitle()+ "(" + dto.getWriter()+ ") 게시글 추가 작업 실패!!!");
+				conn.rollback();
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
 			JDBCUtil.close(conn, stmt, pstmt, rs);
 		}
+		
 		return cnt;
 	}
 
@@ -108,11 +124,13 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
 			pstmt.setString(3, dto.getId());
+			
 			cnt = pstmt.executeUpdate();
+			
 			if (cnt > 0) {
-				System.out.println("게시글 수정 작업 성공!");
+				conn.commit();
 			} else {
-				System.out.println("게시글 수정 작업 실패!");
+				conn.rollback();
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -130,11 +148,10 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 			stmt = conn.createStatement();
 			String sql = "delete from board where b_id = " + id;
 			cnt = stmt.executeUpdate(sql);
+			
 			if (cnt > 0) {
-				System.out.println("게시글 삭제 작업 성공!");
 				conn.commit();
 			} else {
-				System.out.println("게시글 삭제 작업 실패!");
 				conn.rollback();
 			}
 		} catch (SQLException ex) {
