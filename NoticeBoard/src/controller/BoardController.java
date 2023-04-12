@@ -37,7 +37,7 @@ public class BoardController {
 		int choice;
 		do {
 			displayMenu(); // 메뉴 출력
-			choice = scan.nextInt(); // 메뉴번호 입력받기
+			choice = Integer.parseInt(scan.nextLine()); // 메뉴번호 입력받기
 			switch (choice) {
 			case 1: // 게시글 작성
 				insertBoard();
@@ -65,12 +65,18 @@ public class BoardController {
 
 	private void insertBoard() {
 		System.out.print("작성자: ");
-		String writer = scan.next();
+		String writer = scan.nextLine();
 		System.out.print("제목: ");
-		String title = scan.next();
-		System.out.print("내용: ");
-		scan.nextLine();
-		String content = scan.nextLine();
+		String title = scan.nextLine();
+		StringBuffer sb = new StringBuffer();
+		System.out.println("----------------------------내용입력------------------------------");
+		while (true) {
+			String sbInput = scan.nextLine();
+			if (sbInput.equals("quit")) break;
+			sb.append(sbInput);
+			sb.append("\n");
+		}
+		String content = sb.toString();
 		
 		int cnt = boardService.insert(new BoardVO(content, title, content, writer));
 		if (cnt > 0) {
@@ -82,11 +88,10 @@ public class BoardController {
 
 	private void updateBoard() {
 		System.out.print("게시글번호: ");
-		String id = scan.next();
+		String id = scan.nextLine();
 		System.out.print("제목: ");
-		String title = scan.next();
+		String title = scan.nextLine();
 		System.out.print("내용: ");
-		scan.nextLine(); 
 		String content = scan.nextLine();
 		
 		int cnt = boardService.update(new BoardVO(id, title, content));
@@ -103,30 +108,35 @@ public class BoardController {
 		
 		int cnt = boardService.deleteById(id);
 		if (cnt > 0) {
-			System.out.println(id + " 게시글 삭제 작업 성공!");
+			System.out.println(id + "번 게시글 삭제 작업 성공!");
 		} else {
-			System.out.println(id + " 게시글 삭제 작업 실패!!!");
+			System.out.println(id + "번 게시글 삭제 작업 실패!!!");
 		}
 	}
 
 	private void dispalyAllBoard() {
 		List<BoardVO> boardList = boardService.searchAll();
 		System.out.println("----------------------------------------------------------");
-		System.out.println("번호\t제목\t내용\t\t작성자\t작성일자");
+		System.out.println("번호\t제목\t\t내용\t\t작성자\t작성일자");
 		for (BoardVO board : boardList) {
-			System.out.println(board.getId() + "\t" + board.getTitle() + "\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
+			System.out.println(board.getId() + "\t" + board.getTitle() + "\t\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
 		}
 		System.out.println("----------------------------------------------------------");
 	}
 
 	private void searchBoard() {
 		System.out.print("게시글번호: ");
-		String id = scan.next();
-		scan.nextLine();
+		String id = scan.nextLine();
 		BoardVO board = boardService.searchById(id);
+		if (board == null) {
+			System.out.println("해당 게시글은 존재하지 않습니다.");
+			return;
+		}
+		System.out.println();
 		System.out.println("----------------------------------------------------------");
-		System.out.println("번호\t제목\t내용\t\t작성자\t작성일자");
-		System.out.println(board.getId() + "\t" + board.getTitle() + "\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
+		System.out.println("[" + board.getId() + "] <" + board.getTitle() + ">");
+		System.out.println("----------------------------------------------------------");
+		System.out.println(board.getContent());
 		System.out.println("----------------------------------------------------------");
 	}
 	

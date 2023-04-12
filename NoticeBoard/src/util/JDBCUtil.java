@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-
 /**
  * db.properties 파일의 내용으로 DB정보를 가져오도록 설정하는 방법
  * 방법1) Properties 객체 이용하기

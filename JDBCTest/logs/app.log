@@ -1,0 +1,8 @@
+2023-04-12 12:07:09.754 [main] DEBUG log4jexam.sql.Query - 쿼리 :  insert into mymember  ( mem_id, mem_name, mem_tel, mem_addr )  values ( ?, ?, ?, ? ) 
+2023-04-12 12:07:09.756 [main] DEBUG log4jexam.sql.Parameter - memId : hyun, memName : 현성윤, memTel : 010-454, memAddr : ㅇㄻ
+2023-04-12 12:09:21.730 [main] DEBUG log4jexam.sql.Query - 쿼리 :  insert into mymember  ( mem_id, mem_name, mem_tel, mem_addr )  values ( ?, ?, ?, ? ) 
+2023-04-12 12:09:21.732 [main] DEBUG log4jexam.sql.Parameter - memId : ㅇㄹㅇㄹ, memName : ㅇㄹㅇㄹ, memTel : ㅁㅁ, memAddr : ㅇㄹ
+2023-04-12 12:09:37.625 [main] DEBUG log4jexam.sql.Query - 쿼리 :  insert into mymember  ( mem_id, mem_name, mem_tel, mem_addr )  values ( ?, ?, ?, ? ) 
+2023-04-12 12:09:37.628 [main] DEBUG log4jexam.sql.Parameter - memId : jf, memName : 박명수, memTel : 01045, memAddr : ㅇㅇ
+2023-04-12 12:16:08.891 [main] DEBUG log4jexam.sql.Query - 쿼리 :  insert into mymember  ( mem_id, mem_name, mem_tel, mem_addr )  values ( ?, ?, ?, ? ) 
+2023-04-12 12:16:08.893 [main] DEBUG log4jexam.sql.Parameter - memId : kef, memName : 박은수, memTel : 454, memAddr : ㅁㅇㄹ

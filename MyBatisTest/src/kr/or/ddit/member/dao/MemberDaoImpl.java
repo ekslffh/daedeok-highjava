@@ -57,7 +57,7 @@ public class MemberDaoImpl extends MyBatisDao implements IMemberDao {
 
 	@Override
 	public List<MemberVO> searchMember(MemberVO mv) {
-		List<MemberVO> memList = selectList("", mv);
+		List<MemberVO> memList = selectList("member.search", mv);
 		return memList;
 	}
 

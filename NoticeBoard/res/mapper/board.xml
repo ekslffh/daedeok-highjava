@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member">
+<mapper namespace="board">
 
 	<!-- 
 	이 영역에 SQL문에 맞는 태그를 사용하여 기술한다.
@@ -22,29 +22,31 @@
 					위해 사용한다.
 	 -->
 
-	<insert id="insert" parameterType="kr.or.ddit.member.vo.MemberVO">
+	<insert id="insert" parameterType="vo.BoardVO">
 		
-		insert into mymember 
-		( mem_id, mem_name, mem_tel, mem_addr )
-		values ( #{memId}, #{memName}, #{memTel}, #{memAddr} ) 
+		insert into board 
+		(b_id, b_date, b_title, b_content, b_writer)
+		values (board_sequence.nextval, sysdate, #{title}, #{content}, #{writer})
 		
 	</insert>
 	
-	<update id="update" parameterType="kr.or.ddit.member.vo.MemberVO">
+	<update id="update" parameterType="vo.BoardVO">
 		
-		update mymember
-		set mem_name = #{memName}, mem_tel = #{memTel}, mem_addr = #{memAddr} 
-		where mem_id = #{memId}
+		update board 
+		set b_title = #{title}, b_content = #{content}, b_date = sysdate 
+		where b_id = #{id}
 		
 	</update>
 	
 	<delete id="delete" >
 	
-		delete from mymember where mem_id = #{memId}
+		delete from board where b_id = #{id}
 	
 	</delete>
 	
-	<select id="getAll" resultType="kr.or.ddit.member.vo.MemberVO">
+	<select id="getAll" resultType="vo.BoardVO">
+	
+		select * from board
 	
 		select mem_id	as memId
 			  ,mem_name	as memName

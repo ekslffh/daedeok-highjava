@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import kr.or.ddit.util.JDBCUtil3;
 
 /*
@@ -45,6 +47,10 @@ public class T01MemberInfoTest {
 	private ResultSet rs;
 
 	private Scanner scan = new Scanner(System.in);
+	
+	private static final Logger SQL_LOGGER = LogManager.getLogger("log4jexam.sql.Query");
+	private static final Logger PARAM_LOGGER= LogManager.getLogger("log4jexam.sql.Parameter");
+	private static final Logger RESULT_LOGGER= LogManager.getLogger(T01MemberInfoTest.class);
 
 	/**
 	 * 메뉴를 출력하는 메서드
@@ -263,13 +269,23 @@ public class T01MemberInfoTest {
 					+ " ( mem_id, mem_name, mem_tel, mem_addr ) "
 					+ " values ( ?, ?, ?, ? ) ";
 			
+//			System.out.println("sql : " + sql);
+			SQL_LOGGER.debug("쿼리 : " + sql);
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memId);
 			pstmt.setString(2, memName);
 			pstmt.setString(3, memTel);
 			pstmt.setString(4, memAddr);
 			
+			PARAM_LOGGER.debug("memId : " + memId
+								+ ", memName : " + memName
+								+ ", memTel : " + memTel
+								+ ", memAddr : " + memAddr);
+			
 			int cnt = pstmt.executeUpdate();
+			
+			RESULT_LOGGER.info("결과값 : {}", cnt);
 			
 			if (cnt > 0) {
 				System.out.println(memId + "회원 추가 작업 성공!");
