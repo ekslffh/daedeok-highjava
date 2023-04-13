@@ -1,21 +1,19 @@
 package vo;
 
-import java.sql.Date;
-
 /*
  * 게시글DTO
  * 날짜, 제목, 내용, 작성자 이름
  */
 public class BoardVO {
 	private String id;
-	private Date date;
+	private String date;
 	private String title;
 	private String content;
 	private String writer;
 	
 	public BoardVO() {}
 	
-	public BoardVO(String id, Date date, String title, String content, String writer) {
+	public BoardVO(String id, String date, String title, String content, String writer) {
 		this.id = id;
 		this.date = date;
 		this.title = title;
@@ -42,10 +40,10 @@ public class BoardVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTitle() {

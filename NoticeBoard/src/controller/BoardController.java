@@ -69,7 +69,7 @@ public class BoardController {
 		System.out.print("제목: ");
 		String title = scan.nextLine();
 		StringBuffer sb = new StringBuffer();
-		System.out.println("----------------------------내용입력------------------------------");
+		System.out.println("----------------------------내용입력 (종료:quit)----------------------------");
 		while (true) {
 			String sbInput = scan.nextLine();
 			if (sbInput.equals("quit")) break;
@@ -119,7 +119,9 @@ public class BoardController {
 		System.out.println("----------------------------------------------------------");
 		System.out.println("번호\t제목\t\t내용\t\t작성자\t작성일자");
 		for (BoardVO board : boardList) {
-			System.out.println(board.getId() + "\t" + board.getTitle() + "\t\t" + board.getContent() + "\t\t" + board.getWriter() + "\t" + board.getDate());
+			String content = (board.getContent().length() >= 5) ? board.getContent().substring(0, 5) : board.getContent();
+			content = content.replaceAll("\n", "") + "...";
+			System.out.println(board.getId() + "\t" + board.getTitle() + "\t\t" + content + "\t\t" + board.getWriter() + "\t" + board.getDate());
 		}
 		System.out.println("----------------------------------------------------------");
 	}

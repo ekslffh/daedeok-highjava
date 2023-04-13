@@ -38,66 +38,49 @@
 		
 	</update>
 	
-	<delete id="delete" >
+	<delete id="delete" parameterType="String">
 	
 		delete from board where b_id = #{id}
 	
 	</delete>
 	
-	<select id="getAll" resultType="vo.BoardVO">
+	<resultMap type="vo.BoardVO" id="boardMap">
+		<result property="id" column="b_id"/>
+		<result property="date" column="b_date"/>
+		<result property="title" column="b_title"/>
+		<result property="content" column="b_content"/>
+		<result property="writer" column="b_writer"/>
+	</resultMap>
+	
+	<select id="getAll" resultType="vo.BoardVO" resultMap="boardMap">
 	
 		select * from board
 	
-		select mem_id	as memId
-			  ,mem_name	as memName
-			  ,mem_tel	as memTel
-			  ,mem_addr	as memAddr
-		from mymember
-				
 	</select>
 	
-	<select id="get" resultType="kr.or.ddit.member.vo.MemberVO">
+	<select id="get" resultType="vo.BoardVO" resultMap="boardMap">
 	
-		select mem_id	as memId
-			  ,mem_name	as memName
-			  ,mem_tel	as memTel
-			  ,mem_addr	as memAddr
-		from mymember
-		where mem_id = #{memId}
+		select * from board where b_id = #{id}
 	
 	</select>
 	
-	<select id="check" resultType="int">
+<!-- 	<select id="search" resultMap="boardMap"> -->
 	
-		select count(*) as cnt 
-		from mymember 
-		where mem_id = #{memId}
-	
-	</select>
-	
-	<resultMap type="kr.or.ddit.member.vo.MemberVO" id="memMap">
-		<result property="memId" column="mem_id"/>
-		<result property="memName" column="mem_name"/>
-		<result property="memTel" column="mem_tel"/>
-		<result property="memAddr" column="mem_addr"/>
-	</resultMap>
-	<select id="search" resultMap="memMap">
-	
-		select * from mymember where 1=1
+<!-- 		select * from mymember where 1=1 -->
 		
-		<if test="memId != null and memId != ''">
-			and mem_id = #{memId}
-		</if> 
-		<if test="memName != null and memName != ''">
-			and mem_name = #{memName}
-		</if> 
-		<if test="memTel != null and memTel != ''">
-			and mem_tel = #{memTel}
-		</if> 
-		<if test="memAddr != null and memAddr != ''">
-			and mem_addr like '%' || #{memAddr} || '%'
-		</if> 
+<!-- 		<if test="memId != null and memId != ''"> -->
+<!-- 			and mem_id = #{memId} -->
+<!-- 		</if>  -->
+<!-- 		<if test="memName != null and memName != ''"> -->
+<!-- 			and mem_name = #{memName} -->
+<!-- 		</if>  -->
+<!-- 		<if test="memTel != null and memTel != ''"> -->
+<!-- 			and mem_tel = #{memTel} -->
+<!-- 		</if>  -->
+<!-- 		<if test="memAddr != null and memAddr != ''"> -->
+<!-- 			and mem_addr like '%' || #{memAddr} || '%' -->
+<!-- 		</if>  -->
 		
-	</select>
+<!-- 	</select> -->
 	
 </mapper>

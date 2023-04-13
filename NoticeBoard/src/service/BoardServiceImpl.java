@@ -1,16 +1,17 @@
 package service;
 
 import java.util.List;
-import dao.BoardDAO;
+import dao.BoardDAOImpl;
+import dao.DAOIfs;
 import vo.BoardVO;
 
 public class BoardServiceImpl implements BoardServiceIfs {
 
-	private BoardDAO boardDao;
+	private DAOIfs<BoardVO> boardDao;
 	private static BoardServiceIfs boardService;
 	
 	private BoardServiceImpl() {
-		boardDao = BoardDAO.getInstance();
+		boardDao = BoardDAOImpl.getInstance();
 	}
 	
 	public static BoardServiceIfs getInstance() {

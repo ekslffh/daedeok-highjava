@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,20 +10,20 @@ import java.util.List;
 import util.JDBCUtil;
 import vo.BoardVO;
 
-public class BoardDAO implements DAOIfs<BoardVO> {
+public class BoardDAOWithJDBC implements DAOIfs<BoardVO> {
 
 	private Connection conn;
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private static BoardDAO boardDao;
+	private static BoardDAOWithJDBC boardDao;
 	
-	private BoardDAO() {}
+	private BoardDAOWithJDBC() {}
 	
-	public static BoardDAO getInstance() {
+	public static BoardDAOWithJDBC getInstance() {
 		if (boardDao == null) {
-			boardDao = new BoardDAO();
+			boardDao = new BoardDAOWithJDBC();
 		}
 		return boardDao;
 	}
@@ -41,7 +40,7 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 			
 			while (rs.next()) {
 				String id = rs.getString("b_id");
-				Date date = rs.getDate("b_date");
+				String date = rs.getString("b_date");
 				String title = rs.getString("b_title");
 				String content = rs.getString("b_content");
 				String writer = rs.getString("b_writer");
@@ -68,7 +67,7 @@ public class BoardDAO implements DAOIfs<BoardVO> {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				Date date = rs.getDate("b_date");
+				String date = rs.getString("b_date");
 				String title = rs.getString("b_title");
 				String content = rs.getString("b_content");
 				String writer = rs.getString("b_writer");
