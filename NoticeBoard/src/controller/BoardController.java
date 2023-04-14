@@ -103,7 +103,7 @@ public class BoardController {
 	}
 
 	private void deleteBoard() {
-		System.out.println("게시글번호: ");
+		System.out.print("게시글번호: ");
 		String id = scan.nextLine();
 		
 		int cnt = boardService.deleteById(id);
@@ -116,14 +116,15 @@ public class BoardController {
 
 	private void dispalyAllBoard() {
 		List<BoardVO> boardList = boardService.searchAll();
-		System.out.println("----------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------");
 		System.out.println("번호\t제목\t\t내용\t\t작성자\t작성일자");
 		for (BoardVO board : boardList) {
 			String content = (board.getContent().length() >= 5) ? board.getContent().substring(0, 5) : board.getContent();
-			content = content.replaceAll("\n", "") + "...";
-			System.out.println(board.getId() + "\t" + board.getTitle() + "\t\t" + content + "\t\t" + board.getWriter() + "\t" + board.getDate());
+			content = content.replaceAll("\n", "").trim() + "...";
+//			System.out.println(board.getId() + "\t" + board.getTitle() + "\t\t" + content + "\t\t" + board.getWriter() + "\t" + board.getDate());
+			System.out.printf("%-3s\t%-5s\t\t%-10s\t%-5s\t%-20s\n", board.getId(), board.getTitle(), content, board.getWriter(), board.getDate());//board.getId() + "\t" + board.getTitle() + "\t\t" + content + "\t\t" + board.getWriter() + "\t" + board.getDate());
 		}
-		System.out.println("----------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------");
 	}
 
 	private void searchBoard() {
@@ -138,7 +139,7 @@ public class BoardController {
 		System.out.println("----------------------------------------------------------");
 		System.out.println("[" + board.getId() + "] <" + board.getTitle() + ">");
 		System.out.println("----------------------------------------------------------");
-		System.out.println(board.getContent());
+		System.out.print(board.getContent());
 		System.out.println("----------------------------------------------------------");
 	}
 	
