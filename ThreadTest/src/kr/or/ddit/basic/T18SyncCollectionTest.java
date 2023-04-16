@@ -13,7 +13,7 @@ public class T18SyncCollectionTest {
  	사용해야 한다.
  */
 	// 동기화 처리를 하지 않을 경우
-	// private static List<Integer> list1 = new ArrayList<Integer>();
+//	 private static List<Integer> list1 = new ArrayList<Integer>();
 	
 	// 동기화 처리를 할 경우
 	private static List<Integer> list1 = Collections.synchronizedList(new ArrayList<Integer>());

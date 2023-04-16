@@ -21,7 +21,7 @@ public class T06WildCardTest {
 	 * 장바구니 항목조회를 위한 메서드(음료나 그 하위 항목 가능)
 	 * @param cart
 	 */
-	public static void displayItemInfo2(Cart<? extends  Drink> cart) {
+	public static void displayItemInfo2(Cart<? extends Drink> cart) {
 		System.out.println("= 음료나 그 하위 항목 장바구니 항목 리스트 =");
 		for (Object obj : cart.getList()) {
 			System.out.println(obj.toString());

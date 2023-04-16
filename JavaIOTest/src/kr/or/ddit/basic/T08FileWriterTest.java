@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class T08FileWriterTest {
 	
 	public static void main(String[] args) {
-		// 사용자가 입력한 내용을 글대로 파일로 지정하기
+		// 사용자가 입력한 내용을 그대로 파일로 지정하기
 		
 		// 콘솔(표준 입출력장치)과 연결된 입력을 문자 스트림 생성
 		// InputStreamReader => 바이트 기반 스트림을 문자 기반으로 

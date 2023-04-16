@@ -149,7 +149,7 @@ public class T09PhoneBookTest {
 	private void displayAll() {
 		
 		System.out.println("===================================================");
-		System.out.println("번호\t이름\\t전화번호\\t주소");
+		System.out.println("번호\t이름\t전화번호\t\t주소");
 		System.out.println("===================================================");
 		
 		Set<String> keySet = phoneBookMap.keySet();
@@ -189,9 +189,9 @@ public class T09PhoneBookTest {
 			System.out.println(name + "씨 전화번호 정보가 없습니다.");
 		} else {
 			System.out.println(name + "씨의 전화번호 정보");
-			System.out.println("이      름: " + p.getName());
+			System.out.println("이   름: " + p.getName());
 			System.out.println("전화번호: " + p.getTel());
-			System.out.println("주      소: " + p.getAddr());
+			System.out.println("주   소: " + p.getAddr());
 		}
 		
 		System.out.println("검색 작업 완료...");

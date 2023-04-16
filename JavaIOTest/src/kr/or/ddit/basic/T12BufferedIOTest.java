@@ -11,8 +11,8 @@ import java.io.IOException;
 public class T12BufferedIOTest {
 	public static void main(String[] args) {
 		
-		FileOutputStream fos = null;
-		BufferedOutputStream bos = null;
+		FileOutputStream fos = null; // 기반스트림
+		BufferedOutputStream bos = null; // 보조스트림
 		
 		try {
 			fos = new FileOutputStream("D:/D_Other/bufferTest.txt");

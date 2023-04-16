@@ -7,7 +7,7 @@ import java.util.Properties;
 public class T10PropertiesTest {
 	/*
 	 * Properties는 Map보다 축소된 기능의 객체라고 할 수 있다.
-	 * Map은 모든 형태의 객체데이터를 key와  value로 사용할 수 있지만,
+	 * Map은 모든 형태의 객체데이터를 key와 value로 사용할 수 있지만,
 	 * Properties는 key와 value값으로 String만 사용할 수 있다.
 	 * 
 	 * Map은 put(), get() 메서드를 이용하여 데이터를 입출력 하지만,

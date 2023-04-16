@@ -1,7 +1,5 @@
 package kr.or.ddit.basic;
 
-import javax.xml.crypto.Data;
-
 public class T20WaitNotifyTest {
 	public static void main(String[] args) {
 		
@@ -12,6 +10,7 @@ public class T20WaitNotifyTest {
 		
 		pTh.start();
 		cTh.start();
+		
 	}
 }
 

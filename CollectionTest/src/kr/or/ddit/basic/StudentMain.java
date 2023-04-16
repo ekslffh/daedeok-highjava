@@ -41,10 +41,11 @@ public class StudentMain {
 		}
 		
 		// 등수 매기기
-		int score = students.get(0).getSum();
-		int rank = 1;
-		for (int i = 0; i < students.size(); i++) {
-			students.get(i).setRank((students.get(i).getSum() == score) ? rank : rank + i);
+		students.get(0).setRank(1);
+		for (int i = 1; i < students.size(); i++) {
+			students.get(i).setRank((students.get(i).getSum() == students.get(i - 1).getSum())
+									? students.get(i - 1).getRank() 
+									: i + 1);
 		}
 		System.out.println("등수 매긴 후 ");
 		for (Student student : students) {

@@ -52,14 +52,11 @@ public class T11DisplayCharacterTest {
 
 // 알파벳 대문자를 출력하기 위한 스레드
 class DisplayCharacter extends Thread implements Comparable<DisplayCharacter> {
-		
-	private String name;
-	
+			
 	private int rank;
 	
 	public DisplayCharacter(String name) {
 		super(name);
-		this.name = name;
 	}
 	
 	public int getRank() {
@@ -73,16 +70,16 @@ class DisplayCharacter extends Thread implements Comparable<DisplayCharacter> {
 	@Override
 	public void run() {
 		for (char ch = 'A'; ch <= 'Z'; ch++) {
-			System.out.println(name + "의 출력 문자 : " + ch);
+			System.out.println(getName() + "의 출력 문자 : " + ch);
 			
-			// sleep()메서드의 값을 200 ~ 500사이의 난수로 한다.
+			// sleep()메서드의 값을 200 ~ 500사이의 난수로 한다. (0.2초 ~ 0.5초)
 			try {
 				Thread.sleep((int)(Math.random() * 301 + 200));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(name + " 출력 끝...");
+		System.out.println(getName() + " 출력 끝...");
 		
 		// 순위정보 설정하기
 		setRank(T11DisplayCharacterTest.currRank++);

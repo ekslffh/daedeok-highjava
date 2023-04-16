@@ -2,7 +2,7 @@ package kr.or.ddit.basic;
 
 public class T19WaitNotifyTest {
 /*
- 	wait()메서드 => 동기화 영역에서 락을 풀고 Wait-Set영역(공유객체별 존재)으로 이동시킨다.
+ 	 wait()메서드 => 동기화 영역에서 락을 풀고 Wait-Set영역(공유객체별 존재)으로 이동시킨다.
  	
  	 notify() 또는 notifyAll()메서드
  	  => Wait-Set영역에 있는 스레드를 깨워서 실행 될 수 있도록 한다.
@@ -21,6 +21,7 @@ public class T19WaitNotifyTest {
 		
 		thA.start();
 		thB.start();
+		
 	}
 }
 
@@ -44,7 +45,7 @@ class WorkObject {
 	}
 	
 	public synchronized void methodB() {
-		System.out.println("method()메서드 작업 중...");
+		System.out.println("methodB()메서드 작업 중...");
 		
 		System.out.println(Thread.currentThread().getName()
 				+ " : notify() 호출");
@@ -53,7 +54,7 @@ class WorkObject {
 		try {
 			System.out.println(Thread.currentThread().getName()
 					+ " : wait() 호출");
-			wait(200);
+			wait(200); // ThreadA가 먼저 종료되고 더이상 깨워줄 쓰레드가 존재하지 않기 때문에 잠자있는 시간을 정해둬서 알아서 종료되도록 시간을 설정함.
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

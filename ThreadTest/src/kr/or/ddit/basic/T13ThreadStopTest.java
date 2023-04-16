@@ -1,5 +1,13 @@
 package kr.or.ddit.basic;
 
+/*
+ * 스레드를 사용하다보면 해당 스레드를 멈춰야 하는 경우가 발생한다.
+ * 그럴 경우에 단순히 stop()메서드를 통해서 멈추게 된다면 문제가 발생할 수 있다.
+ * 왜냐하면 특정 스레드에서 종료시점에 해줘야 하는 작업이 있을 수가 있다. (자원정리 등)
+ * 따라서 단순히 stop()메서드를 이용하지 않고 interrupt()를 걸어서 해당 스레드에서 interrupt된것을 확인하고
+ * 이후에 작업종료 작업을 완수하고 자연스럽게 종료되도록 할 필요가 있다.
+ */
+
 public class T13ThreadStopTest {
 	public static void main(String[] args) {
 		

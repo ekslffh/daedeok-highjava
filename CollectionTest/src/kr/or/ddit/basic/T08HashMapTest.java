@@ -9,7 +9,6 @@ public class T08HashMapTest {
 
    public static void main(String[] args) {
       
-      
       Map<String, String> map = new HashMap<String, String>();
       
       // 자료추가 => put(key값, value값)
@@ -71,7 +70,8 @@ public class T08HashMapTest {
 
       while(entryIt.hasNext()) {
          Map.Entry<String, String> entry = entryIt.next();
-         System.out.println("key값 : " + entry.getKey());
+         System.out.println("key=" + entry.getKey() + ", value=" + entry.getValue());
+         System.out.println(entry);
       }
    }
 

@@ -25,8 +25,7 @@ class YieldThreadEx1 extends Thread {
 
 		for (int i = 0; i < 10; i++) {
 			System.out.println(Thread.currentThread().getName() + " : " + i);
-			for (int j = 0; j <= 1000000000; j++) {
-			}
+			for (int j = 0; j <= 1000000000; j++) {} // 시간때우기용 
 			Thread.yield(); // 양보하기
 		}
 	}
@@ -42,8 +41,7 @@ class YieldThreadEx2 extends Thread {
 
 		for (int i = 0; i < 10; i++) {
 			System.out.println(Thread.currentThread().getName() + " : " + i);
-			for (int j = 0; j <= 1000000000; j++) {
-			}
+			for (int j = 0; j <= 1000000000; j++) {} // 시간때우기용
 		}
 	}
 }

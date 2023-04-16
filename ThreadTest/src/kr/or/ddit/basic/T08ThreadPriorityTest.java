@@ -4,9 +4,9 @@ public class T08ThreadPriorityTest {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("최대 우선순위: " + Thread.MAX_PRIORITY);
-		System.out.println("최소 우선순위: " + Thread.MIN_PRIORITY);
-		System.out.println("보통 우선순위: " + Thread.NORM_PRIORITY);
+		System.out.println("최대 우선순위: " + Thread.MAX_PRIORITY); // 10
+		System.out.println("최소 우선순위: " + Thread.MIN_PRIORITY); // 1
+		System.out.println("보통 우선순위: " + Thread.NORM_PRIORITY); // 5
 		
 		Thread[] ths = new Thread[] {
 				new Thread1(),

@@ -8,30 +8,8 @@ public class T07RCPGame {
 	
 	public static boolean isInputOk = false;
 	
-//	enum RCP {
-//		PAPER("보"), CISSORS("가위"), ROCK("바위");
-//		private String value;
-//		RCP(String value) {
-//			this.value = value;
-//		}
-//		public String getValue() {
-//			return value;
-//		}
-//	}
-//	
-//	public void start() {
-//		
-//	}
-//	
-//	public int compare(String player, String computer) {
-//		if (player.equals(computer)) {
-//			return 0;
-//		} 
-//		if (player.)
-//	}
-//	
 	public static void main(String[] args) {
-		Thread thCoundDown = new CountDown();
+		Thread thCoundDown = new CountDown2();
 		thCoundDown.start();
 		String input = showInputDialog();
 		int value = new Random().nextInt(3);
@@ -87,7 +65,7 @@ public class T07RCPGame {
 	}
 }
 
-class CountDown extends Thread {
+class CountDown2 extends Thread {
 	@Override
 	public void run() {
 		for (int i = 5; i > 0; i--) {
