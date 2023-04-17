@@ -35,6 +35,8 @@ public class MultiChatServer {
 				System.out.println("[" + socket.getInetAddress() + " : " + socket.getPort() + "] 에서 접속하였습니다.");
 
 				// 메시지 전송을 처리하는 스레드 생성 및 실행
+				ServerReceiver receiver = new ServerReceiver(socket);
+				receiver.start();
 
 			}
 
@@ -82,7 +84,14 @@ public class MultiChatServer {
 			}
 		}
 		
+		/**
+		 * 대화방. 즉, Map에 저장된 모든 사용자에게 안내 메시지를 전송하는 메서드
+		 * @param msg 보낼 메시지
+		 * @param from 메시지를 보낸 사람의 대화명
+		 */
 		public void sendMessage(String msg, String from) {
+			
+			sendMessage("[" + from + "] " + msg);
 			
 		}
 		
@@ -109,7 +118,7 @@ public class MultiChatServer {
 
 			} finally {
 				// 이 영역이 실행된다는 것은 클라이언트의 접속이 종료되었다는 의미이다.
-				sendMessage(name + "님이 나가셨습니다.");
+				sendMessage("#" + name + "님이 나가셨습니다.");
 
 				// Map에서 해당 클라이언트를 제거한다.
 				clients.remove(name);
@@ -119,5 +128,9 @@ public class MultiChatServer {
 				System.out.println("현재 서버 접속자 수는 " + clients.size() + "명 입니다.");
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		new MultiChatServer().serverStart();		
 	}
 }
