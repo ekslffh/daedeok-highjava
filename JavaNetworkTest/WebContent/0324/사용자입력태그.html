@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#id_div {
+    border: 10px double lightblue;
+}
+</style>
+</head>
+<body>
+    <!-- 각 태그는 하나의 요소(element)이자 객체(object)이다 -->
+    <!-- 입력양식요소들은 value를 이용해 get/set한다 -->
+    <input type="button" id="id_btn" value="내가지정한버튼이름" onclick="f_btn(this)">
+
+    <div id="id_div" onclick="f_div()">
+        여기를 눌러서 innerHTML을 이용해 요소사이 컨텐츠 정보를 읽기
+    </div>
+
+<script>
+function f_div() {
+    // alert("div를 눌렀네요?");
+    console.log(document.head);
+    console.log(document.head.innerHTML);
+    document.body.innerHTML += "<p>마지막시간</p>";
+    // 실습) 콘솔을 통해 id_idv의 컨텐츠 정보를 찍기
+    console.log(id_div.innerHTML)
+    // 실습) id_div영역에 아무말인 추가해보기
+    id_div.innerHTML += "<div style='color:red;'>hello world</div>";
+}
+
+function f_btn(param) {
+    console.log(param.value);
+    param.value = "변경된 버튼";
+    // 요소에 가진 정보에 접근하여 내용 출력해보기
+    // console.log(id_btn);
+    // 속성 값을 get
+    // console.log("요소의 타입:", id_btn.type);
+    // console.log("요소의 아이디:", id_btn.id);
+    // console.log("요소의 밸류:", id_btn.value);
+    // console.log("요소의 이벤트속성:", id_btn.onclick);
+    // 속성 값을 set
+    // id_btn.value = "버튼이름변경";
+}
+
+</script>
+</body>
+</html>

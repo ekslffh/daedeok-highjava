@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    .child {
+        border: 1px solid green;
+        /* font-size: 100px; */
+    }
+    .꽁지 {
+        font-style: italic;
+        color: rgb(100, 0, 100);
+        text-shadow: 2px 2px 2px red;
+    }
+</style>
+</head>
+<body>
+    <div id="parent">엄마까투리
+        <div class="child">마지</div>
+        <div class="child">두리</div>
+        <div class="child">세찌
+            <h1 id="sonja">손자</h1>
+        </div>
+        <div class="child">꽁지</div>
+    </div>
+
+<script>
+    let v_parent = document.querySelector('#parent');
+
+    // 부모요소에서 자식요소 선택 - 요소속성: children 노드속성:childNodes
+    // console.log(v_parent.children);  // 배열값 반환
+    // console.log(v_parent.children[0]);  // 마지, firstElementChild속성과 같은 결과반환
+    // console.log(v_parent.firstElementChild);  // 마지
+
+    let magi = v_parent.children[0];
+    magi.style.color = "orange";
+    magi.style.fontSize = "2em";
+
+    v_parent.children[3].style.backgroundColor = "gold"; // 꽁지
+
+    // console.log(v_parent.childNodes); // 노드 기준으로 검색된 자식노드들..
+    v_parent.childNodes[3].style.color = "hotpink"; // 두리
+
+    // 자식요소에서 부모요소 선택하기
+    // magi.parentElement.style.border = "3px dashed orange";
+    magi.parentNode.style.border = "3px dotted black";
+    document.querySelector('#sonja').parentElement.parentElement.style.border = "3px ridge lime";
+    document.querySelector('#sonja').parentElement.style.border = "3px ridge lime";
+
+    // 속성 값 변경하기
+    // v_parent.children[3].class = "꽁지"; // child -> 꽁지로 변경
+    // v_parent.children[3].setAttribute('class', '꽁지') = "꽁지"; // child -> 꽁지로 변경
+
+    // class속성 변경시 className속성을 이용한다
+    // 기존 class에 추가하고 싶을 때 (+=)누적대입연산자를 이용할 수 있다
+    // 주의할 점은 각 class는 공백으로 구분되어야 한다
+    v_parent.children[3].className += " 꽁지"; // child -> 꽁지로 변경
+
+    // 요소 삭제
+    // v_parent.removeChild(magi);
+    v_parent.children[3].remove();
+
+    // 요소 복사 - cloneNode()
+    console.log(v_parent);
+    console.log(v_parent.cloneNode()); // 얕은 복사 (자식요소들은 복사안함)
+    console.log(v_parent.cloneNode(true)); // 깊은 복사 (자식요소들까지 복사함)
+
+</script>
+</body>
+</html>

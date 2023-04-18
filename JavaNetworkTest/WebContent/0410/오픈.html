@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>열어준 창</h2>
+    <textarea id="old_text" cols="30" rows="10">멀티라인</textarea>
+
+    <input type="button" value="새창open" onclick="f_winOpen()">
+    <input type="button" value="새창close" onclick="f_winClose()">
+
+    <input type="button" value="보내기" onclick="f_input()">
+
+<script>
+    let v_newWin; // 전역화
+    // 새창 띄우기
+    function f_winOpen() {
+        // 2번째 인자로 target 또는 window(창, browser)의 이름을 지정할 수 있다.
+        // default는 target:_blank 이다.
+        // 창의 이름을 지정할 경우 해당 창에만 반복하여 url을 연결한다
+        // 3번째 이자로 브라우저의 높이, 너비를 지정하면 브라우저가 분리됨
+        v_newWin = window.open("새창.html", "eee", "width=300 height=400 top=100 left=-100");
+        window.alert("최상위객체에 소속된 메서드 alert");
+    }
+
+    function f_winClose() {
+        v_newWin.close();
+    }
+
+    let f_input = function() {
+        // 부모 textarea내용을 자식창(v_newWin)으로 전달하기
+        let pntVal = document.querySelector('#old_text').value;
+        v_newWin.document.querySelector('#new_text').value = pntVal; // set
+    };
+
+    let f_kd = function() {
+        console.log(event.key)
+        if (event.key == 'Enter') f_input();
+    };
+
+    // 요소를 대상으로 이벤트를 부여하는 정석 방식
+    document.querySelector('#old_text').addEventListener('keydown', function(){
+        if (event.keyCode == 13) {
+            f_input();
+        }
+    });
+
+</script>
+</body>
+</html>

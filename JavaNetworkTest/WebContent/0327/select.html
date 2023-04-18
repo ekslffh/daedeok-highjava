@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 선택상자 또는 콤보박스 -->
+    <!-- change이벤트: 값이 변화하는 순간 발생되는 이벤트 -->
+    <!-- 모바일 개발시 multiple을 이용해 영역을 확장시키고 다중선택하는 경우가 많음 -->
+    <select id="id_select" multiple size="4" onchange="f_select(this)">
+        <!-- <option value="0">선택</option> -->
+        <option value="daejeon">대전</option>
+        <option value="sejong">세종</option>
+        <option value="newyork">뉴욕</option>
+        <option value="africa">아프리카</option>
+    </select>
+<script>
+    function f_select(p_this) {
+        // alert(p_this.value); // 단일 값 선택시 value키워드를 통해 간단하게 값 얻음
+
+        // 다중선택
+        var v_sel = p_this.options; // 배열 값
+        var result = "";
+        for (var i = 0; i < v_sel.length; i++) {
+            if (v_sel[i].selected) {
+                if (result.length > 0) result += ", ";
+                // result += v_sel[i].value;
+                result += v_sel[i].innerHTML;
+            }
+        }
+        console.log(result);
+    }
+</script>
+</body>
+</html>

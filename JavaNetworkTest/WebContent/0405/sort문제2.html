@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table>tbody#t_body>tr*5>td*4 -->
+    <table border="1">
+        <tbody id="t_body">
+            <tr>
+                <th><a href="javascript:f_sort(0)">제목</a></th>
+                <th><a href="javascript:f_sort(1)">글쓴이</a></th>
+                <th><a href="javascript:f_sort(2)">내용</a></th>
+                <th><a href="javascript:f_sort(3)">날짜</a></th>
+            </tr>
+            <tr>
+                <td>달러구트 꿈 백화점</td>
+                <td>이미예</td>
+                <td>주문하신 꿈은 매진입니다</td>
+                <td>2020-07-08</td>
+            </tr>
+            <tr>
+                <td>주린이가 알고싶은 최다질문</td>
+                <td>염승환</td>
+                <td>염블리와 함께라면 주식이 쉽고 재밌다</td>
+                <td>2021-07-26</td>
+            </tr>
+            <tr>
+                <td>미드나잇 라이브러리</td>
+                <td>매트 헤이그</td>
+                <td>1주년 스페셜 에디션</td>
+                <td>2021-04-28</td>
+            </tr>
+            <tr>
+                <td>공정하다는 착각</td>
+                <td>마이클 샌델</td>
+                <td>능력주의는 모두에게 같은 기회를 제공하는가</td>
+                <td>2020-12-01</td>
+            </tr>
+        </tbody>
+    </table>
+<script>
+// 표현식 함수
+
+let v_trs = document.querySelectorAll('tr');
+console.log("각 행의 정보: ", v_trs) // 실제 배열로 옮기기 부터 시작..
+
+let v_arr = [];
+for (let i = 1; i < v_trs.length; i++) { // 헤더정보 제외하고 데이터 이관
+    // v_arr.push(v_trs[i]);
+    v_arr[v_arr.length] = v_trs[i];
+}
+console.log(v_arr);
+
+// 표현식 함수
+let f_sort = function(p_idx) {
+    // alert(p_idx); // 0:제목, 1:글쓴이, 2:내용, 3:날짜
+
+    v_arr.sort(function(a, b) {
+        console.log(a.children[p_idx].innerText);
+        if (a.children[p_idx].innerText > b.children[p_idx].innerText) return 1;
+        else return -1;
+    })
+
+    console.log("정렬된 정보 확인: ", v_arr);
+
+    // append(), appendChild()의 기본 기능은 요소 추가이지만,
+    // 추가될 위치에 이미 대상이 존재할 경우 요소의 이동 기능을 제공
+    let v_tbody = document.querySelector('#t_body');
+    for (let i = 0; i < v_arr.length; i++) {
+        v_tbody.appendChild(v_arr[i])
+    }
+}
+
+</script>
+</body>
+</html>

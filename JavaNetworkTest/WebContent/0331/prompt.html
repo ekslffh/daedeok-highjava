@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border: solid 3px skyblue;
+    height: 30px;
+}
+</style>
+</head>
+<body>
+<script>
+function f_calc() {
+    
+    // 숫자 2개 연산자 1개
+    // prompt는 string type을 반환한다
+    let x = parseInt(prompt("숫자1을 입력하세요", "입력예시를 작성합니다 placeholder"));
+    let y = parseInt(prompt("숫자2을 입력하세요"));
+    let z = prompt("연산자를 입력하세요", "+,-,*,/ 중 입력 요망");
+    let sum = 0;
+    console.log(typeof x, y, z);
+
+    // 숫자가 아닌  타입으로 입력됐을 때 >> parseInt(문자) => NaN반환
+    if (isNaN(x) || isNaN(y)) {
+        return f_calc();
+    }
+    
+    // 조건문을 사용해 z값으로 전달받은 연산자에 따른 분기처리
+    // if (z == '+') {
+    //     sum = x + y;
+    // } else if (z == '-') {
+    //     sum = x - y;
+    // } else if (z == '*') {
+    //     sum = x * y;
+    // } else if (z == '/') {
+    //     sum = (x / y).toFixed(2); // 소수점 자리수 제어
+    // } else {
+    //     alert("요청한 연산자를 입력하세요");
+    //     return f_calc();
+    // }
+    
+    // switch문
+    switch(z) {
+        case '+':
+            sum = x + y;
+            break; 
+        case '-':
+            sum = x - y;
+            break; 
+        case '*':
+            sum = x * y;
+            break;    
+        case '/':
+            sum = (x / y).toFixed(2);
+            break;
+        default: 
+            alert("연산자만 입력하세요")
+            return f_calc();
+    }
+
+    // querySelector('element'): 가장 첫번째 요소만을 대상으로 셀렉트
+    document.querySelector('#num1').innerText = x;
+    document.getElementsByTagName('div')[1].innerText = z;
+    // document.getElementById('num2').innerText = y;
+    document.querySelectorAll('div')[2].insertAdjacentHTML('afterbegin', y);
+    // document.querySelector('#result').innerText = sum;
+    document.querySelector('div:last-child').insertAdjacentHTML("afterbegin", sum);
+
+    console.log("!!!!!!!!!!!!!", document.querySelector('div:last-child'));
+}
+</script>
+<h4>숫자 2개와 연산자 1개를 입력받고 연산 결과 출력하기</h4>
+<input type="button" value="계산" onclick="f_calc()"><br/><br/>
+숫자1<div id="num1"></div> <!-- 입력된 숫자 1의 값 출력 -->
+연산자<div></div> <!-- 입력된 연산자 출력 -->
+숫자2<div id="num2"></div> <!-- 입력된 숫자 2의 값 출력 -->
+결과<div id="result"></div> <!-- 결과 값 출력 -->
+</body>
+</html>

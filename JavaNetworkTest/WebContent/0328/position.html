@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+#container {
+    border: 10px ridge lightblue;
+    height: 50vh;
+    position: relative;
+    top: 40px;
+}
+.child {
+    width: 50px;
+    height: 50px;
+    border: 4px solid brown;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    /* static - 방향속성 값을 적용받지 않음 */
+    /* position: static; 방향속성 값을 적용받지 않음 */
+
+    /* relative - 방향속성 값을 적용받음 */
+    /* position: relative; */
+
+    /* absolute 기본 부모는 컨테이너(윈도우 또는 브라우저) 좌측 상단을 기준한다 */
+    /* 상위 요소(계층 구조상 부모)가 부모에 대한 조건(static을 제외한 position속성)을 가지면 
+       상위요소를 기준으로 배치된다. */
+    /* position: absolute; */
+}
+.m {
+    background-color: red;
+    top: 10px;
+}
+.d {
+    background-color: pink;
+    top: 20px;
+    z-index: 1;
+}
+.s {
+    background-color: blue;
+    top: 30px;
+}
+.g {
+    background-color: yellow;
+    top: 40px;
+}
+</style>
+</head>
+<body>
+    <!-- div#container>div.child*4 -->
+    <input type="button" value="무브" onclick="f_move()">
+
+    <div id="container">
+        <div class="child m">마지</div>
+        <div class="child d">두리</div>
+        <div class="child s">세찌</div>
+        <div class="child g">꽁지</div>
+    </div>
+<script>
+function f_move() {
+    var v_child = document.querySelectorAll('.child'); // 배열 값
+    var v_duri = v_child[1];
+    
+    // 자바스크립트는 자동화(암묵적변환) 맣음
+    // if문의 조건으로 문자열 대입시 boolean값으로 자동 변환
+    // 예) 값이 있을 때 true / 값이 없을 때 false로 인식
+    // 예) 숫자 0일때 false / 나머지(음수포함)는 true로 인식
+    if (!v_duri.style.left) {
+        v_duri.style.left = "0px";
+    }
+    alert("[ " + parseInt(v_duri.style.left) + " ]");
+    v_duri.style.left = parseInt(v_duri.style.left) + 100 + "px"; // 단위 꼭 붙이기
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    let arr = ["문동은","박연진","주여정","강현남","하도영","박연진","전재준","이사라","최혜정","손명오"];
+
+    // indexOf(value, startIx) - 해당 요소를 시작 범위부터 검색하고 index값 반환
+    // console.log(arr.indexOf("박연진", 2)); // 5
+
+    // indexOf(value, startIx) - 해당 요소를 시작 범위부터 검색하고 index값 반환
+    // console.log(arr.lastIndexOf("박연진", 4)); // 1
+    
+    // 없는 value를 찾을 경우 -1을 반환
+    // console.log(arr.lastIndexOf("박진", 4)); // -1
+
+    // push(value) - 배열 마지막에 추가, unshift(value) - 배열 처음에 추가
+    // arr.unshift("김경란");
+    // console.log(arr);
+
+    // pop() - 배열 마지막 요소 삭제 및 삭제된 정보 반환
+    // shift() - 배열 처음 요소 삭제 및 삭제된 정보 반환
+    // let delVal = arr.shift();
+    // console.log(arr, "삭제된 정보>> ", delVal);
+
+    // reverse() - 배열 순서 반대로 설정
+    // console.log(arr.reverse());
+
+    // sort() - 배열 정렬
+    let numArr = [1, 2, 100, 3, 45, 250];
+    // console.log("사전순 정렬: ", numArr.sort());
+    // console.log("크기순 정렬: ", numArr.sort(sa => Math.max(a, this)));
+
+    // slice(start, end) - 'start ~ end-1 범위'를 새로운 배열로 만듬
+    let newArr = arr.slice(4, 7);
+    // console.log(newArr);
+
+    // splice(idx, n, a, b, c, ...) - 배열 정보 수정
+    // console.log("수정 전: ", arr);
+    // arr.splice(2, 2, "주여정(이도현)", "강현남(염혜란)", "1", "2", "3");
+    // console.log("수정 후: ", arr);
+
+    // concat() - 여러 배열 합치기
+    let a = arr.slice(5, 10);
+    let b = ["동은", "오적"];
+    let c = ["the", "glory"];
+    let abc = a.concat(b, c);
+    // console.log(abc[3]); // 최혜정
+
+    // join() - 배열을 하나의 문자열로 만들고 구분자 생략시 콤마로 표시
+    let joinArr = arr.join("-");
+    console.log(typeof arr, typeof joinArr, joinArr);
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div[class=kes] {
+    color: #FFA98F; /* 16진수 색상 표현 */
+}
+/* id, class속성의 경우 아래와 같이 작성하는 방식을 권장 */
+div.kes {
+    background-color: rgba(55,205,108, 0.5); /* 10진수색상표현 */
+}
+/* =(같은), !=(같지않은), ^=(시작하는), $=(끝나는)
+, *=(포함하는), ~=(포함하는), |=(-로 시작되는) */
+[class=kes] {
+    text-decoration: underline;
+}
+[id*=o] {
+    text-align: right;
+}
+</style>
+</head>
+<body>
+    <div class="kes">더 글로리</div>
+    <div class="kes">미스터 션샤인</div>
+    <div id="goblin" class="kes">도깨비</div>
+    <div id="hong">환혼</div>
+    <p class="kes">시크릿 가든</p>
+    <div class="kes">파리의 연인</div>
+</body>
+</html>

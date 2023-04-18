@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+#parent {
+    font-size: 0;
+}
+</style>
+</head>
+<body>
+    <div id="parent">
+        <img src="../images/ala.jpg" alt="ala">
+        <img src="../images/lion.jpg" alt="lion">
+        <img src="../images/som1.jpg" alt="som1">
+        <img src="../images/som2.jpg" alt="som2">
+    </div>
+    <input type="button" id="left" value="<<">
+    <input type="button" id="stop" value="||">
+    <input type="button" id="right" value=">>">
+<script>
+    let v_left = document.querySelector('#left');
+    let timer;
+
+    v_left.addEventListener('click', proxyLeft);
+
+    function mvLeft() {
+        setTimeout(function moveLeft() {
+        let v_parent = document.querySelector('#parent');
+        let first = v_parent.firstChild;
+        v_parent.insertBefore(first, v_parent.childNodes[8]);
+        timer = setTimeout(moveLeft, 1000);
+        }, 1000);
+    }
+
+    let v_right = document.querySelector('#right');
+    v_right.addEventListener('click', proxyRight);
+
+    function mvRight() {
+        setTimeout(function moveRight() {
+        let v_parent = document.querySelector('#parent');
+        let last = v_parent.lastChild;
+        v_parent.insertBefore(last, v_parent.firstChild);
+        timer = setTimeout(moveRight, 1000);
+        }, 1000);
+    }
+
+    document.querySelector('#stop').addEventListener('click', proxyStop);
+
+    function f_stop() {
+        clearTimeout(timer);
+        exist = false;
+    }
+
+    // proxy - 대리 함수를 만들어 1회만 실행되도록 수정
+    let exist = false; // flag variable - 상태변수
+    function proxyRight() {
+        if (!exist) {
+            mvRight();
+            exist = true;
+        } 
+    }
+
+    function proxyLeft() {
+        if (!exist) {
+            mvLeft();
+            exist = true;
+        } 
+    }
+
+    function proxyStop() {
+        f_stop();
+        exist = false;
+    }
+</script>
+</body>
+</html>

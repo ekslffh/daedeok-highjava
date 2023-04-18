@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<!-- jquery library download 방식 -->
+<!-- <script src="../js/jquery-3.6.4.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+// 요소 생성 전으로 load, DOMContentLoaded이벤트를 이용해 문서준비 완료후 스크립트 실행
+
+// window에서 제공하는 load이벤트는
+// 문서의 모든 리소스(외부 리소스 포함)가 모두 준비된 상태일 때 발생(후 스크립트 실행)
+
+// document에서 제공하는 이벤트는 문서(요소)까짐나 생성 후 발생하므로,
+// window보다 호출 시점은 약간 더 빠르지만
+
+// 만약 외부에서 참조하는 동영상 등의 자료에 대한 스크립트 진행시 load이벤트를 사용해야
+// 참조 에러가 발생되지 않아요!
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let jsVal = document.querySelector('h4').innerText;   
+//     alert("Javascript " + jsVal);
+// });
+window.onload = function() {
+    let jsVal = document.querySelector('h4').innerText;   
+    alert("Javascript " + jsVal);
+};
+
+$(document).ready(function() {
+    let jqVal = $('h4').text();
+    alert("jQuery " + jqVal);
+});
+</script>
+<body>
+    <h4>안녕하쇼</h4>
+</body>
+</html>

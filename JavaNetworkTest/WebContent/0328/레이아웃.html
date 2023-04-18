@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 외부 스타일 시트 가져오기 -->
+    <link rel="stylesheet" href="../css/reset.css">
+<style>
+#container {
+    border: 4px solid blue;
+    width: 600px;
+    height: 200px;
+    /* 요소 사이 공백을 없애기 위한 방법이지만 컨텐츠가 표현되지 못함 */
+    /* font-size: 0; */
+}
+.e_div {
+    border: 1px dashed red;
+    width: 200px;
+    height: 100px;
+    display: block; /* 요소 일렬로 정렬 */
+    box-sizing: border-box;
+    float: left;
+}
+</style>
+</head>
+<body>
+    <div id="container">
+        <div class="e_div">A</div>
+        <div class="e_div">B</div>
+        <div class="e_div">C</div>
+        <div class="e_div">D</div>
+    </div>
+</body>
+</html>

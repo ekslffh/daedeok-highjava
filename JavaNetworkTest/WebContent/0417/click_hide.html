@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+button {
+    display: none; /* 보이기 버튼 일단 숨김 */
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <h4 onclick="fnc(this)">click hide 1</h4>
+    <h4 onclick="fnc(this)">click hide 2</h4>
+    <h4 onclick="fnc(this)">click hide 3</h4>
+    <h4 onclick="fnc(this)">click hide 4</h4>
+
+    <hr>
+
+    <div id="js">
+        <h4>click hide 1</h4>
+        <h4>click hide 2</h4>
+        <h4>click hide 3</h4>
+        <h4>click hide 4</h4>
+        <button>보이기</button>
+    </div>
+<script>
+    function fnc(p_this) {
+        // alert(p_this.innerText);
+        // p_this.style.display = "none"; // 선택요소 숨김
+    
+        // jquery의 hide()를 이용해 요소를 숨김처리 할 수 있음
+        // jQuery메소드는 jQuery객체를 대상으로만 사용 가능
+        // DOM객체를 $()로 감싸(=jQuery함수에 인자로 DOM객체 전달) $객체화 함
+        $(p_this).hide();
+    }
+    
+    // window.addEventListener('load', function() {
+        let js_h4s = document.querySelectorAll('#js h4');
+        let v_btn = document.querySelector('button');
+        // console.log(js_h4s);
+        let v_cnt = 0;
+        for (let i = 0; i < js_h4s.length; i++) {
+            
+            // 각 요소에 이벤트주기
+            js_h4s[i].addEventListener('click', function() {
+                this.style.display = "none"; // 요소 각각 숨김
+                v_cnt++;
+                console.log("항목이 숨겨졌을 때 증가된 카운트: ", v_cnt);
+
+                if (v_cnt === js_h4s.length) {
+                    v_btn.style.display = "inline"; // 원 상태로 변경하여 보이기 처리
+                }
+            });
+        }
+
+        // 보이기 버튼을 눌러 숨겨진 헤드라인요소 다시 보이기
+        v_btn.addEventListener('click', function() {
+            // 숨겨진 헤드라인 요소 다시 보여주기
+            // 자바스크립트 특성상 요소 하나하나에 스타일 혹은 값을 대입해야 함
+            // for (let i = 0; i < js_h4s.length; i++) {
+            //     js_h4s[i].style.display = "block";
+            // }
+            $('#js h4').css('display', 'block');
+            
+            // 현재 '보이기버튼'은 다시 숨김처리 하기
+            v_btn.style.display = "none";
+            v_cnt = 0;
+        });
+
+    // });
+</script>
+</body>
+</html>

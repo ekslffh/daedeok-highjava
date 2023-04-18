@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    div {
+        border-style: solid;
+    }
+</style>
+</head>
+<body>
+    <!-- 
+    순번 | 이름 | 인지도
+    1   | BTS   | dd001이 가지는 value정보 표시
+    1   | 뉴진스   | dd002이 가지는 value정보 표시
+    1   | 블랙핑크   | dd001이 가지는 value정보 표시 
+    -->
+
+    <h4>데이터를 테이블 형태로 출력하기</h4>
+    <div id="disp"></div>
+
+<script>
+    let levels = {
+        dd001 : "월드클래스",
+        dd002 : "국내원탑",
+        dd003 : "실력파",
+        dd004 : "호불호",
+        dd000 : "듣보"
+    };
+
+    let idols = [
+        {
+            name : "BTS",
+            level : "dd001"
+        },
+        {
+            name : "뉴진스",
+            level : "dd002"
+        },
+        {
+            name : "블랙핑크",
+            level : "dd001"
+        },
+        {
+            name : "노라조",
+            level : "dd004"
+        },
+        {
+            name : "마마무",
+            level : "dd003"
+        },
+        {
+            name : "임영웅",
+            level : "dd003"
+        },
+        {
+            name : "술옵디",
+            level : "dd000"
+        }
+    ];
+
+    // div 변수 가져오기
+    let v_disp = document.querySelector('#disp');
+
+    let v_tbl = "<table border=1>";
+    v_tbl += "<tr><th>순번</th><th>이름</th><th>인지도</th></tr>";
+
+    // 반복 시작
+    for (let i = 0; i < idols.length; i++) {
+        v_tbl += `<tr><td> ${(i + 1)}</td><td>${idols[i].name}</td><td>${levels[idols[i].level]}</td></tr>`; 
+    }
+    // 반복 끝
+
+    // v_disp.innerHTML = v_tbl;
+    v_disp.insertAdjacentHTML("afterbegin", v_tbl); // 요소안 앞
+</script>
+</body>
+</html>

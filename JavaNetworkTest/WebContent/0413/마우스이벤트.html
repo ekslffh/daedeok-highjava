@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#container {
+    border-style: solid;
+    padding: 5px;
+}
+#content {
+    display: flex;
+    justify-content: space-around;
+}
+a:link {
+    color: lime;
+    text-shadow: 2px 2px 2px purple;
+}
+a:visited {
+    color: gold
+}
+a:hover {
+    background-color: blue;
+}
+a:active {
+    background-color: orange;
+}
+a:last-child, a:first-child {
+    background-color: black;
+}
+</style>
+</head>
+<body>
+    <!-- <div id="container" onmouseover="f_over()" onmouseout="f_out()"> -->
+    <div id="container">
+        마우스를 올려보세요
+        <div id="content" style="visibility: hidden;">
+            <a href="http://naver.com">NAVER</a>
+            <a href="http://daum.net">DAUM</a>
+            <a href="http://www.ddit.or.kr">DDIT</a>
+            <a href="http://www.youtube.com">YOUTUBE</a>
+        </div>
+    </div>
+<script>
+
+// 부모영역을 변수에 담고 부모를 기준으로 자식요소에 접근해서 스타일 변화주기
+let v_parent = document.querySelector('#container');
+console.log(v_parent.children); // (요소속성)부모가 갖는 자식요소를 배열 값으로 반환받음
+function f_over() {
+    v_parent.children[0].style.display = "flex"; // 숨겨진 요소 보이기
+}
+function f_out() {
+    v_parent.firstElementChild.style.display = "none"; // 요소 다시 숨기기
+}
+
+console.log(v_parent.childNodes);
+v_parent.onmouseover = function() {
+    v_parent.childNodes[1].style.visibility = "visible"; // 가려진 요소 보이기
+};
+v_parent.onmouseout = function() {
+    v_parent.lastElementChild.style.visibility = "hidden"; // 요소 다시 가리기
+};
+</script>
+</body>
+</html>

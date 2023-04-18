@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border-style: solid;
+    /* width: 50%; */
+    /* height: 100px; 부모가 높이 속성이 없는 대상은 높이속성에 %단위 적용안됌 */
+    margin-bottom: 100px;
+    column-count: 2;
+}
+#en {
+    /* 띄어쓰기 안된 컨텐츠가 영역 밖으로 삐져나오는 거 처리 */
+    word-wrap: break-word;
+}
+#ko {
+    /* 문자기준 줄바꿈 (CJK기준 기본값) */
+    /* word-brak: break-all; */
+    /* 단어기준 줄바꿈 (영문,숫자,대상 기본값) */
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+    <div id="ko">
+        이윽고내가한눈에너를알아봤을땐
+        모든건분명달라지고있었어
+        내세상은널알기전과후로나뉘어
+        니가숨쉬면따스한바람이불어와
+        니가웃으면눈부신햇살이비춰
+    </div>
+
+    <div id="en">
+        Eventually,whenIrecognizedyouataglance
+        everythingwasdefinitelychanging
+        Myworldisdividedintobeforeandafterknowingyou
+        Whenyoubreathe,awarmwindblows
+        Whenyousmile,thedazzlingsunlightshines
+    </div>
+</body>
+</html>

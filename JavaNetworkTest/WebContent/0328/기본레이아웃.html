@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<link rel="shorcut icon" href="https://dummyimage.com/20x20/b560b5/444996.png&text=D">
+<link rel="stylesheet" href="../css/reset.css">
+<style>
+div {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+header {
+    background-color: red;
+    height: 20vh;
+}
+#nav, #content {
+    float: left;
+    height: 70vh;
+}
+#nav {
+    width: 20%;
+}
+#content {
+    width: 80%;
+}
+#footer {
+    clear: left; /* 이전 요소의 float속성에 대해 해제하고 정상적으로 배치 */
+    background-color: purple;
+}
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- 시맨틱 태그를 사용해 개발자간 혼란을 줄이고
+        어떤 위치에 어떤 데이터가 들어갈지 직관적으로 접근할 수 있다. -->
+        <header>헤더</header>
+        <div>
+            <div id="nav">네비게이션</div>
+            <div id="content">컨텐츠</div>
+        </div>
+        <div id="footer">푸터</div>
+    </div>
+</body>
+</html>

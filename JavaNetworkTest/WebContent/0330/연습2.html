@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            border-radius: 20px;
+        }
+
+        #all {
+            border: 5px solid blue;
+            border-radius: 0px;
+            padding: 5px;
+        }
+
+        header {
+            background-color: yellow;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header>p {
+            font-weight: bold;
+        }
+
+        div {
+            margin: 5px;
+        }
+
+        #container {
+            display: flex;
+            padding: 10px;
+        }
+
+        #container>div:first-child {
+            background-color: pink;
+            padding: 20px;
+        }
+
+        #container>div:first-child img {
+            width: 150px;
+            height: 150px;
+        }
+
+        #container>div:first-child li span {
+            color: white;
+            font-weight: bold;
+        }
+
+        #container>div:first-child li a {
+            color: yellow;
+            font-weight: bold;
+        }
+
+        #container>div:nth-child(2) {
+            background-color: skyblue;
+            padding: 15px;
+            opacity: .5;
+        }
+
+        #container>div:nth-child(2)>div {
+            border: 3px dashed green;
+            background-color: sandybrown;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        footer {
+            background-color: mediumpurple;
+            text-align: center;
+            padding: 15px;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <header>
+            <h1>My Blog Page</h1>
+            <p>시멘틱 태그로 만들어진 페이지 입니다.</p>
+        </header>
+        <div id="container">
+            <div>
+                <h2>Links</h2>
+                <ul>
+                    <li><span>w3schools</span></li>
+                    <li><a href="//naver.com">Naver</a></li>
+                    <li><a href="//daum.net"> Daum</a></li><br>
+                    <img src="../images/스폰지밥5.png" alt="">
+                    <p>스폰지밥</p>
+                </ul>
+            </div>
+            <div id="content">
+                <div>
+                    <h3>Semantic Tags</h3>
+                    시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게
+                    알려주는 요소이다. 레이아웃을 만들 때 쓰는것, 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.
+                </div>
+                <div>
+                    <h3>div와 span</h3>
+                    div는 divide의 약자로 논리적인 섹션으로 분리하는데 사용 
+                    div는 divide의 약자로 논리적인 섹션으로 분리하는데 사용 
+                    div는 divide의 약자로 논리적인 섹션으로 분리하는데 사용
+                </div>
+            </div>
+        </div>
+        <footer>Copyright (c)2019 Hong</footer>
+    </div>
+</body>
+
+</html>

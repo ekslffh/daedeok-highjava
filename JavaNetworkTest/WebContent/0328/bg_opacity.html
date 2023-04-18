@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#container {
+    height: 400px;
+}
+#content {
+    height: 100%;
+    border: 4px dashed red;
+    position: relative; /* absolute의 부모 조건 성립 */
+    /* bg */
+}
+#content::before {
+    content: "";
+    background-image: url(../images/너굴맨.jpg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: .6;
+}
+span {
+    position: absolute;
+}
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <span>배경색은 투명, 텍스트는 선명하게 유지하기</span>
+        </div>
+    </div>
+</body>
+</html>

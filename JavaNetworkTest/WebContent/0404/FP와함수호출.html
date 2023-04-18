@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    // 함수 자체(Function Pointer)와 함수 호출
+    function f_fnc() {
+        alert("함수자체를 가리키는 FP");
+        return "생략된 리턴문을 작성해봤어";
+    }
+
+    let v_return = f_fnc; // 함수 자체를 변수에 담음
+    console.log(v_return); // 함수의 형태를 콘솔로 확인
+
+    v_return = f_fnc(); // 함수를 실행
+    console.log(v_return); // 실행 후의 결과를 담음 => 콘솔로 출력
+
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#id_modal {
+    /* modal창은 position의 fixed속성으로 만듬 */
+    width: 90%;
+    /* position: fixed일때는 예외로 높이속성에 %단위 사용가능 */
+    height: 90%;
+    background-color: gray;
+    opacity: 0.5;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    display: none; /* 모달영역의 기본상태를 보이지 않게 함 */
+}
+#id_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+</style>
+</head>
+<body>
+    <h3>메인화면</h3>
+    <a href="//naver.com"><img src="../images/ala.jpg" alt="알라"></a>
+    <input type="button" id="openBtn" value="모달창 열기">
+
+    <!-- modal영역 -->
+    <div id="id_modal">
+        <div id="id_content">
+            <span>모달창이 띄워졌네요 - 여기는 모달창</span>
+            <input type="button" id="closeBtn" value="X">
+        </div>
+    </div>
+    <!-- modal영역 -->
+
+<script>
+    let v_modal =  document.querySelector('#id_modal');
+    document.querySelector('#openBtn').addEventListener('click', function() {
+        v_modal.style.display = "block"; // 보이는 상태로 변경
+    });
+    document.querySelector('#closeBtn').addEventListener('click', function() {
+        v_modal.style.display = "none"; // 안보이는 상태로 변경
+    });
+</script>
+</body>
+</html>

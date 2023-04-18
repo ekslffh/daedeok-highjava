@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<style>
+    td {
+        width: 20px;
+        text-align: center;
+    }
+</style>
+<script>
+    document.write("<h1>구구단표</h1>")
+    document.write("<table border=1>")
+    for (var i = 1; i <= 9; i++) {
+        document.write("<tr>");
+        for (var j = 1; j <= 9; j++) {
+            document.write("<td>" + i * j + "</td>")
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+
+    // for - in문(객체 순환) - 객체의 열거 가능한 속성에 대한 반복작업 수행
+    // for (let w in window) {
+    //     // console.log(w);
+    //     console.log("윈도위 객체의 value들 >> ", window[w]);
+    // }
+
+    let obj = {
+        a : "apple",
+        b : "banana",
+        c : "carrot",
+        d : "donut",
+        e : "egg"
+    };
+    for (let x in obj) {
+        console.log("obj객체의 key와 value >>", x, obj[x]);
+    }
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+img {
+    width: 100px;
+}
+div {
+    border: 3px solid red;
+    height: 100px;
+}
+</style>
+</head>
+<body>
+    <h1>나성민 너구리</h1>
+    <div class="drop">드롤될 위치1</div>
+    <div class="drop">드롤될 위치2</div>
+    <div class="drop">드롤될 위치3</div>
+    <img id="nugul" src="../images/너굴맨.jpg" alt="너굴맨" draggable="true">
+    <img id="lion" src="../images/lion.jpg" alt="사자맨" draggable="true">
+    <img id="loopy" src="../images/루피.png" alt="루피" draggable="true">
+    <img id="tiger" src="../images/호랑이.jpg" alt="호랑이" draggable="true">
+<script>
+    /*
+        1. 드래그 대상 요소(img)에 draggable=true 속성 적용
+        2. 드래그 대상 요소(img)에 dragstart 이벤트 적용 => dataTransfer.setData로 타겟 아이디 지정
+        3. 드롭 대상 요소(div)에 dragover기능을 중지시켜서 드롭 허용
+        4. 드롭 대상 요소(div)에 drop 이벤트 적용 => dataTransfer.getData로 타겟아이디정보 받아 위치로 append
+    */
+    let v_img = document.querySelectorAll('img');
+    for (let i = 0; i < v_img.length; i++) {
+        v_img[i].addEventListener('dragstart', function() {
+        // dataTransfer객체를 이용해 타겟아이디 설정하기
+        console.log(event.target.id);
+        event.dataTransfer.setData("targetId", event.target.id);
+        });
+    }
+    
+
+    // let v_disp = document.querySelector('div'); // 단일 드롭 위치
+    let v_disp = document.querySelectorAll('div'); // 여러개의 드롭 위치
+    // dragover이벤트: 어떠한 요소 위로 드래그 되어있는 상태
+    // 브라우저 규칙상 요소위로 다른 요소가 겹쳐질 수 없다 => 를 회피하기 위해 dragover이벤트 기능 중지시키기
+    for (let i = 0; i < v_disp.length; i++) {
+        v_disp[i].addEventListener('dragover', function() {
+        event.preventDefault(); // 컴퓨터가 요소위 드래그 되었다는 상태를 잊게 만들어 드롭허용가능 상태로 만듬
+        });
+
+        v_disp[i].addEventListener('drop', function() {
+        let targetId = event.dataTransfer.getData("targetId");
+        console.log(document.querySelector('#' + targetId));
+        event.target.appendChild(document.querySelector('#' + targetId));
+        });
+    }
+   
+
+</script>
+</body>
+</html>

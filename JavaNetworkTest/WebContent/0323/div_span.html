@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    /* 블록요소 */
+    div {
+        border-style: solid; /* border는 반드시 style값이 존재해야 나머지 속성값 적용가능 */
+        border-color: orange;
+        border-width: 5px;
+        width: 50%;
+        padding: 10px; /* 안쪽 여백 */
+        margin: 10px; /* 바깥쪽 여백 */
+    }
+    /* 인라인요소 */
+    span {
+        /* display: inline-block; */ /* 요소특성 변형시 사이즈 조절 가능 */
+        color: red;
+        border-style: solid;
+        border-color: red;
+        width: 100px;
+        padding: 3px;
+        margin: 10px; /* 인라인요소는 바깥쪽여백 좌우만 조절 가능 */
+    }
+</style>
+</head>
+<body>
+    <!-- division(분할) : 영역을 나눔, 레이아웃 잡을 때 (웹디자이너가 많이) 사용 -->
+    <div>
+        div요소는 순수한 컨테이너로서 특별한 기능은 없음 <br>
+        대신 다른 <span>요소들을 묶어 그룹화</span>시킨 후 class나 id속성으로 접근하여
+        꾸미 쉽게 돕는 역할을 함
+    </div>
+
+    <div>span요소 또한 특별한 기능은 없으며 주로 텍스트를 꾸며주는 역할</div>
+
+</body>
+</html>

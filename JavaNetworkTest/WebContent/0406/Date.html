@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    console.log("[현재날짜]", new Date());
+    console.log(new Date().toLocaleString());
+    console.log(new Date().toLocaleDateString());
+    console.log(new Date().toLocaleTimeString());
+
+    console.log("[19700101A.M.9 + ms]", new Date(1000));
+    console.log(new Date("2023.1.1"));
+    console.log(new Date(2023, 1-1, 1, 15, 58, 44)); // month입력시 주의 0부터 시작
+
+    let today = new Date();
+    let ms = today.getTime(); // 1970년부터 현재까지의 ms를 반환
+    console.log(ms);
+
+    // getTime() - 1970년부터 지저날짜까지 흘러온 시간 정보를 milliseconds로 받음
+    // ms값 / ms / sec / min / hour = day / year
+    console.log( (ms/1000/60/60/24/365).toFixed(1) + "년"); // 1970년부터 오늘까지 흘러온 시간 정보
+    console.log(ms/1000/60/60/24 + "일"); 
+
+</script>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web shop Page</title>
+    <!-- <link rel="stylesheet" href="../css/reset.css"> -->
+    <style>
+        h1 {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background-color: aliceblue;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 15px;
+            vertical-align: center;
+        }
+
+        header a {
+            color: black;
+        }
+
+        header * {
+            vertical-align: middle;
+        }
+
+        #menu {
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            background-color: gray;
+            border-radius: 15px;
+        }
+
+        #menu>a {
+            margin: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        #container {
+            display: flex;
+            height: 870px;
+        }
+
+        .item {
+            border: 1px solid bisque;
+        }
+
+        #contents {
+            flex: 3;
+ 
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        #category {
+            background-color: gray;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 0px 10px;
+            border: none;
+            flex: 0.8;
+        }
+
+        .category_items {
+            background-color: white;
+            border-radius: 10px;
+            margin: 80px 0 10px 0px;
+            color: white;
+            height: 500px;
+        }
+
+        .category_items a {
+            text-decoration: none;
+            color: black;
+        }
+
+
+        .category_items:last-child {
+            border-bottom: 0.5px solid gainsboro;
+        }
+
+        .category_item {
+            border-top: 0.5px solid gainsboro;
+            /* border-bottom: 0.5px solid black; */
+            padding: 10px;
+            margin: 5px;
+        }
+
+        #my_status {
+            
+            background-color: gray;
+            padding: 10px;
+            border: none;
+            border-radius: 15px;
+            margin: 0px 10px;
+            align-items: center;
+            flex: 0.8;
+        }
+
+        #cart {
+            margin-top: 100px;
+            margin-bottom: 150px;
+        }
+
+        #login {}
+
+        .button {
+            margin: 10px 0px;
+        }
+
+        footer {
+            background-color: aliceblue;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <img src="../images/쇼핑백.png" alt="쇼핑백" style="width: 80px; height: 50px">
+            <a href="./index.html">Web Shop</a>
+        </h1>
+    </header>
+    <div id="menu">
+        <a href="./index.html">HOME</a>
+        <a href="./index.html">ABOUT US</a>
+        <a href="./index.html">NEWS</a>
+        <a href="./index.html">MY ACCOUNT</a>
+        <a href="./index.html">CONTACTS</a>
+    </div>
+    <div id="container">
+        <div id="category" class="item">
+            <div class="category_items">
+                <div class="category_item"><a href="./computer.html" target="ifr">컴퓨터</a></div>
+                <div class="category_item"><a href="./clothing.html" target="ifr">의류</a></div>
+                <!-- <div class="category_item"><a href="./음악.html" target="ifr">음악</a></div> -->
+                <div class="category_item"><a href="./스포츠레저.html" target="ifr">스포츠/레저</a></div>
+                <div class="category_item"><a href="./가구인테리어.html" target="ifr">가구/인테리어</a></div>
+                <div class="category_item"><a href="./식품.html" target="ifr">식품</a></div>
+            </div>
+        </div>
+        <div class="item" id="contents">
+            <iframe src="./computer.html" name="ifr"></iframe>
+        </div>
+        
+        <div class="item" id="my_status">
+            <div id="cart">
+                <h3>Shopping Cart</h3>
+                <p>현재 쇼핑카트에 물품이 없습니다.</p>
+                <a href="./shopcart.html" target="ifr">쇼핑카트 보기</a>
+            </div>
+            <div id="login">
+                <h3>Log In</h3>
+                <div>아이디</div>
+                <input type="text">
+                <div>패스워드</div>
+                <input type="text">
+                <div class="button">
+                    <input type="button" value="로그인">
+                    <input type="button" value="초기화">
+                </div>
+                <div>
+                    <a href="./register.html" target="ifr">회원가입</a>
+                    <a href="#">비밀번호 분실</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>Copyright ⓒ 2023 DDIT Web Shop</footer>
+</body>
+
+</html>

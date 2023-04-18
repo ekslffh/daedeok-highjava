@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>
+        <input id="number" size="1">
+        <a href="javascript:f_guess()">1부터 100사이 Number Guess</a>
+    </h4>
+    <h4><a href="javascript:f_game()">가위바위보 게임</a></h4>
+    <h4><a href="javascript:f_lotto()">로또</a></h4>
+    <div></div>
+<script>
+    let v_disp = document.querySelector('div'); // 힌트와 결과 출력 공간
+
+    let f_lotto = function() {
+
+        let lotto = []; // 빈 배열, 6개의 로또 숫자를 담으 공간
+        for (let i = 0; i < 6; i++) {
+            // 중복되지 않는 6개의 랜덤 수 (1~45)발생
+            const RND = parseInt(Math.random() * 45) + 1;
+            // Math.floor(Math.random() * 45) + 1;
+            // Math.ceil(Math.random() * 45);
+            
+            // 중복 제거 - indexOf() 사용
+            if (lotto.indexOf(RND) == -1) { // 중복아님
+                lotto[i] = RND;
+                console.log("if>> " + lotto.indexOf(RND) + ", " + RND);
+            } else { // 중복일 때
+                i--; // 진행된 index복구시킴
+                console.log(`else>> ${lotto.indexOf(RND)}, ${RND}`);
+            }
+        }
+        v_disp.insertAdjacentHTML('beforeend', lotto + "<br>");
+    };
+
+    let f_game = function() {
+
+        v_disp.innerText = "";
+        v_arr = ["가위", "바위", "보"];
+        // const RND = parseInt(Math.random() * 3); // 0,1,2
+        const RND = Math.floor(Math.random() * 3); // 0,1,2
+
+        let v_com = v_arr[RND];
+        let v_user = prompt("가위바위보 입력");
+
+        // 출력
+        let result = `콤터: ${v_com} vs 나: ${v_user} <br>`;
+
+        if (v_com == v_user) result += `비김`;
+        else if (v_com == '가위' && v_user == "보" ||
+                 v_com == '바위' && v_user == "가위" ||
+                 v_com == '보' && v_user == "바위") {
+                    result += `콤터 승`;    
+        }  else if (v_com == '가위' && v_user == "바위" ||
+                 v_com == '바위' && v_user == "보" ||
+                 v_com == '보' && v_user == "가위") {
+                    result += `나 승`;    
+        } else {
+            result += `대결 불가`;
+        }
+
+        v_disp.insertAdjacentHTML('beforeend', result);
+    };
+
+    // 1 ~ 100사이 랜덤 수 발생
+    // const RND = Math.ceil(Math.random() * 100);
+    const RND = Math.floor(Math.random() * 100) + 1;
+
+    let v_cnt = 0; // 입력 횟수 저장
+    let v_str = ""; // 입력 값 저장
+
+    let f_guess = function() {
+
+        let v_numVal = document.querySelector('#number').value;
+        let v_hint = ""; // 힌트
+
+        // null체크
+        if (v_numVal.trim() == "") return;
+
+        // 입력된 값 저장
+        v_str += v_numVal + " ";
+
+        if (v_numVal == RND) {
+            v_disp.innerText = "";
+            v_cnt++;
+            // 결과 출력
+            let result = `총 횟수: ${v_cnt} <br>`;
+            result += `입력된 값: ${v_str}`;
+            v_disp.insertAdjacentHTML('beforeend', result);
+        } else if (v_numVal < RND) {
+            v_cnt++;
+            v_hint += `힌트: 더 큰수를 입력하세요(${v_cnt})`;
+            v_disp.innerText = v_hint;
+        } else {
+            v_cnt++;
+            v_hint += `힌트: 더 작은수를 입력하세요(${v_cnt})`;
+            v_disp.innerText = v_hint;
+        }
+    };
+</script>
+</body>
+</html>

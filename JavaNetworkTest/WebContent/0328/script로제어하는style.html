@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#id_disp {
+    color: white;
+    background-color: navy;
+}
+</style>
+</head>
+<body>
+    <!-- <div id="id_disp" style="color: navy; background-color: white;"> -->
+    <div id="id_disp" style="display: block">
+        <h1>Shining Road</h1>
+    </div>
+    <input type="button" value="속성정보get/set" onclick="f_attr()">
+    <input type="button" value="보이기/숨기기" onclick="f_display()">
+    <input type="button" value="랜덤색 적용" onclick="f_randomColor()">
+<script>
+
+let v_disp = document.getElementById('id_disp');
+
+// inline으로 정의된 속성값만 조회할 수 있음
+function f_attr() {
+    // get
+    alert("색상정보[" + v_disp.style.color + "]\n배경색 정보[" 
+                + v_disp.style.backgroundColor + "]");
+    // set
+    v_disp.style.color = "yellow";
+    v_disp.style.backgroundColor = "navy";
+}
+function f_display() {
+    // alert("디스플레이 정보[" + v_disp.style.display + "]");
+    if (v_disp.style.display == "none") {
+        v_disp.style.display = "block"; // 요소 보여주기
+    } else {
+        v_disp.style.display = "none";
+    }
+}
+var v_colors = ["orange", "yellowgreen", "hotpink", "salmon", "royalblue", "lightgray"];
+function f_randomColor() {
+    // console.log(v_colors[parseInt(Math.random() * v_colors.length)]);
+    var ranColor = v_colors[parseInt(Math.random() * v_colors.length)];
+    v_disp.style.color = ranColor;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+* {
+    margin: 0;
+}
+#container {
+    border: 20px dashed;
+    width: 100%;
+    height: 100vh; /* 부모가 없는 요소는 높이값에 % 적용불가 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#content {
+    border: 20px dashed;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    /* background-color: tomato; */
+    /* background-image: url(../브레드이발소\ -\ 복사본.jpg); */
+    /* background-size: 50%; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+    /* bg-color, bg-img가 표현될 영역 지정 */
+    /* background-clip: border-box; */
+    /* bg-img가 시작되는 위치 지정 */
+    /* background-origin: content-box; */
+    /* background-attachment: fixed; */
+
+    /* background 축약 - 작성순서 변경 가능하며 누락되는 항목은 기본값으로 대체된다
+    background: -color, -image, -position/size, -repeat, -origin, -clip, -attachment
+    */
+    background: tomato url(/브레드이발소\ -\ 복사본.jpg) 50% 50%/20% 20% no-repeat;
+    opacity: .1;
+}
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">나는브레드, 나는브레드, 나는브레드</div>
+    </div>
+</body>
+</html>

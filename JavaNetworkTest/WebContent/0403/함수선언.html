@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    
+// 즉시실행함수
+(function(){
+    alert("즉시");
+})();
+
+
+// 선언식 함수: 페이지 로딩 이전에 선언됨
+function f_fnc1(p_arg) {
+    alert(p_arg + " 함수");
+}
+
+// ★표현식 함수: 페이지가 로딩되는 순간 선언됨
+let f_fnc2 = function(p_arg){
+    alert(p_arg + " 함수!!");
+};
+
+// ★화살표 함수: ES6(2015)버전에서 등장한 함수형태
+// f_fnc3 = param1 => {alert(param1 + " 함수!!!")};
+// 매개변수가 없을 때는 반드시 ()를 작성해야 함
+// let f_fnc3 = () => {};
+// 매개변수가 하나일 때는 ()없이 매개변수만 기입함
+// f_fnc3 = param1 => {};
+// 매개변수가 여러개일 때 ()안에 쉼표를 이용해서 기입...
+f_fnc3 = (p1, p2, p3) => {
+    alert(p1 + " 함수~~" + p2 + ", " + p3);
+};
+
+f_fnc1('선언식', '함수');
+f_fnc2('표현식');
+f_fnc3('화살표');
+
+</script>

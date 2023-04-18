@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border: 1px solid red;
+    /* width: 50px; */
+    height: 100px;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+span {
+    border: 1px solid gold;
+}
+</style>
+</head>
+<body>
+    <!-- 
+        flex-direction(row) - 요소가 어느 방향으로 배치될 지 결정 
+        flex-wrap(nowrap) - 요소가 영역안으로 랩핑될 지 결정
+        align-content() - flex line(세로)정렬 (flex-wrap: wrap일때만 유효)
+         ㄴnowrap의 경우 flex line이 한줄로 정의됨으로 속성 무효
+        justify-content(flex-start) - 요소 가로 정렬
+        align-item(normal/stretch) - 요소 세로 정렬(하나의 라인에도 정렬 가능)
+    -->
+
+    <div>
+        <span>111</span>
+        <span>222</span>
+        <span>333</span>
+    </div>
+</body>
+</html>

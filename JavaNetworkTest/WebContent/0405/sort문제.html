@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    let v_njs =
+        [
+            {
+                "name": "민지",
+                "birth": "2004-05-07",
+                "position": "리더"
+            },
+            {
+                "name": "하니",
+                "birth": "2004-10-06",
+                "position": "댄서/리드보컬"
+            },
+            {
+                "name": "다니엘",
+                "birth": "2005-04-11",
+                "position": "메인보컬"
+            },
+            {
+                "name": "해린",
+                "birth": "2006-05-15",
+                "position": "서브보컬"
+            },
+            {
+                "name": "혜인",
+                "birth": "2004-04-21",
+                "position": "보컬/래퍼"
+            }
+        ];
+        
+    // name으로 정렬
+    // v_njs.sort(function(a, b) {
+    //     // console.log(b.name);
+    //     // return(반환값)이 -1일때 자리변경 -> 오름차순
+    //     if (a.name >= b.name) {
+    //         return 1;
+    //     } else {
+    //         return -1;
+    //     }
+    // });
+    // console.log("이름기준정렬", v_njs);
+
+    // birth로 정렬
+    // v_njs.sort(function(a, b) {
+    //     if (a.birth >= b.birth) {
+    //         return 1;
+    //     } else {
+    //         return -1;
+    //     }
+    // });
+    // v_njs.sort(function(a, b) {
+    //     // console.log(a.birth.replaceAll("-", ""));
+    //     return a.birth.replaceAll("-", "") - b.birth.replaceAll("-", "");
+    // });
+    // console.log("생일기준정렬", v_njs);
+
+    // position으로 정렬
+    // 문자를 charCodeAt()로 유니코드 변환 시킨후 -연산 진행
+    console.log("밥먹기".charCodeAt());
+    v_njs.sort(function(a, b) {
+        return a.position.charCodeAt() - b.position.charCodeAt();
+    });
+    console.log("포지션기준정렬", v_njs);
+</script>

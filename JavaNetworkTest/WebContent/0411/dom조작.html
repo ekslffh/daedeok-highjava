@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="addElmt" value="요소추가">
+    <input type="button" id="addImg" value="이미지요소추가">
+    <input type="button" id="addA" value="하이퍼링크추가">
+
+    <script src="../js/random.js"></script>
+    <script>
+
+        let v_idx = 1; // 요소 numbering index
+
+        document.querySelector('#addA').addEventListener('click', function() {
+            // createElement()이용해서 'a'요소 생성하기
+            let v_tagA = document.createElement('a'); // <a></a>
+            // 요소에 세부속성 정의하기..
+            // v_tagA.href = "http://google.com"; // <a href="..."></a>
+            // v_tagA.target = "_blank";
+            // v_tagA.style.display = "block";
+            v_tagA.setAttribute('href', 'http://naver.com');
+            v_tagA.setAttribute('target', '_self');
+            v_tagA.setAttribute('style', 'display: block');
+            v_tagA.innerText = "구글로 가기";
+            document.body.appendChild(v_tagA);
+        });
+
+        // 메소드를 이용한 요소 노드 생성
+        let v_addImg = document.querySelector('#addImg');
+        // v_addImg.addEventListener('click', function() {
+        //     let v_img = document.createElement('img'); // <img>
+        //     v_img.src = "../images/som" + v_idx + ".jpg";
+        //     v_img.alt = "코알라";
+        //     v_img.width = 100;
+        //     v_img.style.width = 100px;
+        //     v_img.style.display = "block"; // 인라인요소를 블록화해서 수직배치
+
+        //     v_idx++;
+        //     if (v_idx > 4) v_idx = 1;
+        //     document.body.appendChild(v_img);
+        // });
+
+        // string으로 요소 생성 >> innerHTML 또는 insertAdjacentHTML를 이용해서 요소 추가
+        v_addImg.addEventListener('click', function() {
+            let v_img = "<img src='../images/호빵맨.jpg' alt='호빵맨' style='width:100px;'/>";
+            // document.body.appendChild(v_img); //?? node를 대상으로만 추가 가능함
+            // document.body.append(v_img); //?? tag형태의 text자체를 추가해줌
+            document.body.insertAdjacentHTML('beforeend', v_img);
+        });
+        // DOM Search Method사용
+        let v_addE = document.querySelector('#addElmt'); 
+
+        // 이벤트 부여하는 정석
+        v_addE.addEventListener('click', function () {
+
+            // DOM Element생성 - document.createElement('tag');
+            let v_h1 = document.createElement('h1'); // <h1></h1>
+            v_h1.innerText = "요소 생성" + v_idx;
+            v_h1.style.color = f_ranColor();; // 색상을 랜덤으로 설정하기..
+            v_h1.style.backgroundColor = f_ranColor();
+            document.body.appendChild(v_h1);
+
+            v_idx++;
+        });
+
+        function f_ranColor() {
+            let random = [];
+            for (let i = 0; i < 3; i++) {
+                random[i] = f_random(0, 255);
+            }
+            return `rgba(${random}, ${Math.random().toFixed(1)})`;
+        }
+
+    </script>
+</body>
+
+</html>

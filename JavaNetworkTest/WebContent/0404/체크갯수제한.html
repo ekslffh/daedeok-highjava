@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border-style: solid;
+}
+</style>
+</head>
+<body>
+    <div>
+        체크박스를 통해 취미를 최대 3개까지 선택하게 만들기
+        3개 초과시 메시지를 출력하고 체크되지 않도록 한다
+    </div>
+    <input type="checkbox" name="hobby" value="java" onclick="f_hobby(this)">자바
+    <input type="checkbox" name="hobby" value="js" onclick="f_hobby(this)">자바스트립트
+    <input type="checkbox" name="hobby" value="html" onclick="f_hobby(this)">HTML
+    <input type="checkbox" name="hobby" value="css" onclick="f_hobby(this)">CSS
+    <input type="checkbox" name="hobby" value="server" onclick="f_hobby(this)">서버
+
+<script>
+let v_chkCount = 0;
+
+function f_hobby(p_this) {
+
+    // console.log(p_this); // 선택된 요소 자체
+    // console.log(p_this.value + "|" + p_this.checked); // 체크상태를 boolean으로 반환
+
+    if (p_this.checked) {
+        v_chkCount++;
+    } else {
+        v_chkCount--;
+    }
+
+    console.log(v_chkCount);
+    
+    if (v_chkCount > 3) {
+        alert("3개까지만 선택가능");
+        v_chkCount--;
+        p_this.checked = false; // 선택 강제 해제
+    }
+    
+    console.log(v_chkCount);
+}
+</script>
+</body>
+</html>

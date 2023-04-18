@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="../js/random.js"></script>
+<script>
+    // 난수 - 정의된 범위내 무작위로 추출된 수
+    // random() 을 이용해 0 ~ 1사이 난수를 발생시킴
+    console.log(parseInt(Math.random() * 10)); // 0~9까지 10개의 정수를 랜덤 발생
+    console.log(Math.floor(Math.random() * 10)); // 0~9까지 10개의 정수를 랜덤 발생
+    console.log(Math.ceil(Math.random() * 10)); // 1~10까지 10개의 정수를 랜덤 발생
+    console.log(Math.floor(Math.random() * 11)); // 0~10까지 11개의 정수를 랜덤 발생
+                                
+    // 4 ~ 9까지 범위의 랜덤 수 발생
+    console.log("[4 ~ 9]", Math.floor(Math.random() * 6) + 4);
+
+    // 65 ~ 100까지 범위의 랜덤 수 발생
+    console.log("[65 ~ 100]", Math.floor(Math.random() * 36) + 65);
+
+    // 공식을 이용한 random 함수 생성
+    console.log(f_random(65, 100));
+
+</script>

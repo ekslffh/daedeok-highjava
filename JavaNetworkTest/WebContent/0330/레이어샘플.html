@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 140px;
+        }
+
+        #wrapper {
+            border: 4px solid red;
+            width: 220px;
+            height: 500px;
+            position: relative;
+            /* absoulute의 부모자격으로 속성 설정함 */
+            left: 100px;
+            top: 100px;
+        }
+
+        .panel {
+            position: absolute;
+            top: 30px;
+        }
+
+        #control {
+            position: absolute;
+            right: 5px;
+        }
+    </style>
+</head>
+<script>
+    var v_panels;
+    var v_num;
+    var v_panelIndex = 0;
+
+    window.onload = function() {
+        v_panels = document.querySelectorAll('.panel'); // 배열 값
+        v_num = document.querySelector('#id_num'); // 1 / 3
+        v_num.value = (v_panelIndex + 1) + " / " + v_panels.length;
+    }
+    function f_next() {
+        // 상위스택값 초기화
+        v_panels[v_panelIndex].style.zIndex = 0;
+        // 판넬의 갯수만큼 index정보를 표현할 수 있도록 초기화
+        if (v_panelIndex == v_panels.length - 1) v_panelIndex = 0;
+        else v_panelIndex++;
+        // 최초 1페이지 판넬의 다음 항목으로 스택 순위 변경(가장 상위로 배치)
+        v_panels[v_panelIndex].style.zIndex = 999;
+        // text field에 갱신된 페이지 정보 출력
+        v_num.value = (v_panelIndex + 1) + " / " + v_panels.length;
+    }
+    function f_prev() {
+        v_panels[v_panelIndex].style.zIndex = 0;
+        if (v_panelIndex == 0) v_panelIndex = v_panels.length - 1;
+        else v_panelIndex--;
+        v_panels[v_panelIndex].style.zIndex = 999;
+        v_num.value = (v_panelIndex + 1) + " / " + v_panels.length;
+    }
+</script>
+
+<body>
+    <!-- div#wrapper>div.panel*3>table>tr*3>td*2>img -->
+    <div id="wrapper">
+        <!-- div#control>input:button*2 -->
+        <div id="control">
+            <input type="button" value="&lt;" onclick="f_prev()">
+            <input id="id_num" size="1">
+            <input type="button" value="&gt;" onclick="f_next()">
+        </div>
+        <div class="panel" style="z-index: 3;">
+            <table border="1">
+                <tr>
+                    <td><img src="../images/som1.jpg" alt=""></td>
+                    <td><img src="../images/som2.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/som3.jpg" alt=""></td>
+                    <td><img src="../images/som4.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/som5.jfif" alt=""></td>
+                    <td><img src="../images/som6.jfif" alt=""></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel" style="z-index: 2;">
+            <table border="1">
+                <tr>
+                    <td><img src="../images/wok1.jfif" alt=""></td>
+                    <td><img src="../images/wok2.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/wok3.jpg" alt=""></td>
+                    <td><img src="../images/wok4.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/wok5.jpg" alt=""></td>
+                    <td><img src="../images/wok6.jpg" alt=""></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel" style="z-index: 1;">
+            <table border="1">
+                <tr>
+                    <td><img src="../images/ala.jpg" alt=""></td>
+                    <td><img src="../images/lion.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/lion.jpg" alt=""></td>
+                    <td><img src="../images/호랑이.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/사자.jpg" alt=""></td>
+                    <td><img src="../images/너굴맨.jpg" alt=""></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    // return을 이용해 else문 없애기
+
+    let result = "";
+    function f_rtn(p_arg) {
+        if (p_arg == "올슨") {
+            result = "완다";
+            return; // 구문(함수)종료
+        }
+        result = "아이언맨";
+    }
+
+    f_rtn("올슨");
+    alert(result);
+
+</script>

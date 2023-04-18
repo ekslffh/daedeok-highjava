@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+<script>
+    // 주석을 제외한 스크립트 최상단에 배치시켜야 기능이 활성화 됨
+    "use strict"; // 엄격모드 : 스크립트를 모던한 방식으로 실행함
+
+
+    var v_mascot;
+    (function f_fnc() {
+        v_mascot = "꿈순이"; // 엄격모드를 적용시 키워드로 선언되지 않은 변수에 대한 문법오류 지적
+    })(); // 즉시 실행 함수
+    // f_fnc(); // 함수 호출
+    console.log(v_mascot);
+
+    // 변수 타입 알아보기 - typeof 연산자 이용
+    /*
+        기본형 : number, string, boolean, undefined, null, Symbol
+        참조형 : array, function, object
+    */
+    var v_mascot = 100;
+    var v_mascot = "3교시";
+    var v_mascot = true;
+    var v_mascot = undefined;
+    var v_mascot = null; // null의 type은 null이다(object라고 나오는건 javascriptㅡ이 오래된 버그 중 하나)
+    var v_mascot = []; // object(array)
+    var v_mascot = function fnc() {} // type function
+    var v_mascot = {}; // object
+
+    console.log(typeof v_mascot);
+
+    // '+' 더하기 연산자는 왼쪽부터 오른쪽 방향으로 연산이 진행되므로 시작 위치 값에 따라 결과 상이
+    var v_sansu = "123" + 456; //123456
+    var v_sansu = "123" * 456; // ? 56088 - '+'를 제외한 사칙연산은 문자를 자동을 숫자형으로 변환 후 연산
+    // alert(v_sansu);
+
+    // alert(parseInt("123ABC")); // 문자열을 분리시키고 숫자만 반환
+    // alert(parseInt("ABC123")); //? NaN (Not a Number : 숫자가 아닌 유형 - 알수없는 데이터)
+
+    // 비교 연산자 - Loose(==), strict(===)
+    if ("123" == 123) { // 동등 비교 연산자
+        alert("뜸1"); 
+    }
+
+    if ("123" === 123) { // 일치 비교 연산자
+        alert("뜸2");
+    }
+
+    if([] == []) { // 객체로서 참조타입 => 서로 다른 주소를 갖고 있음
+        alert("뜸3");
+    }
+</script>

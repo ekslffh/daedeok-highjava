@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+/* 자식요소 선택 */
+#parent>div {
+    border: 1px solid blue;
+}
+/* 후손(자식포함)요소 선택 */
+#parent div {
+    border: 1px solid gold;
+}
+/* 모든 형제 선택 */
+#second~div {
+    color: hotpink;
+}
+/* 다음 형제 선택 */
+#second+div {
+    color: red;
+}
+</style>
+<body>
+    <!-- 들여쓰기를 통해 상하 계층구조(부모자식의 관계)를 한눈에 볼 수 있음 -->
+    <div id="parent">
+        <div id="first">자식1</div>
+        <div id="second">자식2
+            <div>후손1</div>
+            <div>후손2</div>
+            <div>후손3</div>
+        </div>
+        <div>자식3</div>
+        <p>자식4</p>
+        <div>자식5</div>
+    </div>
+</body>
+</html>

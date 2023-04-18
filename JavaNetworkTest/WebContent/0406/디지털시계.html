@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            color: yellow;
+            background-color: black;
+            text-align: center;
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Date객체로 현재 날짜 정보를 받아 1초마다 시간 업데이트</h4>
+    <div id="id_clock" class="cls_clock">00:00:00</div>
+    <script>
+        // 요소에 접근할 때 id속성 값을 이용할 수 있지만,
+        // 테스트 용도로만 가볍게 사용하고
+        // 실제 사용화 코드에는 메소드를 통한 요소 접근이 바람직하다.
+
+        // console.log(id_clock); // 테스트시에만 사용..
+
+        let idSel = document.querySelector('#id_clock')
+        // let idSel1 = document.getElementById('id_clock');
+        // let clsSel = document.querySelector('.cls_clock');
+        // let clsSel1 = document.getElementsByClassName('cls_clock')[0];
+        // let tagSel = document.querySelector('div');
+        // let tagSel1 = document.querySelectorAll('div')[0];
+        // let tagSel2 = document.getElementsByTagName('div')[0];
+        // console.log(tagSel2);
+
+        setTimeout(function f_autoClock() {
+            let today = new Date(); // 오늘 날짜
+
+            // let year = today.getFullYear(); // 4자리 연도 정보
+            // getYear() - 1900년대를 대상으로만 데이터를 반환
+            // 현재 표준목록에서 제외되었음
+            // 대상 날짜로부터 1900을 뺀 결과를 반환해줌
+            // let y2k = today.getYear(); // 1900년대를 대상으로만 사용가능한 데이터를 반환
+
+            // let month = today.getMonth() + 1; // 1월을 0부터 반환 (get +1)
+            // let date = today.getDate();
+            // let day = today.getDay(); // 요일정보 반환 0:일 6:토
+            // console.log(`${month}월 ${date}일 ${day}요일`); // 요일데이터 한글정보로 변경
+
+            let hour = today.getHours();
+            let min = today.getMinutes();
+            let sec = today.getSeconds();
+            // console.log(hour + ":" + min + ":" + sec);
+            // console.log(sec.toString().length);
+
+            if (sec < 10) {
+            // if (sec.toString().length == 1) {
+                sec = "0" + sec;
+            }
+            if (min.toString().length == 1) {
+                min = "0" + min;
+            }
+            if (hour.toString().length == 1) {
+                hour = "0" + hour;
+            }
+
+            idSel.innerText = hour + ":" + min + ":" + sec;
+            setTimeout(f_autoClock, 1000);
+        }, 1000);
+    </script>
+</body>
+
+</html>

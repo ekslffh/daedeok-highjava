@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+<script>
+    // 기본타입 - 값을 복사하여 사용 
+    var v_coffee = "커피"; 
+    var v_tea = v_coffee; // 값을 복사하고 변수에 저장 call by value
+    console.log(v_tea); // 커피
+    v_coffee = "얼죽아";
+    console.log(v_tea, v_coffee);
+
+    // 참조타입은 값에 참조
+    var v_arr = ["로제", "크림", "오일", "페스토"];
+    var v_arr2 = v_arr;
+    v_arr2[2] = "51";
+    console.log(v_arr[2], v_arr); // 51
+</script>

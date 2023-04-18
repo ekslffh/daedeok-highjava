@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+// javacript는 요소별로 스타일 지정
+document.addEventListener('DOMContentLoaded', function() {
+
+    let v_h4s = document.querySelectorAll('h4');
+    for (let i = 0; i < v_h4s.length; i++) {
+        v_h4s[i].style.color = 'red';
+    }
+
+});
+window.addEventListener('load', function() {});
+window.onload = function() {};
+
+// jQuery는 일괄 스타일 지정
+$(document).ready(function() {
+    $('h4').css('color', 'gold');
+    // eq() - element queue 메소드로 요소 일부분 선택
+    $('h4').eq(0).css('backgroundColor', 'navy');
+});
+
+</script>
+<body>
+    <h4>jQuery($)</h4>
+    <h4>jQuery($)</h4>
+    <h4>jQuery($)</h4>
+    <h4>jQuery($)</h4>
+</body>
+</html>

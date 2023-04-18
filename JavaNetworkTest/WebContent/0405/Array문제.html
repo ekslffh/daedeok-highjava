@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h4><a href="javascript:f_input()">이름을 계속 입력받고 출력하기</a></h4>
+    <h4><a href="javascript:f_output()">중복되지 않는 정수 5개 출력하기</a></h4>
+    <div></div>
+
+<script>
+    let f_output = function() {
+
+        let arr = []; // 빈 배열 생성
+        for (;;) {
+
+            let v_num = prompt("정수를 입력하세요");
+
+            // 빠져나올 조건을 지정
+            if (v_num == " " || v_num == null) {
+                break;
+            } else if (isNaN(v_num)) { // isNaN()의 인자가 number타입이 아닌 경우 숫자로 자동형변환
+                continue;
+            }
+
+            // 중복 체크 필요 - indexOf() >> -1을 반환하는 특징을 가지고..
+            let idx = arr.indexOf(v_num);
+            if (idx != -1) {
+                alert("중복값입니다");
+            } else {
+                arr.push(v_num);
+            }
+
+            // 갯수 체크
+            if (arr.length >= 5) break;
+        }
+        document.querySelector('div').textContent = arr;
+
+    };
+
+    // 표현식 함수
+    let f_input = function() {
+
+        let arr = new Array(); // 빈 배열 생성
+        while(1) {
+
+            let v_name = prompt("이름을 입력하세요");
+            // 무한반복을 빠져나갈 조건 우선 지정
+            if (v_name == " " || v_name == null) break;
+
+            arr.push(v_name);
+        }
+        document.querySelector('div').innerText = arr;
+
+
+    };
+</script>
+</body>
+</html>

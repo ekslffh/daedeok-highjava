@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    margin-top: 20px;
+    overflow: auto;
+}
+#d1 {
+    border-style: solid;
+    height: 300px;
+}
+#d2 {
+    border: 1px dashed gold;
+    height: 100px;
+}
+/* img {
+    width: 100px;
+} */
+</style>
+</head>
+<body>
+    <input type="file" id="fileBtn">
+    <button>읽기</button>
+
+    <h4>결과출력(FileReader객체)</h4>
+    이미지파일일 경우에는 DataURL형식으로, 아닌경우는 Text형식으로
+    <div id="d1"></div>
+
+    <h4>파일 정보(File객체)</h4>
+    이미지파일을 읽은 경우에 이미지가 표시된다. <br>
+    다른 파일을 읽은 경우 이미지가 표시되지 않는다
+    <div id="d2"></div>
+
+<script>
+
+    let v_d1 = document.querySelector('#d1');
+    let v_d2 = document.querySelector('#d2');
+
+    document.querySelector('button').addEventListener('click', function() {
+
+        // 선택한 파일의 타입 정보 확인하기
+        let v_file = document.querySelector('#fileBtn').files[0]; // 첫번째 데이터만 받아옴
+        // console.log(v_file.type);
+        // 타입정보중 형식부분 추출하기1 - substring(start, end), slice(start, end), substr(start, length)이용하기
+        let idx = v_file.type.indexOf("/"); // 슬래시의 인덱스정보 얻기 => end범위로 사용예정
+        // let v_type = v_file.type.substring(0, idx);
+
+        // 타입정보중 형식부분 추출하기2 - split이용하기
+        let v_type = v_file.type.split("/")[0];
+        // console.log("split이용>>", v_type);
+
+        // text파일의 경우 - readAsText() 사용
+        if (v_type == 'text') {
+            
+            let rd = new FileReader();
+            rd.onload = function() {
+                v_d1.innerText = rd.result;
+            };
+            rd.readAsText(v_file); // 텍스트 파일의 내용 읽어 result로 반환
+
+            let v_info = `파일명: ${v_file.name} <br>`;
+            v_info += `파일 형식: ${v_file.type} <br>`;
+            v_info += `파일 크기: ${v_file.size} <br>`;
+            v_info += `마지막 수정 일자: ${v_file.lastModifiedDate.toLocaleString()} <br>`;
+            v_d2.insertAdjacentHTML('beforeend', v_info);
+
+        // image파일의 경우 - readAsDataURL() 사용
+        } else if (v_type == 'image') {
+            let rd = new FileReader();
+            rd.onload = function() {
+                let v_img = document.createElement('img');
+                v_img.src = rd.result;
+                v_img.alt = v_file.name.split(".")[0];
+                v_img.style.width = "100%";
+                console.log(v_img)
+                v_d1.appendChild(v_img);
+            };
+            rd.readAsDataURL(v_file); // 이미지 파일의 내용 읽어 result로 반환
+            
+            let v_info = `파일명: ${v_file.name} <br>`;
+            v_info += `파일 형식: ${v_file.type} <br>`;
+            v_info += `파일 크기: ${v_file.size} <br>`;
+            v_info += `마지막 수정 일자: ${v_file.lastModifiedDate.toLocaleString()} <br>`;
+            v_d2.insertAdjacentHTML('beforeend', v_info);
+        }
+
+    });
+</script>
+</body>
+</html>

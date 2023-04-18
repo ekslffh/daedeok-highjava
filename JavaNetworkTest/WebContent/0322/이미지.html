@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    img {
+        width: 280px;
+        height: 400px;
+    }
+</style>
+</head>
+<body>
+    
+    <img src="./아이유.jpg" alt="아이유이미지">
+
+    <!-- 절대경로 : 웹 페이지나 파일이 가진 고유한 경로 -->
+    <!-- 프로젝트 외부에 존재하는 파일은 보안상 접근불가 -->
+    <!-- 웹에서 문서에 접근하고 이미지를 찾기때문에 로컬(내컴퓨터 내부소스)자료는 접근 불가 -->
+    <img src="D:\브레드이발소.jpg" alt="절대경로의 브레드이발소">
+
+    <!-- 
+        /    root 문서의 최상단 표현
+        ./   현재 위치를 표현
+        ../  현재 위치의 상위 표현 
+    -->
+
+    <!-- 상대경로 : 현재 위치를 기준으로 지정할 수 있음 -->
+    <img src="../브레드이발소 - 복사본.jpg" alt="브레드이발소">
+    <img src="/브레드이발소 - 복사본.jpg" alt="브레드이발소">
+
+    <!-- 호빵맨 이미지 표현해보기 -->
+    <!-- 절대경로 -->
+    <img src="/images/호빵맨.jpg" alt="호빵맨 이미지">
+    <!-- 상대경로 -->
+    <img src="../images/호빵맨.jpg" alt="호빵맨 이미지">
+
+    <!-- 웹에 존재하는 이미지 주소 이용하기 -->
+    <img src="data:image/jpeg;base64,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" alt="돈데크만">
+
+</body>
+</html>

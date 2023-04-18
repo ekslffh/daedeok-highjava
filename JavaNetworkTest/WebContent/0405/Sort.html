@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // sort(fnc) - 인수로 '값을 비교하는 함수'를 지정하여 크기순 정렬할 수 있다
+    
+    let v_numArr = [12,100,230,32,300,24,512];
+    let v_strArr = ["가영","라영","다영","나영","하영"];
+    
+    // 인수가 지정되지 않은 sort()는 사전순 정렬을 제공하며 잘 사용되지 않는 형태
+    console.log('사전순 정렬: ', v_numArr.sort());
+    console.log('사전순 정렬: ', v_strArr.sort());
+
+    // sort(fnc) - 인수로 '값을 비교하는 함수'를 지정하여 크기순 정렬할 수 있다
+    v_numArr.sort(function(a,b){
+        // return a - b; // 반환값이 음수일 때 자리변경이 일어남, 오름차순 정렬
+        return b - a; // 음수일 때 자리변경, 내림차순
+    });
+    console.log("크기순 숫자 정렬: ", v_numArr);
+
+    v_strArr.sort(function(a,b) {
+        // return a - b; // 문자 정렬은 빼기연산자('-')를 이용해서 처리할 수 없음
+        // 대신, 비교연산자를 이용하면 문자열을 유니코드로 해석하고 비교한다.
+        // 음수일 때 자리 변경이 이루어짐
+        if (a >= b) return 1;
+        else return -1;
+    })
+    console.log(v_strArr);
+
+    if ("가영" >= "다영") {
+        alert("가영이가 유니코드로 비교했을 때 더 우선");
+    } else {
+        alert("다영이가 유니코드로 비교했을 때 더 우선");
+    }
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    function f_fnc(p_arg1, p_arg2, p_arg3) { // 매개변수가 더 많으면 undefined반환
+        alert(p_arg1 + p_arg2 + p_arg3);
+        alert(p_arg1[0]);
+    }
+    // f_fnc("첫번째", "두번째"); // 인자가 남으면 무시됨
+    // f_fnc(["일번", "이번", "삼번"]);
+
+    function f_fnc1(p_arg) {
+        // 참조형(object)정보가 넘어왔을 때 key로 접근 가능하며
+        // 숫자는 배열식접근법을 사용해야 함
+        alert(p_arg.인수);
+        alert(p_arg["매개변수"]); // 문자타입의 key를 배열식접근법으로 사용시 반드시 따옴표("")처리해야 함
+        alert(p_arg[0401]);    
+    }
+    // f_fnc1({인수:"argument", "매개변수":"parameter", 0401:"만우절"});
+
+    function f_fnc2(p_arg) {
+        alert(p_arg()); //?
+    }
+    // f_fnc2(function() {alert('인자로함수전달'); return "리턴 생략가능하며, 생략시 undefined 반환";}); 
+
+    f_fnc2(f_fp);
+
+    function f_fp() {
+        alert('인자로함수전달'); 
+        return "함수의 끝에 리턴문이 항상 존재하지만 생략가능하며, 생략시 undefined 반환!!";
+    }
+
+</script>

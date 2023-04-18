@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border: 2px solid black;
+    position: relative;
+    left: 15px;
+    top: 10px;
+}
+#gmom {
+    width: 200px;
+    height: 200px;
+}
+#mom {
+    width: 120px;
+    height: 120px;
+}
+#na {
+    width: 50px;
+    height: 50px;
+}
+</style>
+</head>
+<body>
+    <h4>
+        이벤트 메소드 두가지 기억하기
+        preventDefault() : 기본 장착된 이벤트 기능 막기
+        stopPropagtion() : 이벤트 버블링 (요소의 부모 이벤트까지 실행되는 현상) 막기
+    </h4>
+
+    <a href="../images/ala.jpg" id="view">이미지 보기</a>
+
+    <form action="">
+        <!-- form안에 존재하는 button은 submit기능을 갖음 -->
+        <button>폼안버튼</button> 
+    </form>
+    <!-- 그냥 순수한 버튼 -->
+    <button>폼밖버튼</button>
+
+    <div id="gmom">
+        할머니
+        <div id="mom">
+            엄마
+            <div id="na">
+                나
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.querySelector('#view').addEventListener('click', function() {
+         event.preventDefault(); // 넘어오는 이벤트가 실행하는 기능을 막음
+    });
+
+    // querySelector특성상 여러 요소 중 첫번째 항목만 반환
+    document.querySelector('button').addEventListener('click', function() {
+        event.preventDefault(); // 버튼이 가진 submit기능 중지
+    });
+
+    document.querySelector('#gmom').addEventListener('click', function() {
+        this.style.border = "4px dotted brown";
+    });
+    document.querySelector('#mom').addEventListener('click', function() {
+        this.style.border = "4px inset red";
+    });
+    document.querySelector('#na').addEventListener('click', function() {
+        // 이벤트의 버블링(상위요소의 이벤트가 실해되는 형상)을 막음
+        event.stopPropagation(); 
+        this.style.backgroundColor = "gold";
+    });
+</script>
+
+</body>
+</html>

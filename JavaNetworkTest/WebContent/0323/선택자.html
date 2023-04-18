@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    /* 요소(태그)선택자 */
+    div {
+        color: skyblue;
+        background-color: black;
+    }
+    /* id선택자 */
+    #goblin {
+        font-size: 2em; /* 기본 폰트사이즈의 2배 */
+        color: red; /* 선순위로 작성되었지만 우선순위가 높으므로 적용됨 */
+    }
+    #hong {
+        border-color: blue; /* 해당요소가 이미 뼈대(border-style)를 갖고 있으므로 적용됨 */
+    }
+    /* class선택자 */
+    /* 공백없이 작성시 and연산으로 대상을 선택, div.kes >> div이면서 class=kes인 요소 */
+    div.kes {
+        color: lime;
+        background-color: orange;
+    }
+    /* 전체선택자 */
+    * {
+        border: solid lightgreen 2px;
+    }
+    /* 다중선택 */
+    p, .kes {
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+    <div class="kes">더 글로리</div>
+    <div class="kes">미스터 션샤인</div>
+    <div id="goblin" class="kes">도깨비</div>
+    <div id="hong">환혼</div>
+    <p class="kes">시크릿 가든</p>
+    <div class="kes">파리의 연인</div>
+</body>
+</html>

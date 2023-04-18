@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 2px solid green;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div>랜덤색표현</div>
+    <input type="button" id="ranColor" value="랜덤칼라">
+    <input type="button" id="stop" value="중지">
+
+    <script src="../js/random.js"></script>
+    <script>
+        let timer;
+        document.querySelector('#ranColor').addEventListener('click', function () {
+
+                timer = setInterval(function () {
+                // setTimeout(function ranFnc() {
+                // 색상 만들기
+                // 10진수 색상을 표현하는 곳은 rgb(r,g,b) => rgb(0~255중 하나, 0, 255);
+                // console.log("0~255범위 랜덤값 받음>> ", f_random(0, 255));
+
+                let v_disp = document.querySelector('div');
+                let random = [];
+                let random16 = [];
+
+                for (let i = 0; i < 3; i++) {
+                    const RND = f_random(0, 255);
+                    random[i] = RND;
+                    random16[i] = RND.toString(16);
+                }
+                console.log(random, " | ", random16.join(""));
+
+                // v_disp.style.backgroundColor = `rgb(${random})`;
+                v_disp.style.backgroundColor = `#${random16.join("")}`;
+                v_disp.innerText = random16.join("");
+                // timer = setTimeout(ranFnc, 1000);
+            }, 1000);
+        });
+
+        document.querySelector('#stop').addEventListener('click', function() {
+            // 기능 중지하기
+            clearInterval(timer);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* background-color: aliceblue; */
+        }
+        fieldset {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid;
+            padding: 50px 0px 50px 60px ;
+        }
+
+        div {
+            /* width: 너비값을 부여 ; */
+            margin: 0 auto;
+            line-height: 높이 값과 같게 ;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <fieldset>
+            <legend>회원정보 입력</legend>
+            <form>
+                <div>
+                    <label for="id">아이디</label>
+                    <input type="text" id="id">
+                    <input type="button" value="중복확인"><br>
+                </div>
+                <div>
+                    <label for="pw">패스워드</label>
+                    <input type="text" id="pw"><br />
+                </div>
+                <div>
+                    <label for="pw_check">패스워드확인</label>
+                    <input type="text" id="pw_check"><br />
+                </div>
+                <div>
+                    <label for="name">이름</label>
+                    <input type="text" id="name"><br />
+                </div>
+                <div>
+
+                    <label for="tel">휴대폰번호</label>
+                    <input type="text" id="tel"><br />
+                </div>
+                <div>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email"><br />
+                </div>
+                <div>
+                    <label for="birth">생일</label>
+                    <input type="text" id="birth"><br />
+                </div>
+                <div>
+                    <label for="gender">성별</label>
+                    <span>
+                        <input type="checkbox" id="gender" value="male">남자
+                        <input type="checkbox" id="gender" value="female">여자
+                    </span>
+                </div>
+        </fieldset>
+    </div>
+</body>
+
+</html>

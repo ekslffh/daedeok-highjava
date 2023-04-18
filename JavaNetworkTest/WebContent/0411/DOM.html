@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border: 2px solid blue;
+}
+</style>
+</head>
+<body>
+    <!-- 
+        DOM(Document Object Model)
+        브라우저가 html페이지(=웹문서)를 인식(이해)하도록 구성된 문서객체모델
+        document와 관련된 객체들의 집합으로, 문서의 구조화된 표현을 제공한다
+        프로그래밍언어(js)로 DOM구조에 접근할 수 있는 방법을 제공하며,
+        그를 통해 구조, 스타일, 내용 등을 변경할 수 있다 
+
+        DOM TREE구조 (★ - 많이 쓰는 노드)
+
+        ★Document, 문서노드 - 트리의 최상단, 하위로 접근하기 위한 시작점
+        ㄴDocumentType
+        ㄴElement, 요소노드 - 각종 tag들
+            ㄴ★Attribute, 어트리뷰트노드 - tag의 속성
+            ㄴEntity
+            ㄴEntityReference
+            ㄴ★Text, 텍스트노드 - 요소노드의 자식이자 최종단
+        ㄴComment
+        ㄴCDATASection
+        ㄴNotation
+    -->
+
+    <!-- <div onclick="addText('텍스트','추가')">요기 클릭</div> -->
+    <!-- <div onclick="addTextInElem('생성된요소에','텍스트추가')">요기 클릭</div> -->
+    <div id="parent">
+        <div id="target">
+            여기 클릭
+            <input type="hidden" id="hd1" value="ㅎ안보임ㅎ">
+            <input type="hidden" id="hd2" value="ㅋ안보임ㅋ">
+        </div>
+    </div>
+
+<script>
+
+document.querySelector('#target').addEventListener('click', function() {
+    console.log(this);
+
+    // node와 element를 통해 접근하고 반환하는 객체가 다르기 때문에
+    // 무엇을 기준으로 요소에 접근하고 값을 반환할 것인지 기준을 명확히 할 필요가 있음
+    
+
+    // node대상 속성 - parentNode, first(last)Child ...
+    console.log(this.childNodes[0].nextSibling);
+    // element대상 속성 - parentElement, first(last)ElementChild ...
+    console.log(this.children[0].nextElementSibling); 
+})
+
+function addText(t1, t2) {
+    console.log(t1);
+    // appendChild() - node만을 대상으로 요소에 추가해주는 메소드
+    // 요소 안의 뒷편(마지막 항목으로) 추가(add)시켜줌
+    // 하나의 요소만을 대상으로 추가한다
+
+    // append() - node와 DOMString(=text)을 대상으로 추가하는 메서드
+    // 여러개의 요소를 추가한다.
+
+    let textNode1 = document.createTextNode(t1); // text를 textNode로 변환
+    let textNode2 = document.createTextNode(t2); // text를 textNode로 변환
+    // document.querySelector('div').appendChild(textNode1, textNode2);
+    document.querySelector('div').append(t1, t2);
+}
+
+function addTextInElem(t1, t2) {
+    let v_pTag = document.createElement('p'); // 요소를 동적으로 생성
+    let tn1 = document.createTextNode(t1); // text -> textNode로 변환
+
+    v_pTag.append(tn1, t2); // err -> DOMString은 오류발생
+
+    document.querySelector('div').appendChild(v_pTag);
+}
+
+</script>
+</body>
+</html>

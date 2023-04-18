@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    /* 문자열 string
+    자바스크립트의 기본타입(primitive type)
+    기본 타입은 객체가 아니므로 속성과 메소드가 존재하지 않는다
+    자바스크립트에는 null, undefined를 제외한 기본타입을 래핑하는 래핑객체가 있다
+    기본타입은 속성과 메소드를 정의할 수 없고, 
+    래퍼객체가 제공하는 속성과 메소드만을 이용하여 값을 처리할 수 있다
+    (원시데이터 처리 >> 암묵적 래퍼객체로 만들어 처리 후 메모리에서 삭제하는 형태)
+    */
+
+    let v_str = "string객체는 원시 타입인 문자열을 다룰 때 유용한 속성과 메소드를 제공하는 래퍼(wrapper)객체";
+
+    // console.log(v_str.length);
+    // console.log(v_str.charAt(2)); // 'r'문자 반환
+    // console.log(v_str.charCodeAt(6).toString(16)); // '객'문자에 대한 유니코드를 반환
+
+    /* 아스키코드와 유니코드
+    American Standard Code for Information Interchange(ASCII, 미국 정보교환 표준부호)
+    컴퓨터는 문자를 숫자로 기억하고 표현하는데, 이에 대해 모든 사람이 사용할 공동 규칙이
+    필요했고, 1967년 알파벳을 기반으로 한 문자 인코딩이 탄생 => 아스키 코드
+    1byte 중 7bit를 이용해 0~127 범위의 숫자로 문자를 표현했다. (제어,공백,숫자,알파벳 등)
+
+    unicode
+    전세계 모든 글자를 표현할 수 있는 표준 코드
+    종류는 utf-8, utf-16등이 있고, 그 중 utf-8이 웹 페이지에서 사용되는 유니코드 인코딩 방식
+    영문/숫자/기호 1byte로 표현, 한글/하자 등 3byte로 표현할 수 있다
+    
+    euc-kr 한글을 표현하는 인코딩 방식
+    한글자 당 2byte로 표현 => 뚫 뷁 => 깨짐
+    */
+
+    // console.log("indexOf(): ", v_str.indexOf("객", 7)); // 6
+    // console.log("lastIndexOf(): ", v_str.lastIndexOf("객", 5)); // 56
+
+    // concat() - 여러 문자열을 연결, ('+')더하기 연산자와 동일 기능
+    let a = "A";
+    let b = "pp1";
+    let c = "e";
+    a.concat("concat(): ", a.concat(b, c)[2]);
+
+    // trim() - 데이터의 앞,뒤 공백 제거(데이터 사이의 공백은 유지)
+    let data = "    짱         구           ";
+
+    // alert는 첫번째 인자만 출력 주의
+    // alert("데이터 길이: " + data.length);
+    // '+'연산자는 문자열로 통합, 쉼표는 각 데이터 타입을 구분해서 콘솔로 표현해 줌
+    // console.log("데이터 길이: ", data.length);
+
+    data = data.trim();
+    // console.log("trim 적용 후 길이: ", data.length);
+
+    // replace(oldStr, newStr) - 검색 대상을 새 문자로 치환하며 원본은 변하지 않음 주의
+    // 고로, 원본 값을 변경하고 싶으면 해당 원본 변수에 변경된 값을 대입해줘야 함!
+    // v_str.replace('찾을 대상', '변경할 문자');
+    let v_new = v_str.replace('객체', 'Object');
+    let v_new1 = v_str.replace(/객체/g, 'Object'); // g: global- 전역에서 패턴 찾기
+    // console.log("replace(): ", v_new1);
+
+    // replaceAll(oldStr, newStr) 
+    // let v_new2 = v_str.replaceAll('객체', 'ㄱ ㅐ ㄱ ㅊ ㅔ');
+    // v_str = v_str.replaceAll('객체', 'ㄱ ㅐ ㄱ ㅊ ㅔ'); // v_str이라는 샘플데이터 공간에 데이터 재 할당
+    // console.log(v_str);
+    // console.log("replaceAll(): ", v_new2);
+
+    // search(), match() - w3schools.com에서 예제 확인
+
+    // substring(str, end - 1) | slice(str, end) | substr(str, length)
+    console.log(v_str.substring(0, 6));
+    console.log(v_str.slice(0, 6));
+    console.log(v_str.substr(0, 8)); // 두번째 인자로 추출할 문자의 길이 지정
+
+    // split(separator, limit) - 구분자로 문자열을 나누고 배열로 반환받을때 반환받을 갯수 지정가능
+    let v_split = v_str.split(' ', 4);
+    console.log(v_split);
+
+</script>

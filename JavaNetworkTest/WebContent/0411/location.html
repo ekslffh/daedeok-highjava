@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        window.location 
+        - 현재 위치(브라우저의 주소 표시줄, url)를 object로 가져오는 표준 방법 
+    -->
+
+    <a href="//daum.net">DAUM</a>
+    <input type="button" value="페이지 리로드">
+
+<script>
+    document.querySelector('a').addEventListener('click', function() {
+        event.preventDefault(); // 이벤트가 적용되는 대상이 가진 기본기능을 막음
+        // location.href = "http://naver.com"; // 페이지 이동에 많이 사용
+        location.assign("http://google.com");
+    });
+
+    document.querySelector('input').addEventListener('click', function() {
+
+        // alert(location.href); // 현재 페이지 주소(url)를 반환
+
+        // location.reload(); // 새로고침 효과 - 특별한 상황에만 사용 권장
+
+        // location.replace(location.href); // reload()와 동일 효과 - 새로고침
+
+        location.replace("http://naver.com"); // 이전페이지 이동 불가
+    });
+
+    /* href vs replace
+        href - 페이지가 이동하기 때문에 이전페이지로도 이동 가능
+                history에 기록(cache)되므로 캐시된 페이지를 보여주거나 서버에 요청하는 구조
+        replace - 페이지가 변경되므로 이전 페이지로 이동 불가
+                히스토리에 기록되지 않으며 항상 서버에 페이지를 요청하는 구조
+        *캐시 - 빠른 엑세스를 위해 값을 임시로 저장할때 사용
+    */
+</script>
+</body>
+</html>

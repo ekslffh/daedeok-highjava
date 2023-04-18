@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+#parent {
+    border: 5px double gray;
+    width: 100px;
+    height: 100px;
+    position: relative; /* 자식요소의absolute부모자격으로 지정 */
+    overflow: hidden;
+}
+.child {
+    position: absolute;
+    width: 600px;
+    /* child영역안으로 일렬정렬 방식1 */
+    /* font-size: 0; */
+}
+</style>
+</head>
+<body>
+    <div id="parent">
+        <div class="child">
+            <img src="../images/ala.jpg" alt="">
+            <img src="../images/som1.jpg" alt="">
+            <img src="../images/som2.jpg" alt="">
+            <img src="../images/som3.jpg" alt="">
+            <img src="../images/som4.jpg" alt="">
+            <img src="../images/som5.jfif" alt="">
+        </div>
+        <div class="child">
+            <img src="../images/lion.jpg" alt="">
+            <img src="../images/wok1.jfif" alt="">
+            <img src="../images/wok2.jpg" alt="">
+            <img src="../images/wok3.jpg" alt="">
+            <img src="../images/wok4.jpg" alt="">
+            <img src="../images/wok5.jpg" alt="">
+        </div>
+    </div>
+<script>
+    var v_child1 = document.querySelectorAll('.child')[0];
+    var v_child2 = document.querySelectorAll('.child')[1];
+
+    if (!v_child1.style.left) {
+        v_child1.style.left = "0px";
+        v_child2.style.left = "600px";
+    }
+
+    function f_move() {
+
+        // 반복을 위한 위치 초기화
+        if (parseInt(v_child1.style.left) == -600) v_child1.style.left = "600px";
+        if (parseInt(v_child2.style.left) == -600) v_child2.style.left = "600px";
+
+        v_child1.style.left = parseInt(v_child1.style.left) - 1 + "px";
+        v_child2.style.left = parseInt(v_child2.style.left) - 1 + "px";
+        setTimeout(f_move, 10);
+    }
+    f_move();
+
+</script>
+</body>
+</html>

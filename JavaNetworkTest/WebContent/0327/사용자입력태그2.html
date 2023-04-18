@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <!-- name속성으로 그룹핑하여 그룹 중 하나의 값만 선택 -->
+        남자<input type="radio" name="gender" value="남자">
+        여자<input type="radio" name="gender" value="여자" checked>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="선택" onclick="f_choice1()">
+    </div>
+
+    <div>
+        당신의 취미는
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="선택" onclick="f_choice2()"> <br>
+        <input type="checkbox" name="hobby" value="java">자바
+        <!-- 속성명과 속성값이 같은 항목을 property라고 칭한다 -->
+        <input type="checkbox" name="hobby" value="js" checked disabled>자바스크립트
+        <input type="checkbox" name="hobby" value="html">HTML
+        <input type="checkbox" name="hobby" value="css">CSS
+        <input type="checkbox" name="hobby" value="server">서버
+    </div>
+
+<script>
+    function f_choice2() {
+        var v_rdo = document.getElementsByName('hobby');
+        console.log(v_rdo)
+        var result = "";
+        for (var i = 0; i < v_rdo.length; i++) {
+            if (v_rdo[i].checked) {
+                if (result.length > 0) {
+                    result += ", "
+                }
+                result += v_rdo[i].value;
+            }
+        }
+        alert("나의 취미는 " + result)
+    }
+
+    function f_choice1() {
+        var v_rdo = document.getElementsByName('gender'); // 배열형태의 값
+        // console.log(v_rdo);
+
+        for (var i = 0; i < v_rdo.length; i++) {
+            // console.log(v_rdo[i].value, " => ", v_rdo[i].checked);
+            if (v_rdo[i].checked) {
+                // alert("당신의 성별은 " + v_rdo[i].value + "입니다");
+                alert("당신의 성별은 " + v_rdo[i].previousSibling.textContent.trim() + "입니다");
+            }
+        }
+    }
+
+    // 요소생성과 스크립트 작성 순서에 주의할 것
+    // 문서 내 모든 요소를 준비시키고 스크립트를 실행하게 하는 이벤트 load
+    window.onload = function() {
+        document.getElementById('id_text').value = "달려라하니";
+    }
+
+</script>
+
+    <div>
+        이름: <input id="id_text" size="30" placeholder="이름을 입력하세요">
+    </div>
+<script>
+    // document.getElementById('id_text').value = "달려라하니";
+</script>
+</body>
+</html>

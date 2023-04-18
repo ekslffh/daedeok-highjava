@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>열린 창</h2>
+    <textarea id="new_text" cols="30" rows="10" onkeydown="f_kd()">ㅎㅎㅎ</textarea>
+    <input type="button" value="버튼" onclick="f_check()">
+<script>
+function f_check() {
+    // 현재 멀티라인(textarea)의 본문 내용을 부모창 textarea로 출력하기
+    let v_nextxt = document.querySelector('#new_text').value;
+    // 나를 열어준 부모창을 지칭하는 opener속성을 이용해 부모창에 접근
+    opener.document.querySelector('#old_text').value = v_nextxt; // set
+}
+
+let f_kd = function() {
+    // console.log(event.key, event.keyCode);
+    // if (event.keyCode == 13) {
+    if (event.key == 'Enter') {
+        f_check();
+    }
+};
+</script>
+</body>
+</html>

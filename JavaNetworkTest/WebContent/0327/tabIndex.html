@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#wrapper {
+    border: 3px solid pink;
+    width: 90%;
+    height: 100px;
+}
+</style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>이름<input autofocus tabindex="1"></td>
+            <!-- tabindex -1적용시 focus주지 않음 -->
+            <td>별명<input tabindex="-1"></td>
+        </tr>
+        <tr>
+            <td>나이<input tabindex="2"></td>
+            <td>주소<input tabindex="4"></td>
+        </tr>
+        <tr>
+            <td>전화<input ></td>
+            <td>모바일<input tabindex="3"></td>
+        </tr>
+    </table>
+
+    <div id="wrapper" tabindex="0" contenteditable onkeydown="f_keyDown()">
+        tabIndex - focus받을 수 없는 요소를 focusing 가능하게 함
+        contenteditable - text필드처럼 내용을 입력할 수 있게 만들어 줌
+    </div>
+<script>
+function f_keyDown() {
+    alert(event.keyCode + " | " + event.key);   
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+table {
+    display: inline-block;
+    margin: 5px;
+}
+</style>
+</head>
+<body>
+    <!-- string(문자열)으로 테이블 요소 생성하기 -->
+    <input type="button" id="print99" value="전체 구구단출력">
+    <select id="sel99">
+        <option value="-">몇단</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+    </select>
+    <div></div>
+<script>
+    let v_sel = document.querySelector('#sel99');
+    v_sel.addEventListener('change', function() {
+        if (v_sel.value == "-") return;
+        // alert(v_sel.value) // select 요소의 option을 단일 선택시 value 속성으로 간단하게 값 가져옴
+        v_tbl = "<table border=1>";
+        v_tbl += "<tr><th>" + v_sel.value + "단</th></tr>"
+        for (let i = 1; i <= 9; i++) {
+            v_tbl += `<tr><td>${v_sel.value}  X  ${i}  =  ${v_sel.value * i}</td></tr>`
+        }
+        v_tbl += "</table>";
+        
+        document.querySelector('div').innerText = "";
+        document.querySelector('div').insertAdjacentHTML('afterbegin', v_tbl);
+    });
+
+    let v_print = document.querySelector('#print99');
+    v_print.addEventListener('click', function() {
+        let v_tbl = ""; // 초기화를 시켜야지 undefined을 포함한 데이터를 출력하지 않음
+        for (let i = 2; i <= 9; i++) {
+            v_tbl += "<table border=1>";
+            v_tbl += "<tr><th>" + i + "단</th></tr>"
+            for (let j = 1; j <= 9; j++) {
+                v_tbl += `<tr><td>${i}  X  ${j}  =  ${i * j}</td></tr>`
+            }
+            v_tbl += "</table>";
+        }
+
+        document.querySelector('div').innerText = "";
+        document.querySelector('div').insertAdjacentHTML('beforeend', v_tbl);
+    });
+</script>
+</body>
+</html>

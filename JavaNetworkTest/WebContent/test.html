@@ -1,0 +1,48 @@
+<!-- doctype이란 html버전을 브라우저 알리는 역할 -->
+<!DOCTYPE html>
+<!-- html - 문서 시작 태그(요소, element) -->
+<html lang="en">
+<head>
+    <!-- meta - 브라우저와 검색엔진로봇에게 메타정보를 제공하는 태그 -->
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!-- 내부 스타일 정의 - head영역안에 style요소로 정의하는 스타일 -->
+<style>
+    h2, h4 {
+        color: gold;
+    }
+</style>
+<script>
+    // alert("헤더영역에서 스크립트태그 사용");
+</script>
+</head>
+<!-- body - 사용자에게 보여질 실제 내용을 작성하는 공간 -->
+<body>
+    <script>
+        // alert("바디영역에서 스크립트태그 사용");
+    </script>
+    <!-- 헤더라인 태그(요소) / 글제목 담당 -->
+    <!-- 인라인 스타일 정의 - 요소 내부에 스타일을 정의하는 방식 -->
+    <h1 style="color: red;">본문 내용을 작성합니다</h1>
+    <h2>본문 내용을 작성합니다</h2>
+    <h3>본문 내용을 작성합니다</h3>
+    <h4 id="h4">본문 내용을 작성합니다</h4>
+    <h5>본문 내용을 작성합니다</h5>
+    <h6>본문 내용을 작성합니다</h6>
+    <script>
+        // alert("스크립트 html문서 어디서든 몇개든 사용가능");
+    </script>
+    <!-- 없는 태그는 브라우저 마음대로 해석 -->
+    <h7>본문 내용을 작성합니다</h7>
+
+    <!-- 하이퍼링크 태그 - html 탄생의 시초 -->
+    <a href="//naver.com" target="_blank">네이버로 이동</a>
+</body>
+<script>
+    // alert()와 console~은 디버깅과 관련된 작업에 많이 사용됨
+    // alert("바디 종료태그 하위에서 스크립트태그 사용");
+    // alert(document.getElementById('h4').innerText)
+    // console.log("개발자모드(우클릭-검사/F12)의 콘솔탭에서 정보 확인 >> 디버깅에 용이");
+    console.log(document.getElementsByTagName('h2')[0].innerHTML);
+</script>
+</html>

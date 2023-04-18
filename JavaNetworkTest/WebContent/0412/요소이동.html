@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+#parent {
+    font-size: 0;
+}
+</style>
+</head>
+<body>
+    <div id="parent">
+        <img src="../images/ala.jpg" alt="ala">
+        <img src="../images/lion.jpg" alt="lion">
+        <img src="../images/som1.jpg" alt="som1">
+        <img src="../images/som2.jpg" alt="som2">
+    </div>
+    <input type="button" id="left" value="<<">
+    <input type="button" id="stop" value="||">
+    <input type="button" id="right" value=">>">
+<script>
+    let v_left = document.querySelector('#left');
+    let timer; // 전역으로 선언
+
+    v_left.addEventListener('click', function() {
+        // alert("요소를 오른쪽으로 이동시킬건데 appendChild사용할거임")
+        // 왜 left부터 예제를 적용하냐면, 
+        // append와 appendChild의 기본 성질 때문 => 요소의 안쪽 뒤에 붙임
+
+        setTimeout(function moveLeft() {
+            // 부모영역 변수에 담기
+        let v_parent = document.querySelector('#parent');
+
+        // 부모로부터 첫번째 이미지 선택하기 - children[0], firstElementChild
+        let first = v_parent.firstChild;
+
+        // 선택된 이미지를 뒤쪽으로 붙이기(=이미지의 이동)
+        // v_parent.appendChild(first);
+
+        // v_parent.insertBefore(first, '요소안의뒷쪽으로 위치를 지정');
+        // console.log(v_parent.childNodes[8]);
+        // console.log(v_parent.lastChild);
+        v_parent.insertBefore(first, v_parent.childNodes[8]);
+        timer = setTimeout(moveLeft, 1000);
+        }, 1000);
+    });
+
+    // 오른쪽으로 이미지 이동하기
+    // 마지막 요소를 선택하고 
+    // 출력공간의 가장 앞쪽에 배치시키기 - insertBefore() 사용할 것!
+    let v_right = document.querySelector('#right');
+    v_right.addEventListener('click', function() {
+        setTimeout(function moveRight() {
+            // 부모영역 변수에 담기
+        let v_parent = document.querySelector('#parent');
+
+        // 부모로부터 첫번째 이미지 선택하기 - children[0], firstElementChild
+        let last = v_parent.lastChild;
+
+        // 선택된 이미지를 뒤쪽으로 붙이기(=이미지의 이동)
+        // v_parent.insertBefore(last, v_parent.childNodes[0]);
+        v_parent.insertBefore(last, v_parent.firstChild);
+        timer = setTimeout(moveRight, 1000);
+        }, 1000);
+    });
+
+    // stop버튼에 click이벤트 부여하기
+    document.querySelector('#stop').addEventListener('click', function() {
+        // (setTimeout객체를 변수에 담고) clearTimeout() 인자로 넣어서 실행 중지시키기
+        clearTimeout(timer);
+    });
+
+    
+
+</script>
+</body>
+</html>

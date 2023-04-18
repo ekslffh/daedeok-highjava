@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#wrapper {
+    border: 10px inset gray;
+}
+.nf {
+    border: 2px solid royalblue;
+    margin: 10px;
+}
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="nf">길복순</div>
+        <div class="nf">피지컬100</div>
+        <div class="nf">튜스데이</div>
+        <div class="nf">문어게임</div>
+    </div>
+
+<script>
+
+    let v_parent = document.querySelector('#wrapper');
+
+    // 모든 클래스에 이벤트를 부여
+    let v_nflx = document.querySelectorAll('.nf');
+
+    for (let i = 0; i < v_nflx.length; i++) {
+        v_nflx[i].addEventListener('click', function() {
+            alert("재밌는 " + v_nflx[i].innerText);
+        });
+    }
+
+    // 부모영역에 새 요소(div) 추가하기
+    // innerHTML을 이용해 요소 추가시 기존 요소도 동적요소로 변경되어, (기본 바인딩방식)이벤트가 적용되지 않음
+    // v_parent.innerHTML += "<div class=\"nf\">브레드이발소</div>";
+
+    // 그런데, innerHTML을 대체하는 insertAdjacentHTML()을 이용해 요소 추가할 경우,
+    // 기존 정적 요소는 (동적으로)변경하지 않고 새로 추가되는 요소만 동적요소로 추가해줌
+    v_parent.insertAdjacentHTML('beforeend', "<div class=\"nf\">브레드이발소</div>");
+
+    // 동적인 요소도 이벤트를 부여받고 싶다.. >> 방법은 델리게이트방식 이벤트 적용이다.
+    // delegate event => 부모(반드시 정적요소)가 이벤트를 받고 그 이벤트를 자식에게 위임, 전달하는 방식
+    v_parent.addEventListener('click', function() {
+        // alert("부모에게 이벤트를 줬짜나 클릭이벤트");
+        // console.log(event.target.innerText);
+        console.log(event);
+        alert("나도 재밌는 " + event.target.innerText + "!!!!!");
+    });
+
+</script>
+</body>
+</html>

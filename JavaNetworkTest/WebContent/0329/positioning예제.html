@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#parent {
+    position: relative; /* absolute의 부모자격부여 */
+    height: 100vh;
+}
+#parent::before {
+    background-image: url(../images/배경.avif);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+span {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: red;
+}
+img {
+    border-style: solid;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+    <div>요소 위로 추가1</div>
+    <div>요소 위로 추가1</div>
+    <div>요소 위로 추가1</div>
+    <div id="parent">
+        <!-- <img src="../images/배경.avif" alt="forest"> -->
+        <span>창 크기가 변해도 </span> 
+    </div>
+</body>
+</html>

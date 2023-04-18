@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // 문자열은 ""만 false로 형변환하고 나머지(" ", 공백포함)는 true로 형변환해줌
+    // 숫자는 0만 false, 나머지(음수포함)는 true로 형변환
+    if (0) {
+        // 실행문
+        alert("트루일때 실행함");
+    } else {
+        alert("false");
+    }
+
+    // 무한반복 사용시
+    // while (1) {}
+    // for(;;){}
+
+    let v_sum = 0;
+    let v_num = 0;
+
+    // for문 - while문 역도 성립
+    for(let i = 0; i < 10; i += 2) {
+        alert(i);
+        if (i == 2) continue; // 조건이 성립될 때 다음 라인 실행하지 않음
+
+        v_sum += i;
+        alert(v_sum);
+
+        v_num++;
+        if (v_num == 3) {
+            break;
+        }
+    }
+
+</script>

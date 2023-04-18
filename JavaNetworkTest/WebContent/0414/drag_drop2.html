@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#dropArea {
+    border: 3px solid aquamarine;
+    height: 200px;
+}
+</style>
+</head>
+<body>
+    <!-- 대상요소를 외부에서 가져오는 드래그_드롭 -->
+
+    <!-- 
+        브라우저는 읽을 수 있는 대상이 오면 새탭(새창)을 열어 표현 
+        드롭공간에 dragover, drop이벤트의 기능을 중지시켜 위 현상을 막음
+    -->
+    <div id="dropArea"></div>
+
+<script>
+    let v_area = document.querySelector('#dropArea');
+
+    v_area.addEventListener('dragover', function() {
+        event.preventDefault();
+    });
+    v_area.addEventListener('drop', function() {
+        event.preventDefault();
+
+        // 드래그드롭에 필요한 객체 - dataTransfer
+        // console.log(event.dataTransfer.files);
+
+        let v_file = event.dataTransfer.files[0]; // 하나의 파일정보만 담음
+
+        // FileReader객체: 파일에 접근하는 메소드를 제공하는 객체
+        let v_fReader = new FileReader();
+
+        // ⅱ.onload이벤트를 통해 읽기를 모두 완료한 후 result를 전달받을 수 있도록 함
+        v_fReader.onload = function() {
+            console.log(v_fReader.result);
+
+            // 반환받은 result정보를 통해 새요소를 만들기
+            let v_img = document.createElement('img'); //<img>
+            v_img.src = v_fReader.result;
+            // v_img.width = 100;
+            v_img.style = "width: 200px";
+            // v_img.setAttribute('width', '300');
+            // v_img.setAttribute('style', 'width: 400px');
+            v_area.appendChild(v_img);
+        }
+
+        // 파일을 dataURL형식으로 읽어 result속성으로 반환하는 메소드
+        // ⅰ.파일은 그 크기에 따라 읽고 처리하는 속도가 다른데,
+        // result보다 먼저 실행되지만 onload보다 후순위로 작성하는 것이 일반적인 코딩방식!
+        v_fReader.readAsDataURL(v_file);
+
+    });
+    window.addEventListener('dragover', function() {
+        event.preventDefault();
+    });
+    window.addEventListener('drop', function() {
+        event.preventDefault();
+    });
+
+</script>
+</body>
+</html>

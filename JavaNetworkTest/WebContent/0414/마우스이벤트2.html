@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    width: 50%;
+    height: 50vh;
+    border-style: solid;
+}
+</style>
+</head>
+<body>
+    <div oncontextmenu="return false"></div>
+
+<script>
+    let v_disp = document.querySelector('div');
+
+    // mousedown(누를때), mouseup(눌렀다 뗄때) 이벤트
+    v_disp.addEventListener('mousedown', function() {
+        console.log(event.button + " | " + event.which);
+
+        if (event.button == 0) {
+            v_disp.insertAdjacentHTML('beforebegin', '<h4>왼쪽클릭</h4>');
+        } else if (event.button == 1) {
+            v_disp.insertAdjacentHTML('afterbegin', '<h4>가운데클릭</h4>');
+        } else {
+            v_disp.insertAdjacentHTML('afterend', '<h4>오른쪽클릭</h4>');
+        }
+    });
+
+    v_disp.addEventListener('mouseup', function() {
+        alert("눌렀던 버튼을 놓았어....")
+    });
+
+    // 우클릭하면 나오는 contextmenu 발생 막기1
+    // v_disp.addEventListener('contextmenu', function() {
+    //     event.preventDefault(); // contextmenu의 기능 막기
+    // });
+
+    // contextmenu 발생 막기2 => 요소 내부 인라인 스크립트로 return false정의
+
+
+</script>
+</body>
+</html>

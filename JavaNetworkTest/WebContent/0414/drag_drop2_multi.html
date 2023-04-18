@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#dropArea {
+    border: 3px solid aquamarine;
+    height: 200px;
+    /* overflow: auto; */
+}
+</style>
+</head>
+<body>
+    <div id="dropArea"></div>
+<script>
+    let v_area = document.querySelector('#dropArea');
+
+    v_area.addEventListener('dragover', function() {
+        event.preventDefault();
+    });
+    v_area.addEventListener('drop', function() {
+        event.preventDefault();
+
+        // 파일을 여러개 받아오기
+        let v_files = event.dataTransfer.files;
+
+        for (let i = 0; i < v_files.length; i++) {
+            let v_fReader = new FileReader();
+
+            v_fReader.onload = function() {
+                console.log(v_fReader.result);
+
+                let v_img = document.createElement('img'); //<img>
+                v_img.src = v_fReader.result;
+                v_img.width = 100;
+                v_area.appendChild(v_img);
+            }
+            v_fReader.readAsDataURL(v_files[i]);
+        }
+
+    });
+    window.addEventListener('dragover', function() {
+        event.preventDefault();
+    });
+    window.addEventListener('drop', function() {
+        event.preventDefault();
+    });
+</script>
+</body>
+</html>

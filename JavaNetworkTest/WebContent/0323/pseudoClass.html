@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+/* 상태에 의한 선택 */
+a:link {
+    color: hotpink;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    background-color: orange;
+}
+a:active {
+    color: pink;
+    background-color: black;
+}
+/* 구조에 의한 선택 */
+tr:first-child {
+    background-color: red;
+}
+tr:last-child {
+    background-color: gold;
+}
+/* child관련 가상클래스는 index가 1부터 시작됨 */
+/* odd 홀수 / even 짝수 */
+tr:nth-child(even) {
+    background-color: gray;
+}
+</style>
+</head>
+<body>
+    <!-- 상태 또는 구조에 의한 선택 방법 제공 -->
+    <!-- https://www.w3schools.com/css/css_pseudo_classes.asp -->
+
+    <table border="1">
+        <tr>
+            <td><a href="https://www.w3schools.com/css/css_pseudo_classes.asp">w3schools</a></td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+    </table>
+
+</body>
+</html>

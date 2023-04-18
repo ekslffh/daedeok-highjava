@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 방식1. 인라인방식으로 이벤트 속성 부여 >> 보통 테스트 용으로 많이 씀 -->
+    <button onclick="alert('인라인방식 이벤트 부여')">인라인방식 이벤트 부여</button>
+    <!-- 방식2. onclick >> 스크립트 영역에서 요소 대상으로 적용, 한 요소에 여러 이벤트 적용시 마지막 항목만 실행 -->
+    <button id="btn1">onclick속성으로 이벤트 부여</button>
+    <!-- 방식3. addEventListener >> 스크립트 영역에서 요소 대상으로 적용, 여러 이벤트를 모두 실행 -->
+    <button id="btn2">addEventListener로 이벤트 부여</button>
+<script>
+    let v_count = 0;
+    let v_btn1 = document.querySelector('#btn1');
+    let v_btn2 = document.querySelector('#btn2');
+
+    v_btn1.onclick = function() {
+        alert("onclick속성으로 첫번째 이벤트 부여");
+    };
+    v_btn1.onclick = function() {
+        alert("onclick속성으로 두번째 이벤트 부여");
+        v_count++;
+        console.log(v_count);
+
+        // 여러 이벤트가 이벤트큐(queue)에 순차적으로 쌓여 실행되므로 주의
+        v_btn2.addEventListener('click', function() {
+            alert(v_count + "번 실행");
+        });
+        // 결과가 중복되지 않고 1회만 실행하게 하려면 onclick속성을 이용하기
+        // v_btn2.onclick = function() {
+        //     alert(v_count + "번 실행");
+        // };
+    };
+    v_btn2.addEventListener('click', function() {
+        alert("addEventListener로 첫번째 이벤트 부여");
+    });
+
+    // v_btn2.removeEventListener('click');
+
+    v_btn2.addEventListener('click', function() {
+        alert("addEventListener로 두번째 이벤트 부여");
+    });
+</script>
+</body>
+</html>

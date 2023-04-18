@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {
+    border: 3px outset pink;
+}
+</style>
+</head>
+<body>
+    <ol id="fileList"></ol>
+    <input type="file" id="fileBtn" multiple>
+    <div></div>
+
+<script>
+    let v_fBtn = document.querySelector('#fileBtn');
+    // [파일선택]버튼 클릭 후 실제 대상을 다시 선택(클릭)하므로 change사용
+    v_fBtn.addEventListener('change', function() {
+
+        let v_files = this.files; // 하나의 정보만 얻음
+
+        let length = (v_files.length > 5) ? 5 : v_files.length;
+        for (let i = 0; i < length; i++) {
+            let frd = new FileReader();
+
+            frd.onload = function() {
+                let data = frd.result; // 가공되어 전달받은 데이터
+
+                // 동적요소만들기 - 소스로 data를 활용
+                let v_img = document.createElement('img');
+                v_img.src = data;
+                v_img.alt = "웹접근성에관련된속성이니까 꼭넣어줘요";
+                v_img.width = 250;
+                document.querySelector('div').appendChild(v_img);
+
+                // 파일리스트에 담을 정보와 요소 생성하기
+                let v_li = document.createElement('li'); // <li></li>
+                console.log(v_files[i].name);
+                v_li.innerText = v_files[i].name; // <li>wok2.jpg</li>
+                document.querySelector('#fileList').append(v_li);
+            };
+
+            frd.readAsDataURL(v_files[i]);
+        }
+       
+    });
+
+</script>
+</body>
+</html>

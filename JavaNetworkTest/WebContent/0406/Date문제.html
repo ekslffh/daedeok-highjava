@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    div {
+        border-style: solid;
+    }
+</style>
+</head>
+<body>
+    <p>경과시간 구하기 - getTime()을 이용해 1970년 기점으로 ms반환받기</p>
+    <h4><a href="javascript:f_birth()">D+DAY 살아온 일자 구하기</a></h4>
+    <h4><a href="javascript:f_suryo()">D+DAY 수료일자 구하기</a></h4>
+    <h4>
+        <input type="date" id="refund">
+        <a href="javascript:f_refund()">환불가능일자계산</a>
+    </h4>
+    <div></div>
+<script>
+    let today = new Date(); // 오늘 날짜
+    let day100 = 100 * 1000 * 60 * 60 * 24 // 500일에 대한 ms
+    let todayMs = today.getTime(); // 오늘에 대한 ms
+
+    // console.log(new Date(todayMs + day100).toLocaleString());
+    let after100 = new Date(todayMs + day100).toLocaleString();
+
+    let v_disp = document.querySelector('div');
+    v_disp.innerText = after100;
+
+    let f_refund = function() {
+
+        let cldVal = document.querySelector('#refund')
+        let buyDate = cldVal.value; // 달력 값 가져오기(get)
+
+        if (buyDate == "") {
+            alert("날짜를 선택하세요");
+            return;
+        }
+        // alert(buyDate);
+        let buy = new Date(buyDate);
+        let buyMs = buy.getTime(); // 구입날짜까지의 ms
+        let todayMs = today.getTime(); // 오늘까지의 ms
+
+        let resultMs = todayMs - buyMs;
+        let rfd = resultMs/1000/60/60/24; // 환불가능계산 일자 완성
+        // alert(rfd);
+        // console.log(rfd);
+
+        if (rfd >= 7) {
+            alert("고객님 이건 환불안되세요");
+        } else if (rfd < 0) {
+            alert(`오늘[${today.toLocaleDateString()}]보다 이전 날짜를 선택하세요`);
+        } else {
+            alert("환불가능");
+        }
+        cldVal.value = ""; // 달력 값 초기화(set)
+    };
+
+    let f_birth = function() {
+
+        v_disp.innerText = ""; // 공간 초기화 (이전에 작성된 내용 지우고 쓰기)
+
+        let birth = new Date("1999.02.01");
+        let birthMs = birth.getTime(); // 생일날짜까지의 ms
+        let todayMs = today.getTime(); // 오늘날짜까지의 ms
+
+
+        // console.log(birthMs /1000/60/60/24/365 + "년");
+
+        let resultMs = todayMs - birthMs;
+        let sec = resultMs / 1000;
+        let min = sec / 60;
+        let hh = min / 60;
+        let dd = hh / 24;
+        let yy = dd / 365;
+
+        let result = `생년월일: ${birth.toLocaleDateString()} <br>`;
+        result += `오늘 날짜: ${today.toLocaleDateString()} <br>`;
+        result += `태어난 지 ${yy}년 경과 <br>`;
+        result += `태어난 지 ${dd}일 경과 <br>`;
+        result += `태어난 지 ${hh}시 경과 <br>`;
+        result += `태어난 지 ${min}분 경과 <br>`;
+        result += `태어난 지 ${sec}초 경과 <br>`;
+
+        // v_disp.innerHTML = result;
+        v_disp.insertAdjacentHTML('afterbegin', result);
+    };
+
+    f_suryo = function() {
+        v_disp.innerText = ""; // 공간 초기화 (이전에 작성된 내용 지우고 쓰기)
+
+        let suryo = new Date("2023.09.13");
+        let suryoMs = suryo.getTime(); // 수료날짜까지의 ms
+        let todayMs = today.getTime(); // 오늘날짜까지의 ms
+
+        let resultMs = suryoMs - todayMs;
+        let sec = resultMs / 1000;
+        let min = sec / 60;
+        let hh = min / 60;
+        let dd = hh / 24;
+        let yy = dd / 365;
+
+        let result = `수료날짜: ${suryo.toLocaleDateString()} <br>`;
+        result += `오늘은 ${today.toLocaleDateString()} <br>`;
+        // result += `수료까지 D-${yy.toFixed(2)}년 남음 <br>`;
+        result += `수료까지 D-${dd.toFixed(2)}(소수점두째자리)일 남음 <br>`;
+        result += `수료까지 D-${Math.round(dd)}(반올림)일 남음 <br>`; // 반올림 Math.rount()
+        result += `수료까지 D-${Math.ceil(dd)}(올림)일 남음 <br>`; // 올림 Math.ceil()
+        result += `수료까지 D-${Math.floor(dd)}(내림)일 남음 <br>`; // 내림 Math.floor()
+        // result += `수료까지 D-${hh.toFixed(2)}시 남음 <br>`;
+        // result += `수료까지 D-${min.toFixed(2)}분 남음 <br>`;
+        // result += `수료까지 D-${sec.toFixed(2)}초 남음 <br>`;
+        // v_disp.innerHTML = result;
+        v_disp.insertAdjacentHTML('afterbegin', result);
+    };
+</script>
+</body>
+</html>
