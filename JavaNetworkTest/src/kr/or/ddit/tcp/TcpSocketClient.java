@@ -18,6 +18,7 @@ public class TcpSocketClient {
 		
 		// 소켓을 생성해서 서버에 연결을 요청한다.
 		Socket socket = new Socket(serverIp, 7777);
+//		System.out.println("클라이언트 소켓: " + socket);
 		
 		// 연결이 되면 이 후의 작업을 해주면 된다.
 		System.out.println("연결되었습니다...");

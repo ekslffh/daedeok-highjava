@@ -13,7 +13,7 @@ public class TcpChatServer {
 		try {
 			System.out.println("접속 대기중 입니다.");
 			serverSocket = new ServerSocket(7777);
-			socket = serverSocket.accept();
+			socket = serverSocket.accept(); // 접속요청한 클라이언트와 통신할 수 있는 소켓을 만든다.
 			
 			System.out.println("채팅서버에 사용자가 접속했습니다.");
 			

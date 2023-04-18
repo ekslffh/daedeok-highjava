@@ -24,7 +24,7 @@ public class UdpClient {
 		
 		try {
 			InetAddress serverAddr = 
-					InetAddress.getByName("192.168.143.3");
+					InetAddress.getByName("192.168.143.10");
 			
 			dp = new DatagramPacket(msg, 1, serverAddr, 8888);
 			ds.send(dp);

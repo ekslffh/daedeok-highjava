@@ -95,6 +95,25 @@ public class MultiChatServer {
 			
 		}
 		
+		/**
+		 * 특정 사용자에게 메시지를 전송하는 메서드
+		 * @param msg 보낼 메시지
+		 * @param from 보내는 사람의 대화명
+		 * @param to 받는 사람의 대화명
+		 */
+		public void sendMessage(String msg, String from, String to) {
+			if (clients.containsKey(to)) {
+				try {
+					DataOutputStream dos = new DataOutputStream(clients.get(to).getOutputStream());
+					dos.writeUTF("[" + from + "님의 귓속말] " + msg);
+					dos = new DataOutputStream(clients.get(from).getOutputStream());
+					dos.writeUTF("[" + from + "님의 귓속말] " + msg);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		@Override
 		public void run() {
 			try {
@@ -112,10 +131,18 @@ public class MultiChatServer {
 				// 이 이후의 메시지는 반복문으로 처리한다.
 				// 한 클라이언트가 보낸 메시지를 다른 모든 클라이언트에게 보내준다.
 				while (dis != null) {
-					sendMessage(dis.readUTF(), name);
+					String msg = dis.readUTF();
+					System.out.println("msg: " + msg);
+					// 특정 상대에게만 메시지 보내기
+					if (msg.startsWith("/w")) {
+						String[] arr = msg.split(" ");
+						sendMessage(arr[2], name, arr[1]);
+					} else {
+						sendMessage(msg, name);
+					}
 				}
 			} catch (IOException ex) {
-
+				ex.printStackTrace();
 			} finally {
 				// 이 영역이 실행된다는 것은 클라이언트의 접속이 종료되었다는 의미이다.
 				sendMessage("#" + name + "님이 나가셨습니다.");
