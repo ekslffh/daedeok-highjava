@@ -79,6 +79,7 @@
 		<result property="memTel" column="mem_tel"/>
 		<result property="memAddr" column="mem_addr"/>
 	</resultMap>
+	
 	<select id="search" resultMap="memMap">
 	
 		select * from mymember where 1=1

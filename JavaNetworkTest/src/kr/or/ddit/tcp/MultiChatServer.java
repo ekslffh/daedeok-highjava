@@ -136,7 +136,11 @@ public class MultiChatServer {
 					// 특정 상대에게만 메시지 보내기
 					if (msg.startsWith("/w")) {
 						String[] arr = msg.split(" ");
-						sendMessage(arr[2], name, arr[1]);
+						String allMsg = "";
+						for (int i = 2; i < arr.length; i++) {
+							allMsg += arr[i];
+						}
+						sendMessage(arr[2], name, allMsg);
 					} else {
 						sendMessage(msg, name);
 					}
