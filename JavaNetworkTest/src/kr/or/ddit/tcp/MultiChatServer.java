@@ -67,7 +67,6 @@ public class MultiChatServer {
 		 * @param msg 보낼 메시지
 		 */
 		public void sendMessage(String msg) {
-			
 			Iterator<String> it = clients.keySet().iterator();
 			while (it.hasNext()) {
 				try {

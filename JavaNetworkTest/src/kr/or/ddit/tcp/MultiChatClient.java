@@ -13,7 +13,7 @@ public class MultiChatClient {
 		Socket socket = null;
 		
 		try {
-			socket = new Socket("192.168.143.9", 7777);
+			socket = new Socket("192.168.143.3", 7777);
 			
 			// 송신용 스레드 생성 및 실행
 			ClientSender sender = new ClientSender(socket);
