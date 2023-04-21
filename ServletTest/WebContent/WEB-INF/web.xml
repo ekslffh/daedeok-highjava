@@ -38,4 +38,32 @@
   	<url-pattern>/T04ErrorHandler</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>T05ServletCookieTest</servlet-name>
+  	<servlet-class>kr.or.ddit.basic.T05ServletCookieTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>T05ServletCookieTest</servlet-name>
+  	<url-pattern>/T05ServletCookieTest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>T06ServletSessionTest</servlet-name>
+  	<servlet-class>kr.or.ddit.basic.T06ServletSessionTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>T06ServletSessionTest</servlet-name>
+  	<url-pattern>/T06ServletSessionTest</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  	<exception-type>javax.servlet.ServletException</exception-type>
+  	<location>/T04ErrorHandler</location>
+  </error-page>
+  
+  <error-page>
+	  <error-code>404</error-code>
+	  <location>/T04ErrorHandler</location>
+  </error-page>
+  
 </web-app>
