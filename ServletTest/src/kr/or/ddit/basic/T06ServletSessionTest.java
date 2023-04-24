@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,11 @@ public class T06ServletSessionTest extends HttpServlet {
 		// 세션을 가져오는데 없으면 새로 생성한다.
 		HttpSession session = req.getSession(true);
 		
+//		Cookie[] cookies = req.getCookies();
+//		for (Cookie cookie : cookies) {
+//			System.out.println(cookie.getName() + " : " + cookie.getValue());
+//		}
+		
 		// 생성시간 가져오기
 		Date createTime = new Date(session.getCreationTime());
 		
@@ -54,6 +60,9 @@ public class T06ServletSessionTest extends HttpServlet {
 		}
 		System.out.println("visitCnt : " + visitCnt);
 		session.setAttribute("visitCnt",  visitCnt);
+		
+//		session.invalidate();
+//		session.setMaxInactiveInterval(30);
 		
 		////////////////////////////////////////////////////////
 		

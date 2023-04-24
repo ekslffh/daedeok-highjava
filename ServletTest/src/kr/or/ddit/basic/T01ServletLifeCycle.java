@@ -1,6 +1,7 @@
 package kr.or.ddit.basic;
 
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,9 @@ public class T01ServletLifeCycle extends HttpServlet {
 	}
 	
 	@Override
-	public void init() throws ServletException {
-		// 초기화 코드 작성...
-		System.out.println("init()메서드 호출됨...");
+	public void init(ServletConfig config) throws ServletException {
+		String initParam = config.getInitParameter("initParam");
+		System.out.println("initParam : " + initParam);
 	}
 	
 	@Override
