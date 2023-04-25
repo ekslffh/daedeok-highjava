@@ -79,9 +79,37 @@
   	<url-pattern>/T09ServletContextListenerTest</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>T10ServletRequestListenerTest</servlet-name>
+  	<servlet-class>kr.or.ddit.basic.T10ServletRequestListenerTest</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>T10ServletRequestListenerTest</servlet-name>
+  	<url-pattern>/T10ServletRequestListenerTest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>T11SessionListenerTest</servlet-name>
+  	<servlet-class>kr.or.ddit.basic.T11SessionListenerTest</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>T11SessionListenerTest</servlet-name>
+  	<url-pattern>/T11SessionListenerTest</url-pattern>
+  </servlet-mapping>
+  
   <listener>
   	<display-name>MyServletContextListener</display-name>
   	<listener-class>kr.or.ddit.basic.MyServletContextListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<display-name>MyServletRequestListener</display-name>
+  	<listener-class>kr.or.ddit.basic.MyServletRequestListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<display-name>MyHttpSessionListener</display-name>
+  	<listener-class>kr.or.ddit.basic.MyHttpSessionListener</listener-class>
   </listener>
   
   <filter>

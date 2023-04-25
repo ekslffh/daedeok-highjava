@@ -23,20 +23,23 @@ public class MyServletRequestListener
 
 	@Override
 	public void attributeAdded(ServletRequestAttributeEvent srae) {
-		// TODO Auto-generated method stub
-		
+		System.out.println(
+				"[MyServletRequestListener] attributeAdded() 호출됨 : "
+						+ srae.getName() + " => " + srae.getValue());
 	}
 
 	@Override
 	public void attributeRemoved(ServletRequestAttributeEvent srae) {
-		// TODO Auto-generated method stub
-		
+		System.out.println(
+				"[MyServletRequestListener] attributeRemoved() 호출됨 : "
+						+ srae.getName() + " => " + srae.getValue());
 	}
 
 	@Override
 	public void attributeReplaced(ServletRequestAttributeEvent srae) {
-		// TODO Auto-generated method stub
-		
+		System.out.println(
+				"[MyServletRequestListener] attributeReplaced() 호출됨 : "
+						+ srae.getName() + " => " + srae.getValue());
 	}
 
 }
