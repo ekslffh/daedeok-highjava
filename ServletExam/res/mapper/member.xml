@@ -25,15 +25,15 @@
 	<insert id="insert" parameterType="kr.or.ddit.member.vo.MemberVO">
 		
 		insert into mymember 
-		( mem_id, mem_name, mem_tel, mem_addr )
-		values ( #{memId}, #{memName}, #{memTel}, #{memAddr} ) 
+		( mem_id, mem_name, mem_tel, mem_addr, atch_file_id )
+		values ( #{memId}, #{memName}, #{memTel}, #{memAddr}, #{atchFileId} ) 
 		
 	</insert>
 	
 	<update id="update" parameterType="kr.or.ddit.member.vo.MemberVO">
 		
 		update mymember
-		set mem_name = #{memName}, mem_tel = #{memTel}, mem_addr = #{memAddr} 
+		set mem_name = #{memName}, mem_tel = #{memTel}, mem_addr = #{memAddr}, atch_file_id = #{atchFileId} 
 		where mem_id = #{memId}
 		
 	</update>
@@ -46,11 +46,7 @@
 	
 	<select id="getAll" resultType="kr.or.ddit.member.vo.MemberVO">
 	
-		select mem_id	as memId
-			  ,mem_name	as memName
-			  ,mem_tel	as memTel
-			  ,mem_addr	as memAddr
-		from mymember
+		select * from mymember
 				
 	</select>
 	
@@ -60,6 +56,7 @@
 			  ,mem_name	as memName
 			  ,mem_tel	as memTel
 			  ,mem_addr	as memAddr
+			  ,atch_file_id as atchFileId
 		from mymember
 		where mem_id = #{memId}
 	
@@ -78,6 +75,7 @@
 		<result property="memName" column="mem_name"/>
 		<result property="memTel" column="mem_tel"/>
 		<result property="memAddr" column="mem_addr"/>
+		<result property="atchFileId" column="atch_file_id"/>
 	</resultMap>
 	
 	<select id="search" resultMap="memMap">

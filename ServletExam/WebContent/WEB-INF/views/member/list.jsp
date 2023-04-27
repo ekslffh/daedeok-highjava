@@ -23,6 +23,7 @@
 			<th>이름</th>
 			<th>전화번호</th>
 			<th>주소</th>
+			<th>첨부파일</th>
 		</tr>
 <%
 	int size = memList.size();
@@ -30,7 +31,7 @@
 	if (size == 0) {
 %>
 	<tr>
-		<td colspan="4">회원정보가 존재하지 않습니다.</td>
+		<td colspan="5">회원정보가 존재하지 않습니다.</td>
 	</tr>
 <%
 	} else {
@@ -41,6 +42,7 @@
 			<td><a href="./detail.do?memId=<%=mv.getMemId() %>"><%=mv.getMemName() %></a></td>
 			<td><%=mv.getMemTel() %></td>
 			<td><%=mv.getMemAddr() %></td>
+			<td><%=mv.getAtchFileId() %></td>
 		</tr>	
 <%
 		}
@@ -48,7 +50,7 @@
 %>
 		
 	<tr align="center">
-		<td colspan="4"><a href="./insert.do">[회원 등록]</a></td>
+		<td colspan="5"><a href="./insert.do">[회원 등록]</a></td>
 	</tr>
 
 	</table>
