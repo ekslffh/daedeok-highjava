@@ -4,7 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
-import comm.util.MyBatisUtil;
+
+import util.MyBatisUtil;
 
 public class MyBatisDao<T> {
 	

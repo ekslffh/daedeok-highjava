@@ -132,7 +132,7 @@
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item key="pageIndex" value="2"/>
+		<item key="pageIndex" value="0"/>
 	</section>
 	<section name="javadoc">
 		<item key="javadoc_command_history" value="C:\Program Files\Java\jdk1.8.0_361\bin\javadoc.exe"/>

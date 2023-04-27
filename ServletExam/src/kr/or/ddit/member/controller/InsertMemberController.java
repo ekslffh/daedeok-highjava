@@ -39,14 +39,19 @@ public class InsertMemberController extends HttpServlet {
 		// 회원정보 등록하기
 		int cnt = memService.registMember(mv);
 		
+		String msg = "";
+		
 		if (cnt > 0) {
-			// 성공
+			msg = "성공";
 		} else {
-			// 실패...
+			msg = "실패";
 		}
 		
-		req.getRequestDispatcher("/member/list.do").forward(req, resp);
+		req.getSession().setAttribute("msg", msg);
 		
+//		req.getRequestDispatcher("/member/list.do").forward(req, resp); // 요청1번? : url은 그대로지만 화면만 옮기는 느낌
+		
+		resp.sendRedirect(req.getContextPath() + "/member/list.do"); // 브라우저의 요청이 2번 날라가는 효과 : 서버에서 다른 곳으로 이동하라고 브라우저에 요청 
 	}
 
 }

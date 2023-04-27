@@ -61,4 +61,10 @@ public class MemberDaoImpl extends MyBatisDao implements IMemberDao {
 		return memList;
 	}
 
+	@Override
+	public MemberVO getMember(String memId) {
+		MemberVO mv = selectOne("member.get", memId);
+		return mv;
+	}
+
 }

@@ -32,6 +32,13 @@ public interface IMemberService {
 	public boolean checkMember(String memId);
 	
 	/**
+	 * 주어진 회원정보가 존재하는지 확인하기 위한 메서드
+	 * @param memId 회원정보 존재여부 확인하기 위한 회원ID
+	 * @return 해당 회원정보를 담은 VO객체
+	 */
+	public MemberVO getMember(String memId);
+	
+	/**
 	 * 회원ID를 매개변수로 받아서 해당 회원을 삭제하기 위한 메서드
 	 * @param memId 삭제할 회원ID
 	 * @return 삭제작업이 성공하면 1, 실패하면 0 리턴함.

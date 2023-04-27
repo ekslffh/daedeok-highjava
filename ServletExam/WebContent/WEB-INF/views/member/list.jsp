@@ -7,7 +7,8 @@
 	List<MemberVO> memList = 
 		(List<MemberVO>) request.getAttribute("memList");
 	
-
+	String msg = (String) session.getAttribute("msg");
+	session.removeAttribute("msg");
 %>
 <!DOCTYPE html>
 <html>
@@ -36,8 +37,8 @@
 		for (MemberVO mv : memList) {
 %>
 		<tr>
-			<td><%out.print(mv.getMemId()); %></td>
-			<td><%=mv.getMemName() %></td>
+			<td><%=mv.getMemId() %></td>
+			<td><a href="./detail.do?memId=<%=mv.getMemId() %>"><%=mv.getMemName() %></a></td>
 			<td><%=mv.getMemTel() %></td>
 			<td><%=mv.getMemAddr() %></td>
 		</tr>	
@@ -51,6 +52,10 @@
 	</tr>
 
 	</table>
-
+<% if (msg != null && msg.equals("성공")) { %>
+<script>
+	alert('정상적으로 처리되었습니다.');
+</script>
+<% } %>
 </body>
 </html>

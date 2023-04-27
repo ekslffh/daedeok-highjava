@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.StringTokenizer"/>
-<fullyQualifiedTypeName name="java.net.URLConnection"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="java.net.URLDecoder"/>
-<fullyQualifiedTypeName name="java.net.Socket"/>
-<fullyQualifiedTypeName name="java.io.DataOutputStream"/>
-<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
-<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
-<fullyQualifiedTypeName name="javax.xml.transform.Transformer"/>
-<fullyQualifiedTypeName name="javax.xml.transform.TransformerFactory"/>
 <fullyQualifiedTypeName name="javax.xml.transform.OutputKeys"/>
 <fullyQualifiedTypeName name="javax.xml.transform.dom.DOMSource"/>
 <fullyQualifiedTypeName name="javax.xml.transform.stream.StreamResult"/>
@@ -44,20 +33,31 @@
 <fullyQualifiedTypeName name="comm.util.MyBatisUtil"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.exceptions.PersistenceException"/>
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="member.vo.MemberVO"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
-<fullyQualifiedTypeName name="javax.servlet.Filter"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContextListener"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContextAttributeListener"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletRequestListener"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletRequestAttributeListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionAttributeListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="javax.servlet.Filter"/>
+<fullyQualifiedTypeName name="member.service.IMemberService"/>
+<fullyQualifiedTypeName name="member.service.MemberServiceImpl"/>
+<fullyQualifiedTypeName name="member.vo.MemberVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.IMemberService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.MemberServiceImpl"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 </qualifiedTypeNameHistroy>
