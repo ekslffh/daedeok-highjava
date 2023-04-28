@@ -24,8 +24,8 @@ public class UploadServlet2 extends HttpServlet {
 				+ req.getParameter("sender"));
 		
 		// 웹애플리케이션 루트 디렉토리 기준 업로드 경로 설정하기
-//		String uploadPath = req.getServletContext().getRealPath("/")
-//				+ UPLOAD_DIR;
+		//	String uploadPath = req.getServletContext().getRealPath("/")
+		//		+ UPLOAD_DIR;
 		
 		String uploadPath = "d:/D_Other/" + UPLOAD_DIR;
 		File uploadDir = new File(uploadPath);

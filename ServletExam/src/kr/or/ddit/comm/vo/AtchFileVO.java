@@ -12,7 +12,7 @@ public class AtchFileVO {
 	private String orignlFileNm; // 원본파일명
 	private String fileExtsn; // 확장자명
 	private String fileCn; // 파일내용
-	private String fileSize; // 파일 사이즈
+	private long fileSize; // 파일 사이즈
 	
 	private Date creatDt;	// 생성일자
 	private String useAt;	// 사용여부
@@ -58,10 +58,10 @@ public class AtchFileVO {
 	public void setFileCn(String fileCn) {
 		this.fileCn = fileCn;
 	}
-	public String getFileSize() {
+	public long getFileSize() {
 		return fileSize;
 	}
-	public void setFileSize(String fileSize) {
+	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
 	public Date getCreatDt() {

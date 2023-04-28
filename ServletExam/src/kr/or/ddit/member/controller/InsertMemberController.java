@@ -2,15 +2,20 @@ package kr.or.ddit.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.comm.service.AtchFileServiceImpl;
+import kr.or.ddit.comm.service.IAtchFileService;
+import kr.or.ddit.comm.vo.AtchFileVO;
 import kr.or.ddit.member.service.IMemberService;
 import kr.or.ddit.member.service.MemberServiceImpl;
 import kr.or.ddit.member.vo.MemberVO;
 
+@MultipartConfig
 @WebServlet("/member/insert.do")
 public class InsertMemberController extends HttpServlet {
 	
@@ -34,11 +39,24 @@ public class InsertMemberController extends HttpServlet {
 		IMemberService memService = 
 				MemberServiceImpl.getInstance();
 		
+		IAtchFileService fileService =
+				AtchFileServiceImpl.getInstance();
+		
+		// 첨부파일 안넣었을 때 오류가 나지 않게 하기 위해서 (null point exception)
+		AtchFileVO atchFileVO = new AtchFileVO();
+		
+		try {
+			// 첨부파일 목록 저장(공통기능)
+			atchFileVO = fileService.saveAtchFileList(req);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
 		MemberVO mv = new MemberVO(memId, memName, memTel, memAddr);
+		mv.setAtchFileId(atchFileVO.getAtchFileId());
 		
 		// 회원정보 등록하기
 		int cnt = memService.registMember(mv);
-		
 		String msg = "";
 		
 		if (cnt > 0) {
