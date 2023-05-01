@@ -34,11 +34,13 @@ public class DetailMemberController extends HttpServlet {
 		
 		AtchFileVO fileVO = new AtchFileVO();
 		fileVO.setAtchFileId(mv.getAtchFileId());
-		
+				
 		List<AtchFileVO> atchFileList 
 			= fileService.getAtchFileList(fileVO);
 
 		req.setAttribute("mv", mv);
+		
+		req.setAttribute("atchFileList", atchFileList);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("" + "/WEB-INF/views/member/detail.jsp");
 		dispatcher.forward(req, resp);

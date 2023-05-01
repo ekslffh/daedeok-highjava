@@ -54,7 +54,7 @@
 		<result property="fileSn" column="FILE_SN" />
 		<result property="fileStreCours" column="FILE_STRE_COURS" />
 		<result property="streFileNm" column="STRE_FILE_NM" />
-		<result property="orignlFileNm" column="ORIGNL_FILE_NM " />
+		<result property="orignlFileNm" column="ORIGNL_FILE_NM" />
 		<result property="fileExtsn" column="FILE_EXTSN" />
 		<result property="fileCn" column="FILE_CN" />
 		<result property="fileSize" column="FILE_SIZE" />
@@ -64,7 +64,7 @@
 	
 		select * from atch_file_detail
 		where atch_file_id = #{atchFileId}
-	
+		
 	</select>
 	
 	<select id="getAtchFileDetail" resultMap="fileMap">

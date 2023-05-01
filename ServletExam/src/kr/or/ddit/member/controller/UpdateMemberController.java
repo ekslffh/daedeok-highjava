@@ -1,16 +1,22 @@
 package kr.or.ddit.member.controller;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import kr.or.ddit.comm.service.AtchFileServiceImpl;
+import kr.or.ddit.comm.service.IAtchFileService;
+import kr.or.ddit.comm.vo.AtchFileVO;
 import kr.or.ddit.member.service.IMemberService;
 import kr.or.ddit.member.service.MemberServiceImpl;
 import kr.or.ddit.member.vo.MemberVO;
 
+@MultipartConfig
 @WebServlet("/member/update.do")
 public class UpdateMemberController extends HttpServlet {
 
@@ -22,9 +28,19 @@ public class UpdateMemberController extends HttpServlet {
 		IMemberService memberService = 
 				MemberServiceImpl.getInstance();
 		
+		IAtchFileService fileService = 
+				AtchFileServiceImpl.getInstance();
+		
 		MemberVO mv = memberService.getMember(memId);
 		
+		AtchFileVO fileVO = new AtchFileVO();
+		fileVO.setAtchFileId(mv.getAtchFileId());
+				
+		List<AtchFileVO> atchFileList 
+			= fileService.getAtchFileList(fileVO);
+		
 		req.setAttribute("mv", mv);
+		req.setAttribute("atchFileList", atchFileList);
 		
 		RequestDispatcher dispatcher =
 				req.getRequestDispatcher(""
@@ -40,11 +56,31 @@ public class UpdateMemberController extends HttpServlet {
 		String memTel = req.getParameter("memTel");
 		String memAddr = req.getParameter("memAddr");
 		
+		String atchFileId = req.getParameter("atchFileId");
+		
 		// 서비스 객체 생성
 		IMemberService memService = 
 				MemberServiceImpl.getInstance();
+		IAtchFileService fileService = 
+				AtchFileServiceImpl.getInstance();
+		
+		AtchFileVO atchFileVO = null;
+		
+		try {
+			// 첨부파일 저장(공통기능)
+			atchFileVO = fileService.saveAtchFileList(req);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		MemberVO mv = new MemberVO(memId, memName, memTel, memAddr);
+		
+		if (atchFileVO == null) { // 신규 첨부파일이 존재하지 않는 경우...
+			// 기존 첨부파일 ID 유지
+			mv.setAtchFileId(Long.parseLong(atchFileId));
+		} else {
+			mv.setAtchFileId(atchFileVO.getAtchFileId());
+		}
 		
 		// 회원정보 수정하기
 		int cnt = memService.modifyMember(mv);

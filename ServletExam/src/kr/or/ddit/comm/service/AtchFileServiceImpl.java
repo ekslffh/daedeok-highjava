@@ -99,14 +99,12 @@ public class AtchFileServiceImpl implements IAtchFileService {
 
 	@Override
 	public List<AtchFileVO> getAtchFileList(AtchFileVO fileVO) {
-		// TODO Auto-generated method stub
-		return null;
+		return atchFileDao.getAtchFileList(fileVO);
 	}
 
 	@Override
 	public AtchFileVO getAtchFileDetail(AtchFileVO fileVO) {
-		// TODO Auto-generated method stub
-		return null;
+		return atchFileDao.getAtchFileDetail(fileVO);
 	}
 	
 	/**

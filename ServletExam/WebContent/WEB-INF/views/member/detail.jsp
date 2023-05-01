@@ -17,6 +17,11 @@
 <body>
 	<table border="1">
 		<tr>
+			<td colspan="2">
+				<img alt="프로필사진" src="http://localhost:8888/ServletExam/comm/download.do?fileId=25&fileSn=1">
+			</td>
+		</tr>
+		<tr>
 			<td>I D:</td>
 			<td><%=mv.getMemId() %></td>
 		</tr>
@@ -40,7 +45,7 @@
 						for (AtchFileVO fileVO : atchFileList) {
 				%>
 					
-				<div><a href="#"><%=fileVO.getOrignlFileNm() %></a></div>
+				<div><a href="<%=request.getContextPath() %>/comm/download.do?fileId=<%=fileVO.getAtchFileId() %>&fileSn=<%=fileVO.getFileSn() %>"><%=fileVO.getOrignlFileNm() %></a></div>
 				<%		
 						}
 					}
