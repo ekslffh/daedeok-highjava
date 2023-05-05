@@ -1,0 +1,8 @@
+package kr.or.ddit.basic;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		System.out.println("svn 싫다");
+		System.out.println("그냥 배고프다");
+	}
+}

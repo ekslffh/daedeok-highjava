@@ -1,0 +1,9 @@
+package kr.or.ddit.basic;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		System.out.println("그냥 배고프다");
+		System.out.println("svn 좋다");
+		System.out.println("난 오혜민! 오씨칼국수");
+	}
+}

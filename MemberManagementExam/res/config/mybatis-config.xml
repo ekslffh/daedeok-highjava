@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+ 
+ 	<properties resource="db.properties" />
+ 	
+ 	<settings>
+ 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+ 		<setting name="jdbcTypeForNull" value="NULL"/>
+ 	</settings>
+ 	
+ 	<typeAliases>
+ 		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memVO" />
+ 	</typeAliases>
+ 	
+ 	<!-- 
+ 		POOLED : MyBatis 자체 DB 커넥션을 사용한다.
+ 				  미리 DB 커넥션 객체를 생성해 두고 요청하면 즉시 반환한다.
+ 				  데이터베이스 연결을 초기화하고 사용자를 인증하는 과정이 없기 때문에 속도가 빠르다.
+ 	 -->
+ 	 
+ 	<environments default="dev">
+ 		<environment id="dev">
+ 			<transactionManager type="JDBC" />
+ 			<dataSource type="POOLED">
+ 				<property name="driver" value="${driver}"/>
+ 				<property name="url" value="${url}"/>
+ 				<property name="username" value="${username}"/>
+ 				<property name="password" value="${password}"/>
+ 				<!-- 활성화된 최대 커넥션 수 -->
+ 				<property name="poolMaximumActiveConnections" value="1"/>
+ 				<!-- 유휴상태에서의 최대 커넥션 수 -->
+ 				<property name="poolMaximumIdleConnections" value="1"/>
+ 			</dataSource>
+ 		</environment>
+ 	</environments>
+ 	
+ 	<mappers>
+ 		<mapper resource="mapper/member.xml" />
+ 	</mappers>
+ 	
+ </configuration>

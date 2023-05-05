@@ -1,0 +1,9 @@
+package kr.or.ddit.basic;
+
+public class SyTest {
+
+	public static void main(String[] args) {
+		System.out.println("나는 현성윤 DA이다.");
+	}
+
+}

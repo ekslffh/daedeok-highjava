@@ -1,0 +1,10 @@
+package kr.or.ddit.basic;
+
+public class SyTest {
+
+	public static void main(String[] args) {
+		System.out.println("나는 현성윤 리더가 하고싶다.");
+		System.out.println("나는 현ㅅ어윤 ㅇ");
+	}
+
+}
